@@ -35,7 +35,8 @@ LAZY.setup({
 		version = nil, -- "nil": latest git commit, "*": latest stable version
   },
   spec = {
-		-- load plugins/plugins file/folder here
+		-- load plugins, plugins files/folders here
+		{ import = "plugins" }
 	},
   install = {
 		-- install plugins, that is added but not installed yet, with a specific colorshceme
