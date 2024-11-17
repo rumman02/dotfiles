@@ -27,7 +27,8 @@ end
 -- add lazypath to the start of runtime path for priority loading
 vim.opt.rtp:prepend(lazypath)
 
-LAZY = require("lazy")
+LAZY = REQUIRE("lazy")
+
 LAZY.setup({
   defaults = {
 		lazy = true, -- all plugins will lazy loaded by default
