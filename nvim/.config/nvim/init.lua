@@ -6,9 +6,12 @@
 -- |_| \_|______\____/   \/   |_____|_|  |_|
 -- https://neovim.io
 
--- nvim options
+-- nvim options ===================================================================
 require("core.options")
 
--- lazy plugin manager
+-- lazy plugin manager ============================================================
 require("lazy.init")
+
+-- user autocmds ==================================================================
+require("user.autocmds")
 
