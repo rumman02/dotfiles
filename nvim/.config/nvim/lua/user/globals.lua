@@ -7,9 +7,12 @@
 --  global variables are used for reusing variables
 --  also for, access some useful settings in a single place
 
+-- variables ======================================================================
+local g = vim.g
+
 -- safe require ===================================================================
--- not break everything if any of plugin is broken
 REQUIRE = function(module)
+	-- not break everything if any of plugin is broken
 	local status_ok, plugin = pcall(require, module)
 
 	if not status_ok then
@@ -19,6 +22,12 @@ REQUIRE = function(module)
 
 	return plugin
 end
+
+-- map leaders ====================================================================
+g.mapleader = " "
+g.maplocalleader = ";"
+BUFLEADER = "\\"
+LSPLEADER = ","
 
 -- lazy plugin manager ============================================================
 LAZY = {}
