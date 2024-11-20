@@ -116,3 +116,15 @@ NEOTREE_FILTERED_ITEMS_ALWAYS_SHOW_BY_PATTERNS = {}
 NEOTREE_FILTERED_ITEMS_NEVER_SHOW = {}
 NEOTREE_FILTERED_ITEMS_NEVER_SHOW_BY_PATTERNS = {}
 
+-- nvim-cmp =======================================================================
+CMP_MENU_BORDER_STYLE = border_chars_2
+CMP_MENU_WINDOW_BLEND = 7
+CMP_MENU_WINDOW_SCROLLBAR = true
+CMP_MENU_BEHAVIOR = "menu,menuone,noinsert" -- noinsert for auto select the first item
+CMP_MENU_ITEMS = { "abbr", "kind", "menu" } -- values are : "kind", "abbr", "menu" and this is the format of cmp item showing style
+CMP_MENU_MAX_WIDTH = 40
+CMP_MENU_MIN_WIDTH = 40
+CMP_MENU_MODE = "symbol_text" -- Values are: "text", "text_symbol", "symbol_text", or "symbol"
+CMP_MENU_SELECTION_PREVIEW = true
+CMP_MENU_DOCS_AUTO_OPEN = false -- disable auto open docs
+

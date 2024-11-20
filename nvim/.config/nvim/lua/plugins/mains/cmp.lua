@@ -25,16 +25,11 @@ return {
 		}
 	},
 	config = function()
-		local cmp = require("cmp")
-		local luasnip = require("luasnip")
-		local cmp_style = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-			winblend = 7,
-			scrollbar = true
-		}
+		local cmp = REQUIRE("cmp")
+		local luasnip = REQUIRE("luasnip")
 
 		-- Lazy load Luasnip snippets
-		require("luasnip.loaders.from_vscode").lazy_load()
+		REQUIRE("luasnip.loaders.from_vscode").lazy_load()
 
 		cmp.setup({
 			snippet = {
@@ -44,7 +39,7 @@ return {
 			},
 			view = {
 				docs = {
-					auto_open = false -- disable auto open docs
+					auto_open = CMP_MENU_DOCS_AUTO_OPEN
 				},
 				entries = {
 					follow_cursor = true -- cmp window follow the cursor
@@ -54,22 +49,22 @@ return {
 			-- cmp window & documentation styles
 			window = {
 				completion = {
-					border = cmp_style.border,
+					border = CMP_MENU_BORDER_STYLE,
 					winhighlight = "Normal:Normal,FloatBorder:CmpBorder",
-					winblend = cmp_style.winblend,
-					scrollbar = cmp_style.scrollbar
+					winblend = CMP_MENU_WINDOW_BLEND,
+					scrollbar = CMP_MENU_WINDOW_SCROLLBAR
 				},
 				documentation = {
-					border = cmp_style.border,
+					border = CMP_MENU_BORDER_STYLE,
 					winhighlight = "Normal:Normal,FloatBorder:CmpDocBorder",
-					winblend = cmp_style.winblend,
-					scrollbar = cmp_style.scrollbar
+					winblend = CMP_MENU_WINDOW_BLEND,
+					scrollbar = CMP_MENU_WINDOW_SCROLLBAR
 				}
 			},
 
 			-- Set completion behavior and options.
 			completion = {
-				completeopt = "menu,menuone,noinsert", -- noinsert for auto select the first item
+				completeopt = CMP_MENU_BEHAVIOR,
 			},
 
 			mapping = cmp.mapping.preset.insert({
@@ -208,13 +203,13 @@ return {
 			}),
 
 			formatting = {
-				fields = { "abbr", "kind", "menu" }, -- values are : "kind", "abbr", "menu" and this is the format of cmp item showing style
+				fields = CMP_MENU_ITEMS,
 				format = function(entry, item)
 					local label = item.abbr
 					local ellipsis_char = '…'
-					local max_label_width = 40
-					local min_label_width = 40
-					local mode = "symbol_text" -- Values are: "text", "text_symbol", "symbol_text", or "symbol"
+					local max_label_width = CMP_MENU_MAX_WIDTH
+					local min_label_width = CMP_MENU_MIN_WIDTH
+					local mode = CMP_MENU_MODE
 
 					-- Define the kind icons
 					local kind = {
@@ -283,7 +278,7 @@ return {
 			},
 			experimental = {
 				-- Enable ghost text, which shows a faded preview of the item being completed.
-				ghost_text = true,
+				ghost_text = CMP_MENU_SELECTION_PREVIEW
 			},
 			---@diagnostic disable-next-line: undefined-field
 			sources = cmp.config.sources({
