@@ -36,7 +36,8 @@ LAZY.setup({
   },
   spec = {
 		-- load plugins, plugins files/folders here
-		{ import = "plugins" }
+		{ import = "plugins" },
+		{ import = "plugins.mains" }
 	},
   install = {
 		-- install plugins, that is added but not installed yet, with a specific colorshceme
