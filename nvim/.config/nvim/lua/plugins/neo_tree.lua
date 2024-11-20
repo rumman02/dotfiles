@@ -22,9 +22,9 @@ return {
 				winbar = NEOTREE_SOURCE_SELECTOR_WINBAR,
 				statusline = NEOTREE_SOURCE_SELECTOR_STATUSLINE,
 				sources = {
-					{ source = "filesystem", display_name = "  Files " },
-					{ source = "buffers", display_name = " 󰓩 Buffers " },
-					{ source = "git_status", display_name = "  Git " },
+					{ source = "filesystem", display_name = " Files " },
+					{ source = "buffers", display_name = "󰓩 Buffers " },
+					{ source = "git_status", display_name = " Git " },
 				},
 				content_layout = "center",
 				tabs_layout = "equal"
@@ -97,7 +97,7 @@ return {
 				},
 				mappings = {
 					-- for easy access common keys
-					["a"] = { "add", desc = "Add file" },
+					["a"] = "add",
 					["A"] = "add_directory",
 					["d"] = "delete",
 					["r"] = "rename",
@@ -191,9 +191,8 @@ return {
 					never_show = NEOTREE_FILTERED_ITEMS_NEVER_SHOW,
 					never_show_by_pattern = NEOTREE_FILTERED_ITEMS_NEVER_SHOW_BY_PATTERNS
 				},
-				group_empty_dirs = false,
 				hijack_netrw_behavior = "open_default",
-				use_libuv_file_watcher = false,
+				use_libuv_file_watcher = true,
 				window = {
 					mappings = {
 						-- for easy access common keys
