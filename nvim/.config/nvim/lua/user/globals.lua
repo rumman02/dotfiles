@@ -38,10 +38,9 @@ REQUIRE = function(module)
 
 	if not status_ok then
 		vim.notify("WARNING!!! " .. '"'.. module .. '"' .. " plugin is not found!!!")
-		return
+	else
+		return plugin
 	end
-
-	return plugin
 end
 
 -- map leaders ====================================================================
