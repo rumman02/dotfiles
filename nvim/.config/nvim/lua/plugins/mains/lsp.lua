@@ -12,13 +12,13 @@ return {
 					opts = {
 						ui = {
 							icons = {
-								package_installed = " ",
-								package_pending = "󱗽 ",
-								package_uninstalled = " ",
+								package_installed = MASON_UI_SYMBOLS_PACKAGE_INSTALLED_ICON,
+								package_pending = MASON_UI_SYMBOLS_PACKAGE_PENDING_ICON,
+								package_uninstalled = MASON_UI_SYMBOLS_PACKAGE_UNINSTALLED_ICON,
 							},
-							border = "rounded",
-							width = 0.7,
-							height = 0.8
+							border = MASON_UI_BORDER_STYLE,
+							width =  MASON_UI_WIDTH,
+							height = MASON_UI_HEIGHT
 						}
 					}
 				}

@@ -30,6 +30,11 @@ local git_symbols_staged_icon = " "
 local git_symbols_conflict_icon = " "
 local border_chars_1 = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
 local border_chars_2 = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
+local ui_width = 0.7
+local ui_height = 0.8
+local package_loaded_icon = " "
+local package_pending_icon = "󱗽 "
+local package_unloaded_icon = " "
 
 -- safe require ===================================================================
 REQUIRE = function(module)
@@ -126,4 +131,12 @@ CMP_MENU_MIN_WIDTH = 40
 CMP_MENU_MODE = "symbol_text" -- Values are: "text", "text_symbol", "symbol_text", or "symbol"
 CMP_MENU_SELECTION_PREVIEW = true
 CMP_MENU_DOCS_AUTO_OPEN = false -- disable auto open docs
+
+-- lsp =======================================================================
+MASON_UI_SYMBOLS_PACKAGE_INSTALLED_ICON = package_loaded_icon
+MASON_UI_SYMBOLS_PACKAGE_PENDING_ICON = package_pending_icon
+MASON_UI_SYMBOLS_PACKAGE_UNINSTALLED_ICON = package_unloaded_icon
+MASON_UI_BORDER_STYLE = border_chars_2
+MASON_UI_WIDTH = ui_width
+MASON_UI_HEIGHT = ui_height
 
