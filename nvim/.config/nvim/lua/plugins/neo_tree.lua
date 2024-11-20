@@ -1,7 +1,3 @@
--- neo-tree configuration =========================================================
--- https://github.com/nvim-neo-tree/neo-tree.nvim?tab=readme-ov-file#quickstart
--- ================================================================================
-
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	cmd = { "Neotree" },
@@ -39,7 +35,7 @@ return {
 					with_markers = true,
 					indent_marker = NEOTREE_INDENT_SYMBOLS_LINE_ICON,
 					last_indent_marker = NEOTREE_INDENT_SYMBOLS_LAST_LINE_ICON,
-					highlight = NEOTREE_INDENT_SYMBOLS_LAST_LINE,
+					highlight = NEOTREE_INDENT_SYMBOLS_HIGHLIGHTS,
 					with_expanders = true,
 					expander_collapsed = NEOTREE_EXPANDER_SYMBOLS_COLLAPSED_ICON,
 					expander_expanded = NEOTREE_EXPANDER_SYMBOLS_EXPANDED_ICON,
