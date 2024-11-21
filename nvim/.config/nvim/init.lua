@@ -15,6 +15,9 @@ require("core.options")
 -- lazy plugin manager ============================================================
 require("lazy.init")
 
+-- user globals ===================================================================
+require("core.commands")
+
 -- user autocmds ==================================================================
 require("user.autocmds")
 
