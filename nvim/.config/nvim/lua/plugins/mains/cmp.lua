@@ -27,6 +27,7 @@ return {
 	config = function()
 		local cmp = REQUIRE("cmp")
 		local luasnip = REQUIRE("luasnip")
+		local cmp_autopairs = REQUIRE("nvim-autopairs.completion.cmp")
 
 		-- Lazy load Luasnip snippets
 		REQUIRE("luasnip.loaders.from_vscode").lazy_load()
@@ -324,6 +325,7 @@ return {
 				matching = { disallow_symbol_nonprefix_matching = false }
 			})
 		})
+		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 	end
 }
 
