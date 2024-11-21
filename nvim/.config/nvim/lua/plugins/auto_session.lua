@@ -6,7 +6,7 @@ return {
 		enabled = true,
 		auto_save = true,
 		auto_restore = false,
-    suppressed_dirs = {},
+    suppressed_dirs = AUTO_SESSION_SUPPRESSED_DIRS,
 		lazy_support = true,
 		close_unsupported_windows = true,
 		continue_restore_on_error =  true,
@@ -14,30 +14,31 @@ return {
 			load_on_setup = true,
 			previewer = true,
 			theme_conf = {
-				layout_strategy = "flex",
-				sorting_strategy = "descending",
+				layout_strategy = AUTO_SESSION_LAYOUT_STRATEGY,
+				sorting_strategy = AUTO_SESSION_SORTING_STRATEGY,
 				layout_config = {
 					horizontal = {
-						height = 0.95,
-						preview_cutoff = 50,
-						preview_width = 0.60,
-						prompt_position = "bottom",
-						width = 0.95
+						height = AUTO_SESSION_UI_HORIZONTAL_HEIGHT,
+						preview_cutoff = AUTO_SESSION_UI_HORIZONTAL_PREVIEW_CUTOFF,
+						preview_width = AUTO_SESSION_UI_HORIZONTAL_PREVIEW_WIDTH,
+						prompt_position = AUTO_SESSION_UI_HORIZONTAL_PROMPT_POSITION,
+						width = AUTO_SESSION_UI_HORIZONTAL_WIDTH
 					},
 					vertical = {
-						height = 0.95,
-						preview_cutoff = 40,
-						prompt_position = "bottom",
-						width = 0.95
+						height = AUTO_SESSION_UI_VERTICAL_HEIGHT,
+						preview_cutoff = AUTO_SESSION_UI_VERTICAL_PREVIEW_CUTOFF,
+						preview_width = AUTO_SESSION_UI_VERTICAL_PREVIEW_WIDTH,
+						prompt_position = AUTO_SESSION_UI_VERTICAL_PROMPT_POSITION,
+						width = AUTO_SESSION_UI_VERTICAL_WIDTH
 					}
 				},
-				winblend = 5,
-				prompt_prefix = "",
-				selection_caret = " ",
+				winblend = AUTO_SESSION_UI_WINDOW_BLEND,
+				prompt_prefix = AUTO_SESSION_PROMPT_PREFIX,
+				selection_caret = AUTO_SESSION_SELECTION_CARET,
 				border = true,
-				borderchars =  { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-				results_title = "",
-				prompt_title = "",
+				borderchars =  AUTO_SESSION_UI_BORDER_STYLE,
+				results_title = AUTO_SESSION_RESULTS_TITLE,
+				prompt_title = AUTO_SESSION_PROMPT_TITLE,
 			},
 			mappings = {
 				delete_session = { "n", "d" },
