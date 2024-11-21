@@ -56,6 +56,11 @@ LSPLEADER = ","
 
 -- lazy plugin manager ============================================================
 LAZY = {}
+LAZY_UI_WIDTH = ui_width
+LAZY_UI_HEIGHT = ui_height
+LAZY_UI_BORDER_STYLE = border_chars_2
+LAZY_UI_SYMBOLS_PACKAGE_LOADED_ICON = package_loaded_icon
+LAZY_UI_SYMBOLS_PACKAGE_NOT_LOADED_ICON = package_unloaded_icon
 
 -- neo-tree =======================================================================
 NEOTREE_DEFAULT_POSITION = "left"

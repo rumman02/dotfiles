@@ -45,8 +45,11 @@ LAZY.setup({
 		colorscheme =  { "retrobox" }
   },
   ui = {
-		size = { width = 0.7, height = 0.8 },
-		border = "rounded",
+		size = {
+			width = LAZY_UI_WIDTH,
+			height = LAZY_UI_HEIGHT
+		},
+		border = LAZY_UI_BORDER_STYLE,
 		title = "Lazy plugin manager",
 		title_pos = "center",
 		backdrop = 60,
@@ -60,8 +63,8 @@ LAZY.setup({
 			ft = "󰡯",
 			import = "󰏔",
 			keys = "󰌌",
-			loaded = "",
-			not_loaded = "",
+			loaded = LAZY_UI_SYMBOLS_PACKAGE_LOADED_ICON,
+			not_loaded = LAZY_UI_SYMBOLS_PACKAGE_NOT_LOADED_ICON,
 			plugin = "",
 			source = "󱃖",
 			start = "",
