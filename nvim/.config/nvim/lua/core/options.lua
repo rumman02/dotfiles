@@ -20,6 +20,7 @@ local options = {
 	inccommand = "split", -- open split window while while search and replace
 	confirm = true, -- prompt for save changes
 	mouse = "a", -- support mouse in all modes
+	laststatus = 0, -- remove last split window status line
 }
 
 -- set all options here
