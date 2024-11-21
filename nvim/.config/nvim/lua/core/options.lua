@@ -21,6 +21,29 @@ local options = {
 	confirm = true, -- prompt for save changes
 	mouse = "a", -- support mouse in all modes
 	laststatus = 0, -- remove last split window status line
+	sessionoptions = {
+		"buffers",
+		"curdir",
+		"folds",
+		"help",
+		"tabpages",
+		"winsize",
+		"winpos",
+		"terminal",
+		"localoptions",
+		"globals",
+		"skiprtp"
+	},
+	fillchars = {
+		eob = " ", -- remove "~" from eof
+		vert = "│", -- split window vertical
+		horiz = "─", -- split window horizontal
+		fold = " ",
+		foldopen = "",
+		foldclose = "",
+		foldsep = " ",
+		diff = "╱"
+	}
 }
 
 -- set all options here
