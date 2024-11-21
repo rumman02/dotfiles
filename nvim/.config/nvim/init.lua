@@ -21,3 +21,6 @@ require("core.commands")
 -- user autocmds ==================================================================
 require("user.autocmds")
 
+-- keybinds =======================================================================
+require("keybinds.init")
+
