@@ -35,6 +35,11 @@ local ui_height = 0.8
 local package_loaded_icon = " "
 local package_pending_icon = "󱗽 "
 local package_unloaded_icon = " "
+local window_blend = 7
+local prompt_position = "bottom"
+local preview_width = 0.40
+local preview_cutoff = 40
+
 
 -- safe require ===================================================================
 REQUIRE = function(module)
@@ -127,7 +132,7 @@ NEOTREE_FILTERED_ITEMS_NEVER_SHOW_BY_PATTERNS = {}
 
 -- nvim-cmp =======================================================================
 CMP_MENU_BORDER_STYLE = border_chars_2
-CMP_MENU_WINDOW_BLEND = 7
+CMP_MENU_WINDOW_BLEND = window_blend
 CMP_MENU_WINDOW_SCROLLBAR = true
 CMP_MENU_BEHAVIOR = "menu,menuone,noinsert" -- noinsert for auto select the first item
 CMP_MENU_ITEMS = { "abbr", "kind", "menu" } -- values are : "kind", "abbr", "menu" and this is the format of cmp item showing style
@@ -137,11 +142,35 @@ CMP_MENU_MODE = "symbol_text" -- Values are: "text", "text_symbol", "symbol_text
 CMP_MENU_SELECTION_PREVIEW = true
 CMP_MENU_DOCS_AUTO_OPEN = false -- disable auto open docs
 
--- lsp =======================================================================
+-- lsp ============================================================================
 MASON_UI_SYMBOLS_PACKAGE_INSTALLED_ICON = package_loaded_icon
 MASON_UI_SYMBOLS_PACKAGE_PENDING_ICON = package_pending_icon
 MASON_UI_SYMBOLS_PACKAGE_UNINSTALLED_ICON = package_unloaded_icon
 MASON_UI_BORDER_STYLE = border_chars_2
 MASON_UI_WIDTH = ui_width
 MASON_UI_HEIGHT = ui_height
+
+-- telescope ======================================================================
+TELESCOPE_LAYOUT_STRATEGY = "flex" -- if enough space then horizontal layout else vertical layout
+TELESCOPE_SORTING_STRATEGY = "descending"
+TELESCOPE_INITIAL_MODE = "normal" -- telescope starts with normal mode, also another option is insert mode
+TELESCOPE_PATH_DISPLAY = { "absolute" }
+TELESCOPE_RESULTS_TITLE = "Results"
+TELESCOPE_UI_WINDOW_BLEND = window_blend
+TELESCOPE_UI_BORDER_STYLE = border_chars_1
+TELESCOPE_PROMPT_PREFIX = ""
+TELESCOPE_SELECTION_CARET = " "
+TELESCOPE_PROMPT_TITLE = ""
+
+TELESCOPE_UI_HORIZONTAL_WIDTH = ui_width
+TELESCOPE_UI_HORIZONTAL_HEIGHT = ui_height
+TELESCOPE_UI_HORIZONTAL_PREVIEW_WIDTH = preview_width
+TELESCOPE_UI_HORIZONTAL_PROMPT_POSITION = prompt_position
+TELESCOPE_UI_HORIZONTAL_PREVIEW_CUTOFF = preview_cutoff
+
+TELESCOPE_UI_VERTICAL_WIDTH = ui_width
+TELESCOPE_UI_VERTICAL_HEIGHT = ui_height
+TELESCOPE_UI_VERTICAL_PREVIEW_WIDTH = preview_width
+TELESCOPE_UI_VERTICAL_PROMPT_POSITION = prompt_position
+TELESCOPE_UI_VERTICAL_PREVIEW_CUTOFF = preview_cutoff
 

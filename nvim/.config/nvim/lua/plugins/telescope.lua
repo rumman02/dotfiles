@@ -16,33 +16,33 @@ return {
 
 		return {
 			defaults = {
-				layout_strategy = "flex", -- if enough space then horizontal layout else vertical layout
-				initial_mode = "normal",
-				sorting_strategy = "descending",
+				layout_strategy = TELESCOPE_LAYOUT_STRATEGY,
+				initial_mode = TELESCOPE_INITIAL_MODE,
+				sorting_strategy = TELESCOPE_SORTING_STRATEGY,
 				layout_config = {
 					horizontal = {
-						height = 0.85,
-						preview_cutoff = 40,
-						preview_width = 0.40,
-						prompt_position = "bottom",
-						width = 0.70
+						height = TELESCOPE_UI_HORIZONTAL_HEIGHT,
+						preview_cutoff = TELESCOPE_UI_HORIZONTAL_PREVIEW_CUTOFF,
+						preview_width = TELESCOPE_UI_HORIZONTAL_PREVIEW_WIDTH,
+						prompt_position = TELESCOPE_UI_HORIZONTAL_PROMPT_POSITION,
+						width = TELESCOPE_UI_HORIZONTAL_WIDTH
 					},
 					vertical = {
-						height = 0.70,
-						preview_cutoff = 40,
-						preview_width = 0.40,
-						prompt_position = "bottom",
-						width = 0.70
+						height = TELESCOPE_UI_VERTICAL_HEIGHT,
+						preview_cutoff = TELESCOPE_UI_VERTICAL_PREVIEW_CUTOFF,
+						preview_width = TELESCOPE_UI_VERTICAL_PREVIEW_WIDTH,
+						prompt_position = TELESCOPE_UI_VERTICAL_PROMPT_POSITION,
+						width = TELESCOPE_UI_VERTICAL_WIDTH
 					}
 				},
-				winblend = 5,
-				prompt_prefix = "",
-				selection_caret = " ",
+				winblend = TELESCOPE_UI_WINDOW_BLEND,
+				prompt_prefix = TELESCOPE_PROMPT_PREFIX,
+				selection_caret = TELESCOPE_SELECTION_CARET,
 				border = true,
-				borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-				path_display = { "absolute" },
-				results_title = "Results",
-				prompt_title = "",
+				borderchars = TELESCOPE_UI_BORDER_STYLE,
+				path_display = TELESCOPE_PATH_DISPLAY,
+				results_title = TELESCOPE_RESULTS_TITLE,
+				prompt_title = TELESCOPE_PROMPT_TITLE,
 				file_ignore_patterns = {
 					"%-lock"
 				},
