@@ -1,1 +1,6 @@
+# nvim lazy-lock
 lazy-lock.json
+
+# tmux downloaded plugins
+tmux/.config/tmux/plugins/
+
