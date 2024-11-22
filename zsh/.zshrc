@@ -126,6 +126,17 @@ ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
 # speed up to enter insert and normal mode
 ZVM_KEYTIMEOUT=0.1
 ZVM_ESCAPE_KEYTIMEOUT=0.1
+
+# set default mode as normal mode
+ZVM_LINE_INIT_MODE=$ZVM_MODE_NORMAL
+
+# enables blinking cursor
+ZVM_CURSOR_STYLE_ENABLED=true
+ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
+ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
 #==================================================# 
 #                very last command                 #
 #==================================================# 
