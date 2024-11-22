@@ -1,4 +1,12 @@
 local opt = vim.opt
+local guicursor = {
+	"n-v-c:block", -- Normal, visual, command-line: block cursor
+	"i-c-ve:ver25", -- Insert, command-line, visual-exclude: vertical bar cursor with 25% width
+	"r-cr:hor20", -- Replace, command-line replace: horizontal bar cursor with 20% height
+	"o:hor50", -- Operator-pending: horizontal bar cursor with 50% height
+	"a:blinkwait1-blinkoff1-blinkon1", -- All modes: blinking settings
+}
+
 
 local options = {
 	number = true, -- show line number
@@ -20,6 +28,7 @@ local options = {
 	inccommand = "split", -- open split window while while search and replace
 	confirm = true, -- prompt for save changes
 	mouse = "a", -- support mouse in all modes
+	guicursor = guicursor, -- cursor ui behavior
 	laststatus = 0, -- remove last split window status line
 	sessionoptions = {
 		"buffers",
