@@ -211,6 +211,7 @@ return {
 					local max_label_width = CMP_MENU_MAX_WIDTH
 					local min_label_width = CMP_MENU_MIN_WIDTH
 					local mode = CMP_MENU_MODE
+					local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
 
 					-- Define the kind icons
 					local kind = {
@@ -265,10 +266,22 @@ return {
 					-- Apply `mode` formatting logic
 					if mode == "symbol" then
 						item.kind = kind[item.kind]
+						if color_item.abbr_hl_group then
+							item.kind_hl_group = color_item.abbr_hl_group
+							item.kind = item.kind
+						end
 					elseif mode == "symbol_text" then
 						item.kind = string.format(' %s %s', kind[item.kind], item.kind)
+						if color_item.abbr_hl_group then
+							item.kind_hl_group = color_item.abbr_hl_group
+							item.kind = string.format('%s %s', item.kind, color_item.abbr)
+						end
 					elseif mode == "text_symbol" then
 						item.kind = string.format(' %s %s ', item.kind, kind[item.kind])
+						if color_item.abbr_hl_group then
+							item.kind_hl_group = color_item.abbr_hl_group
+							item.kind = string.format(' %s %s ', color_item.abbr, item.kind )
+						end
 					end
 
 					-- Set the completion source in the menu
