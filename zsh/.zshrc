@@ -10,7 +10,6 @@
 #                very first command                #
 #==================================================# 
 neofetch
-
 #==================================================# 
 #                     p10klevel                    #
 #==================================================# 
@@ -18,9 +17,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION='  ' #  ,  ,  , 󰁔 , 󱞩 ,  , 
-typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VICMD_CONTENT_EXPANSION='  ' #  ,  ,  , 󰁍 , 󱞥 ,  , 
-
+typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION="  "
+typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VICMD_CONTENT_EXPANSION="  "
 #==================================================# 
 #                  plugin manager                  #
 #==================================================# 
@@ -31,7 +29,6 @@ if [ ! -d "$ZINIT_HOME" ]; then
 fi
 source "${ZINIT_HOME}/zinit.zsh"
 # zinit zstatus - run this command for zinit status
-
 #==================================================# 
 #                     plugin                       #
 #==================================================# 
@@ -45,13 +42,12 @@ zinit light Aloxaf/fzf-tab # tab button for fzf
 zinit light jeffreytse/zsh-vi-mode # zsh vim mode
 
 # other plugins from oh-my-zsh and many more like this
+# INSTALLATION REQUIRED: fzf, zoxide
+# insatll from your package manager ex: brew, pacman, apt, yay etc
 zinit snippet OMZP::fzf
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::zoxide
-zinit snippet OMZP::archlinux
-zinit snippet OMZP::command-not-found
-
 #==================================================# 
 #                  plugin setting                  #
 #==================================================# 
@@ -109,9 +105,7 @@ alias 5..="cd ../../../../../"
 #==================================================# 
 #                shell integration                 #
 #==================================================# 
-# INSTALLATION REQUIRED: fzf, zoxide
-# insatll from your package manager ex: brew, pacman, apt, yay etc
-eval "$(fzf --zsh)" # setting up key bindings and functions for fuzzy searching files, commands, and more.
+eval "$(fzf --zsh)"
 
 # if you're using macOS, you'll want this enabled
 if [[ -f "/opt/homebrew/bin/brew" ]] then
