@@ -39,6 +39,8 @@ local window_blend = 7
 local prompt_position = "bottom"
 local preview_width = 0.40
 local preview_cutoff = 40
+local indent_size = 2
+local indent_line_icon = "│"
 
 
 -- safe require ===================================================================
@@ -68,32 +70,14 @@ LAZY_UI_SYMBOLS_PACKAGE_LOADED_ICON = package_loaded_icon
 LAZY_UI_SYMBOLS_PACKAGE_NOT_LOADED_ICON = package_unloaded_icon
 
 -- neo-tree =======================================================================
-NEOTREE_DEFAULT_POSITION = "left"
-NEOTREE_DEFAULT_WINDOW_SIZE = 40
 NEOTREE_POPUP_BORDER_STYLE = border_chars_2
-NEOTREE_CHARACTER_FADE_ENABLE = true
 
-NEOTREE_INDENT_SIZE = 2
-NEOTREE_INDENT_PADDING = 0
-NEOTREE_INDENT_SYMBOLS_LINE_ICON = "│"
-NEOTREE_INDENT_SYMBOLS_LAST_LINE_ICON = "└"
-NEOTREE_INDENT_SYMBOLS_HIGHLIGHTS = "NeoTreeIndentMarker"
-NEOTREE_EXPANDER_SYMBOLS_COLLAPSED_ICON = ""
-NEOTREE_EXPANDER_SYMBOLS_EXPANDED_ICON = ""
-NEOTREE_EXPANDER_SYMBOLS_HIGHLIGHTS = "NeoTreeExpander"
-
-NEOTREE_SOURCE_SELECTOR_WINBAR = false
-NEOTREE_SOURCE_SELECTOR_STATUSLINE = true
-
-NEOTREE_FOLDER_SYMBOLS_CLOSED_ICON = "󰉋 "
-NEOTREE_FOLDER_SYMBOLS_OPEN_ICON = "󰝰 "
-NEOTREE_FOLDER_SYMBOLS_EMPTY_ICON = "󰉖 "
-NEOTREE_FOLDER_SYMBOLS_HIGHLIGHTS = "NeoTreeFileIcon"
+NEOTREE_INDENT_SIZE = indent_size
+NEOTREE_INDENT_SYMBOLS_LINE_ICON = indent_line_icon
 
 NEOTREE_MODIFIED_SYMBOL_ICON = modified_symbol_icon
 NEOTREE_MODIFIED_SYMBOL_HIGHLIGHTS = modified_symbol_highlights
 
-NEOTREE_DIAGNOSTICS_ENABLE = true
 NEOTREE_DIAGNOSTICS_SYMBOLS_HINT_ICON = diagnostics_symbols_hint_icon
 NEOTREE_DIAGNOSTICS_SYMBOLS_INFO_ICON = diagnostics_symbols_info_icon
 NEOTREE_DIAGNOSTICS_SYMBOLS_WARN_ICON = diagnostics_symbols_warn_icon
@@ -103,8 +87,6 @@ NEOTREE_DIAGNOSTICS_SYMBOLS_INFO_HIGHLIGHTS = diagnostics_symbols_info_highlight
 NEOTREE_DIAGNOSTICS_SYMBOLS_WARN_HIGHLIGHTS = diagnostics_symbols_warn_highlights
 NEOTREE_DIAGNOSTICS_SYMBOLS_ERROR_HIGHLIGHTS = diagnostics_symbols_error_highlights
 
-NEOTREE_GIT_SYMBOLS_ENABLE = true
-NEOTREE_GIT_SYMBOLS_COLORS_ENABLE = true
 NEOTREE_GIT_SYMBOLS_ADDED_ICON = git_symbols_added_icon
 NEOTREE_GIT_SYMBOLS_MODIFIED_ICON = git_symbols_modified_icon
 NEOTREE_GIT_SYMBOLS_DELETED_ICON = git_symbols_deleted_icon
@@ -114,21 +96,6 @@ NEOTREE_GIT_SYMBOLS_IGNORED_ICON = git_symbols_ignored_icon
 NEOTREE_GIT_SYMBOLS_UNSTAGED_ICON = git_symbols_unstaged_icon
 NEOTREE_GIT_SYMBOLS_STAGED_ICON = git_symbols_staged_icon
 NEOTREE_GIT_SYMBOLS_CONFLICT_ICON = git_symbols_conflict_icon
-NEOTREE_GIT_SYMBOLS_HIGHLIGHTS = "NeoTreeFileName"
-
-NEOTREE_FILTERED_ITEMS_VISIBLE = false
-NEOTREE_FILTERED_ITEMS_HIDE_DOTFILES = false
-NEOTREE_FILTERED_ITEMS_HIDE_GITIGNORED = true
-NEOTREE_FILTERED_ITEMS_HIDE_HIDDEN = false
-NEOTREE_FILTERED_ITEMS_HIDE_BY_NAME = {
-	".git",
-	"node_modules"
-}
-NEOTREE_FILTERED_ITEMS_HIDE_BY_PATTERN = {}
-NEOTREE_FILTERED_ITEMS_ALWAYS_SHOW = {}
-NEOTREE_FILTERED_ITEMS_ALWAYS_SHOW_BY_PATTERNS = {}
-NEOTREE_FILTERED_ITEMS_NEVER_SHOW = {}
-NEOTREE_FILTERED_ITEMS_NEVER_SHOW_BY_PATTERNS = {}
 
 -- nvim-cmp =======================================================================
 CMP_MENU_BORDER_STYLE = border_chars_2

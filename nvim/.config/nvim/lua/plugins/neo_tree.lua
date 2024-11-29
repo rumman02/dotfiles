@@ -12,11 +12,11 @@ return {
 		neo_tree.setup({
 			close_if_last_window = true,
 			popup_border_style = NEOTREE_POPUP_BORDER_STYLE,
-			enable_git_status = NEOTREE_GIT_SYMBOLS_ENABLE,
-			enable_diagnostics = NEOTREE_DIAGNOSTICS_ENABLE,
+			enable_git_status = true,
+			enable_diagnostics = true,
 			source_selector = {
-				winbar = NEOTREE_SOURCE_SELECTOR_WINBAR,
-				statusline = NEOTREE_SOURCE_SELECTOR_STATUSLINE,
+				winbar = false,
+				statusline = true,
 				sources = {
 					{ source = "filesystem", display_name = " Files " },
 					{ source = "buffers", display_name = "󰓩 Buffers " },
@@ -27,26 +27,26 @@ return {
 			},
 			default_component_configs = {
 				container = {
-					enable_character_fade = NEOTREE_CHARACTER_FADE_ENABLE
+					enable_character_fade = true
 				},
 				indent = {
 					indent_size = NEOTREE_INDENT_SIZE,
-					padding = NEOTREE_INDENT_PADDING,
+					padding = 0,
 					with_markers = true,
 					indent_marker = NEOTREE_INDENT_SYMBOLS_LINE_ICON,
-					last_indent_marker = NEOTREE_INDENT_SYMBOLS_LAST_LINE_ICON,
-					highlight = NEOTREE_INDENT_SYMBOLS_HIGHLIGHTS,
+					last_indent_marker = "└",
+					highlight = "NeoTreeIndentMarker",
 					with_expanders = true,
-					expander_collapsed = NEOTREE_EXPANDER_SYMBOLS_COLLAPSED_ICON,
-					expander_expanded = NEOTREE_EXPANDER_SYMBOLS_EXPANDED_ICON,
-					expander_highlight = NEOTREE_EXPANDER_SYMBOLS_HIGHLIGHTS
+					expander_collapsed = "",
+					expander_expanded = "",
+					expander_highlight = "NeoTreeExpander"
 				},
 				icon = {
-					folder_closed = NEOTREE_FOLDER_SYMBOLS_CLOSED_ICON,
-					folder_open = NEOTREE_FOLDER_SYMBOLS_OPEN_ICON,
-					folder_empty = NEOTREE_FOLDER_SYMBOLS_EMPTY_ICON,
+					folder_closed = "󰉋 ",
+					folder_open = "󰝰 ",
+					folder_empty = "󰉖 ",
 					default = "*",
-					highlight = NEOTREE_FOLDER_SYMBOLS_HIGHLIGHTS
+					highlight = "NeoTreeFileIcon",
 				},
 				modified = {
 					symbol = NEOTREE_MODIFIED_SYMBOL_ICON,
@@ -67,8 +67,8 @@ return {
 					},
 				},
 				name = {
-					use_git_status_colors = NEOTREE_GIT_SYMBOLS_COLORS_ENABLE,
-					highlight = NEOTREE_GIT_SYMBOLS_HIGHLIGHTS
+					use_git_status_colors = true,
+					highlight = "NeoTreeFileName"
 				},
 				git_status = {
 					symbols = {
@@ -85,8 +85,8 @@ return {
 				},
 			},
 			window = {
-				position = NEOTREE_DEFAULT_POSITION,
-				width = NEOTREE_DEFAULT_WINDOW_SIZE,
+				position = "left",
+				width = 40,
 				mapping_options = {
 					noremap = true,
 					nowait = true,
@@ -176,16 +176,19 @@ return {
 			},
 			filesystem = {
 				filtered_items = {
-					visible = NEOTREE_FILTERED_ITEMS_VISIBLE,
-					hide_dotfiles = NEOTREE_FILTERED_ITEMS_HIDE_DOTFILES,
-					hide_gitignored = NEOTREE_FILTERED_ITEMS_HIDE_GITIGNORED,
-					hide_hidden = NEOTREE_FILTERED_ITEMS_HIDE_HIDDEN,
-					hide_by_name = NEOTREE_FILTERED_ITEMS_HIDE_BY_NAME,
-					hide_by_pattern = NEOTREE_FILTERED_ITEMS_HIDE_BY_PATTERN,
-					always_show = NEOTREE_FILTERED_ITEMS_ALWAYS_SHOW,
-					always_show_by_pattern = NEOTREE_FILTERED_ITEMS_ALWAYS_SHOW_BY_PATTERNS,
-					never_show = NEOTREE_FILTERED_ITEMS_NEVER_SHOW,
-					never_show_by_pattern = NEOTREE_FILTERED_ITEMS_NEVER_SHOW_BY_PATTERNS
+					visible = false,
+					hide_dotfiles = false,
+					hide_gitignored = false,
+					hide_hidden = false,
+					hide_by_name = {
+						".git",
+						"node_modules"
+					},
+					hide_by_pattern = {},
+					always_show = {},
+					always_show_by_pattern = {},
+					never_show = {},
+					never_show_by_pattern = {}
 				},
 				hijack_netrw_behavior = "open_default",
 				use_libuv_file_watcher = true,
