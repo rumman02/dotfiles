@@ -51,7 +51,7 @@ LAZY.setup({
 		},
 		border = LAZY_UI_BORDER_STYLE,
 		title = "Lazy plugin manager",
-		title_pos = "center",
+		title_pos = LAZY_UI_TITLE_POSITION,
 		backdrop = 60,
 		piils = true,
 		wrap = true,
