@@ -36,15 +36,24 @@ local package_loaded_icon = " "
 local package_pending_icon = "󱗽 "
 local package_unloaded_icon = " "
 local window_blend = 7
-local prompt_position = "bottom"
-local preview_width = 0.40
-local preview_cutoff = 40
 local indent_size = 2
 local indent_line_icon = "│"
 local cmp_menu_behavior = "menu,menuone,noinsert"
 local cmp_menu_width = 40
 local cmp_menu_window_scrollbar = true
 local title_position = "center"
+local telescope_layout_strategy = "flex" -- if enough space then horizontal layout else vertical layout
+local telescope_sorting_strategy = "descending"
+local telescope_initial_mode = "normal" -- telescope starts with normal mode, also another option is insert mode
+local telescope_path_display = { "absolute" }
+local telescope_ui_border_enabled = true
+local telescope_results_title = "Results"
+local telescope_prompt_title = ""
+local telescope_selection_caret = " "
+local telescope_prompt_prefix = ""
+local telescope_preview_width = 0.40
+local telescope_prompt_position = "bottom"
+local telescope_preview_cutoff = 40
 
 -- safe require ===================================================================
 REQUIRE = function(module)
@@ -117,28 +126,29 @@ MASON_UI_WIDTH = ui_width
 MASON_UI_HEIGHT = ui_height
 
 -- telescope ======================================================================
-TELESCOPE_LAYOUT_STRATEGY = "flex" -- if enough space then horizontal layout else vertical layout
-TELESCOPE_SORTING_STRATEGY = "descending"
-TELESCOPE_INITIAL_MODE = "normal" -- telescope starts with normal mode, also another option is insert mode
-TELESCOPE_PATH_DISPLAY = { "absolute" }
-TELESCOPE_RESULTS_TITLE = "Results"
+TELESCOPE_LAYOUT_STRATEGY = telescope_layout_strategy
+TELESCOPE_SORTING_STRATEGY = telescope_sorting_strategy
+TELESCOPE_INITIAL_MODE = telescope_initial_mode
+TELESCOPE_PATH_DISPLAY = telescope_path_display
+TELESCOPE_RESULTS_TITLE = telescope_results_title
 TELESCOPE_UI_WINDOW_BLEND = window_blend
+TELESCOPE_UI_BORDER_ENABLED = telescope_ui_border_enabled
 TELESCOPE_UI_BORDER_STYLE = border_chars_1
-TELESCOPE_PROMPT_PREFIX = ""
-TELESCOPE_SELECTION_CARET = " "
-TELESCOPE_PROMPT_TITLE = ""
+TELESCOPE_PROMPT_PREFIX = telescope_prompt_prefix
+TELESCOPE_SELECTION_CARET = telescope_selection_caret
+TELESCOPE_PROMPT_TITLE = telescope_prompt_title
 
 TELESCOPE_UI_HORIZONTAL_WIDTH = ui_width
 TELESCOPE_UI_HORIZONTAL_HEIGHT = ui_height
-TELESCOPE_UI_HORIZONTAL_PREVIEW_WIDTH = preview_width
-TELESCOPE_UI_HORIZONTAL_PROMPT_POSITION = prompt_position
-TELESCOPE_UI_HORIZONTAL_PREVIEW_CUTOFF = preview_cutoff
+TELESCOPE_UI_HORIZONTAL_PREVIEW_WIDTH = telescope_preview_width
+TELESCOPE_UI_HORIZONTAL_PROMPT_POSITION = telescope_prompt_position
+TELESCOPE_UI_HORIZONTAL_PREVIEW_CUTOFF = telescope_preview_cutoff
 
 TELESCOPE_UI_VERTICAL_WIDTH = ui_width
 TELESCOPE_UI_VERTICAL_HEIGHT = ui_height
-TELESCOPE_UI_VERTICAL_PREVIEW_WIDTH = preview_width
-TELESCOPE_UI_VERTICAL_PROMPT_POSITION = prompt_position
-TELESCOPE_UI_VERTICAL_PREVIEW_CUTOFF = preview_cutoff
+TELESCOPE_UI_VERTICAL_PREVIEW_WIDTH = telescope_preview_width
+TELESCOPE_UI_VERTICAL_PROMPT_POSITION = telescope_prompt_position
+TELESCOPE_UI_VERTICAL_PREVIEW_CUTOFF = telescope_preview_cutoff
 
 -- auto session ===================================================================
 AUTO_SESSION_LAYOUT_STRATEGY = "flex" -- if enough space then horizontal layout else vertical layout

@@ -38,7 +38,7 @@ return {
 				winblend = TELESCOPE_UI_WINDOW_BLEND,
 				prompt_prefix = TELESCOPE_PROMPT_PREFIX,
 				selection_caret = TELESCOPE_SELECTION_CARET,
-				border = true,
+				border = TELESCOPE_UI_BORDER_ENABLED,
 				borderchars = TELESCOPE_UI_BORDER_STYLE,
 				path_display = TELESCOPE_PATH_DISPLAY,
 				results_title = TELESCOPE_RESULTS_TITLE,
