@@ -6,7 +6,7 @@ return {
 		enabled = true,
 		auto_save = true,
 		auto_restore = false,
-    suppressed_dirs = AUTO_SESSION_SUPPRESSED_DIRS,
+    suppressed_dirs = {},
 		lazy_support = true,
 		close_unsupported_windows = true,
 		continue_restore_on_error =  true,

@@ -151,29 +151,28 @@ TELESCOPE_UI_VERTICAL_PROMPT_POSITION = telescope_prompt_position
 TELESCOPE_UI_VERTICAL_PREVIEW_CUTOFF = telescope_preview_cutoff
 
 -- auto session ===================================================================
-AUTO_SESSION_LAYOUT_STRATEGY = "flex" -- if enough space then horizontal layout else vertical layout
-AUTO_SESSION_SORTING_STRATEGY = "descending"
-AUTO_SESSION_INITIAL_MODE = "normal" -- telescope starts with normal mode, also another option is insert mode
-AUTO_SESSION_PATH_DISPLAY = { "absolute" }
-AUTO_SESSION_RESULTS_TITLE = "Results"
+AUTO_SESSION_LAYOUT_STRATEGY = telescope_layout_strategy
+AUTO_SESSION_SORTING_STRATEGY = telescope_sorting_strategy
+AUTO_SESSION_INITIAL_MODE = telescope_initial_mode
+AUTO_SESSION_PATH_DISPLAY = telescope_path_display
+AUTO_SESSION_RESULTS_TITLE = telescope_results_title
 AUTO_SESSION_UI_WINDOW_BLEND = window_blend
 AUTO_SESSION_UI_BORDER_STYLE = border_chars_1
-AUTO_SESSION_PROMPT_PREFIX = ""
-AUTO_SESSION_SELECTION_CARET = " "
-AUTO_SESSION_PROMPT_TITLE = ""
-AUTO_SESSION_SUPPRESSED_DIRS = {}
+AUTO_SESSION_PROMPT_PREFIX = telescope_prompt_prefix
+AUTO_SESSION_SELECTION_CARET = telescope_selection_caret
+AUTO_SESSION_PROMPT_TITLE = telescope_prompt_title
 
 AUTO_SESSION_UI_HORIZONTAL_WIDTH = ui_width
 AUTO_SESSION_UI_HORIZONTAL_HEIGHT = ui_height
-AUTO_SESSION_UI_HORIZONTAL_PREVIEW_WIDTH = preview_width
-AUTO_SESSION_UI_HORIZONTAL_PROMPT_POSITION = prompt_position
-AUTO_SESSION_UI_HORIZONTAL_PREVIEW_CUTOFF = preview_cutoff
+AUTO_SESSION_UI_HORIZONTAL_PREVIEW_WIDTH = telescope_preview_width
+AUTO_SESSION_UI_HORIZONTAL_PROMPT_POSITION = telescope_prompt_position
+AUTO_SESSION_UI_HORIZONTAL_PREVIEW_CUTOFF = telescope_preview_cutoff
 
 AUTO_SESSION_UI_VERTICAL_WIDTH = ui_width
 AUTO_SESSION_UI_VERTICAL_HEIGHT = ui_height
-AUTO_SESSION_UI_VERTICAL_PREVIEW_WIDTH = preview_width
-AUTO_SESSION_UI_VERTICAL_PROMPT_POSITION = prompt_position
-AUTO_SESSION_UI_VERTICAL_PREVIEW_CUTOFF = preview_cutoff
+AUTO_SESSION_UI_VERTICAL_PREVIEW_WIDTH = telescope_preview_width
+AUTO_SESSION_UI_VERTICAL_PROMPT_POSITION = telescope_prompt_position
+AUTO_SESSION_UI_VERTICAL_PREVIEW_CUTOFF = telescope_preview_cutoff
 
 -- which key ======================================================================
 WHICH_KEY_UI_BORDER_STYLE = border_chars_2
