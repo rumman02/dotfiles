@@ -44,6 +44,7 @@ local indent_line_icon = "│"
 local cmp_menu_behavior = "menu,menuone,noinsert"
 local cmp_menu_width = 40
 local cmp_menu_window_scrollbar = true
+local title_position = "center"
 
 -- safe require ===================================================================
 REQUIRE = function(module)
@@ -165,26 +166,6 @@ AUTO_SESSION_UI_VERTICAL_PROMPT_POSITION = prompt_position
 AUTO_SESSION_UI_VERTICAL_PREVIEW_CUTOFF = preview_cutoff
 
 -- which key ======================================================================
-WHICH_KEY_UI_PRESET = "classic"
-WHICH_KEY_UI_BORDER_STYLE = "rounded"
-WHICH_KEY_UI_TITLE_POSITION = "center"
-
-WHICH_KEY_SYMBOLS_BREADCRUMB_ICON = " "
-WHICH_KEY_SYMBOLS_SEPARATOR_ICON = " "
-WHICH_KEY_SYMBOLS_GROUP_ICON = "+"
-
-WHICH_KEY_TIGGERS = {
-	{ "<auto>", mode = "nicvxso" },
-	{ "<leader>", mode = "nicvxso" },
-	{ "s", mode = "nicvxso" },
-	{ "\\", mode = "nicvxso" },
-}
-WHICH_KEY_DISABLE = {
-	ft = {"alpha"},
-}
-WHICH_KEY_REPLACE = {
-	key = {
-		{ "<Space>", "Leader" }
-	}
-}
+WHICH_KEY_UI_BORDER_STYLE = border_chars_2
+WHICH_KEY_UI_TITLE_POSITION = title_position
 

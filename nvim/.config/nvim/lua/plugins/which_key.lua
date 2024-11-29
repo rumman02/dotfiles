@@ -2,23 +2,34 @@ return {
 	"folke/which-key.nvim",
 	event = { "VeryLazy" },
 	opts = {
-		preset = WHICH_KEY_UI_PRESET,
+		preset = "classic",
 		delay = 0,
 		notify = true,
-		triggers = WHICH_KEY_TIGGERS,
+		triggers = {
+			{ "<auto>", mode = "nicvxso" },
+			{ "<leader>", mode = "nicvxso" },
+			{ "s", mode = "nicvxso" },
+			{ "\\", mode = "nicvxso" },
+		},
 		win = {
 			no_overlap = false,
 			border = WHICH_KEY_UI_BORDER_STYLE,
 			title_pos = WHICH_KEY_UI_TITLE_POSITION
 		},
-		replace = WHICH_KEY_REPLACE,
+		replace = {
+			key = {
+				{ "<Space>", "Leader" }
+			}
+		},
 		icons = {
-			breadcrumb = WHICH_KEY_SYMBOLS_BREADCRUMB_ICON,
-			separator = WHICH_KEY_SYMBOLS_SEPARATOR_ICON,
-			group = WHICH_KEY_SYMBOLS_GROUP_ICON,
+			breadcrumb = " ",
+			separator = " ",
+			group = "+",
 			rules = false,
 		},
-		disable = WHICH_KEY_DISABLE
+		disable ={
+			ft = {"alpha"},
+		}
 	}
 }
 
