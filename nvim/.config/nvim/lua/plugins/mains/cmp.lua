@@ -40,7 +40,7 @@ return {
 			},
 			view = {
 				docs = {
-					auto_open = CMP_MENU_DOCS_AUTO_OPEN
+					auto_open = false -- disable auto open docs 
 				},
 				entries = {
 					follow_cursor = true -- cmp window follow the cursor
@@ -204,13 +204,13 @@ return {
 			}),
 
 			formatting = {
-				fields = CMP_MENU_ITEMS,
+				fields = { "abbr", "kind", "menu" }, -- values are : "kind", "abbr", "menu" and this is the format of cmp item showing style,
 				format = function(entry, item)
 					local label = item.abbr
 					local ellipsis_char = '…'
 					local max_label_width = CMP_MENU_MAX_WIDTH
 					local min_label_width = CMP_MENU_MIN_WIDTH
-					local mode = CMP_MENU_MODE
+					local mode = "symbol_text" -- Values are: "text", "text_symbol", "symbol_text", or "symbol" 
 					local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
 
 					-- Define the kind icons
@@ -292,7 +292,7 @@ return {
 			},
 			experimental = {
 				-- Enable ghost text, which shows a faded preview of the item being completed.
-				ghost_text = CMP_MENU_SELECTION_PREVIEW
+				ghost_text = true
 			},
 			---@diagnostic disable-next-line: undefined-field
 			sources = cmp.config.sources({
