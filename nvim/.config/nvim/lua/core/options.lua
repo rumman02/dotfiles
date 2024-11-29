@@ -1,18 +1,10 @@
 local opt = vim.opt
-local guicursor = {
-	"n-v-c:block", -- Normal, visual, command-line: block cursor
-	"i-c-ve:ver25", -- Insert, command-line, visual-exclude: vertical bar cursor with 25% width
-	"r-cr:hor20", -- Replace, command-line replace: horizontal bar cursor with 20% height
-	"o:hor50", -- Operator-pending: horizontal bar cursor with 50% height
-	"a:blinkwait1-blinkoff1-blinkon1", -- All modes: blinking settings
-}
-
 
 local options = {
 	number = true, -- show line number
 	relativenumber = true, -- show relative number
-	tabstop = 2, -- tab size
-	shiftwidth = 2, -- indent shift size
+	tabstop = VIM_OPT_TABSTOP, -- tab size
+	shiftwidth = VIM_OPT_SHIFTWIDTH, -- indent shift size
 	expandtab = false, -- tab as space
 	smartindent = true, -- get indent size from line/file smartly
 	breakindent = true, -- breaked line also indented
@@ -28,7 +20,8 @@ local options = {
 	inccommand = "split", -- open split window while while search and replace
 	confirm = true, -- prompt for save changes
 	mouse = "a", -- support mouse in all modes
-	guicursor = guicursor, -- cursor ui behavior
+	guicursor = VIM_OPT_GUICURSOR, -- cursor ui behavior
+	completeopt = VIM_OPT_COMPLETEOPT, -- completeion menu behavior
 	laststatus = 0, -- remove last split window status line
 	sessionoptions = {
 		"buffers",

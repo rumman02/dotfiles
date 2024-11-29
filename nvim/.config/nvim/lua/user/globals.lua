@@ -9,6 +9,13 @@
 
 -- variables ======================================================================
 local g = vim.g
+local guicursor = {
+	"n-v-c:block", -- Normal, visual, command-line: block cursor
+	"i-c-ve:ver25", -- Insert, command-line, visual-exclude: vertical bar cursor with 25% width
+	"r-cr:hor20", -- Replace, command-line replace: horizontal bar cursor with 20% height
+	"o:hor50", -- Operator-pending: horizontal bar cursor with 50% height
+	"a:blinkwait1-blinkoff1-blinkon1", -- All modes: blinking settings
+}
 local modified_symbol_icon = " "
 local modified_symbol_highlights = "NeoTreeModified"
 local diagnostics_symbols_hint_icon = " "
@@ -54,6 +61,12 @@ local telescope_prompt_prefix = ""
 local telescope_preview_width = 0.40
 local telescope_prompt_position = "bottom"
 local telescope_preview_cutoff = 40
+
+-- options ========================================================================
+VIM_OPT_GUICURSOR = guicursor
+VIM_OPT_COMPLETEOPT = cmp_menu_behavior
+VIM_OPT_TABSTOP = indent_size
+VIM_OPT_SHIFTWIDTH = indent_size
 
 -- safe require ===================================================================
 REQUIRE = function(module)
