@@ -12,9 +12,9 @@
 	//"name": "waybar1",
 	"layer": "top",
 	"position": "top",
-	"height": 26,
+	"height": 28,
 	"reload_style_on_change": true,
-	"margin": "5, 0, 0, 0",
+	"margin": "0, 0, 0, 0",
 	"fixed-center": true,
 	//==================================================// 
 	//                    modules                       // 
@@ -32,11 +32,11 @@
 	],
 	"modules-right": [
 		"custom/updates",
+		"network",
 		"cpu",
 		"custom/gpu-usage",
 		"memory",
 		"disk",
-		"network",
 		"battery",
 		"custom/pipewire",
 		"wireplumber",
@@ -256,3 +256,4 @@
 		"on-click": "shutdown now"
 	}
 }
+
