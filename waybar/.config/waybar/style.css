@@ -17,17 +17,6 @@ window {
 #group-power, #workspaces, #window, #submap, #cpu, #custom-gpu-usage, #memory, #disk, #network, #wireplumber, #custom-pipewire, #custom-brightness, #clock {
 	border: 2px solid;
 }
-#group-power, #workspaces, #workspaces button, #window, #submap, #cpu, #custom-gpu-usage, #memory, #disk, #network, #wireplumber, #custom-pipewire, #custom-brightness, #clock {
-	border-radius: 25px;
-}
-
-#group-power, #workspaces, #window {
-	margin-left: 10px;
-}
-
-#clock, #custom-brightness, #network, #disk, #custom-updates, #submap {
-	margin-right: 10px;
-}
 #workspaces button.active, #window, #submap, #cpu, #custom-gpu-usage, #memory, #disk, #network, #wireplumber, #custom-pipewire, #custom-brightness, #clock  {
 	padding-right: 15px;
 }
@@ -40,10 +29,6 @@ window {
 #group-power:last-child {
 	padding-right: 3px;
 }
-#network {
-	/*fix network alignment*/
-	padding-left: 12px;
-}
 
 #custom-gpu-usage, #memory {
 	border-left: 0px;
@@ -52,11 +37,9 @@ window {
 }
 #cpu, #custom-pipewire, #wireplumber {
 	border-right: 0px;
-	border-radius: 25px 0px 0 25px;
 }
 #disk, #custom-brightness {
 	border-left: 0px;
-	border-radius: 0 25px 25px 0;
 }
 
 #window {
@@ -81,8 +64,6 @@ window {
 	background-color: rgba(250, 189, 47, 0.5);
     transition: all 0.1s ease-in-out;
 }
-#workspaces button.active:hover {}
-#workspaces button.visible {}
 #workspaces button.empty {
 	color: rgba(255, 255, 255, 0.2);
 	padding-left: 20px;
@@ -168,3 +149,4 @@ window {
 /* rgba(213, 196, 161, 1) light-beige (#d5c4a1) */
 /* rgba(251, 241, 199, 1) pale-yellow (#fbf1c7) */
 /* rgba(254, 128, 25, 1)  bright-orange (#fe8019) */
+
