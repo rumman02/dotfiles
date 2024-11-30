@@ -15,13 +15,13 @@
 		"hyprland/submap"
 	],
 	"modules-right": [
+		"custom/updates",
 		"network",
 		"cpu",
 		"memory",
 		"disk",
 		"wireplumber",
 		"custom/brightness",
-		"custom/updates",
 		"clock"
 	],
 	//==================================================// 
