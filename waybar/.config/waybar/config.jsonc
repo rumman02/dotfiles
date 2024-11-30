@@ -149,11 +149,12 @@
 		"interval": 1,
 		"format": "{icon}",
 		"format-ethernet": "󰈀",
-		"format-wifi": "  ",
+		"format-wifi": " ",
 		"format-disconnected": "  ",
 		"tooltip-format-ethernet": "󰈀    {bandwidthUpBits}   {bandwidthDownBits}",
 		"tooltip-format-wifi": "   {bandwidthUpBits}  {bandwidthDownBits}",
-		"tooltip-format-disconnected": "  No internet "
+		"tooltip-format-disconnected": "  No internet ",
+		"on-click": "kitty nmtui"
 	},
 	//==================================================// 
 	//                   waybar taskbar                 // 
