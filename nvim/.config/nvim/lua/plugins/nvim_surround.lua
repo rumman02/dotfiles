@@ -1,7 +1,7 @@
 return {
 	"kylechui/nvim-surround",
 	version = "*",
-	event = { "InsertEnter", "CmdlineEnter" },
+	event = { "BufReadPre", "BufNewFile"},
 	opts = {}
 }
 
