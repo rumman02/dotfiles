@@ -91,3 +91,13 @@ require("lazy").setup({
   }
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "lazy",
+  callback = function()
+    vim.api.nvim_buf_set_keymap(0, "n", "<Esc>", "<cmd>q<cr>", {
+			noremap = true,
+			silent = true
+		})
+  end
+})
+
