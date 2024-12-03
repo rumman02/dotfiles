@@ -7,6 +7,5 @@ vim.opt.laststatus = 0
 vim.opt.statusline = "%="
 
 require("lazy.lazy")
-require("configs.init")
 vim.cmd("colorscheme gruvbox")
 

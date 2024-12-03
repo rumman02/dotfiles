@@ -19,7 +19,9 @@ return {
 		},
 		ft = {},
 		keys = {},
-		priority = 100
+		priority = 500,
+		config = function()
+		end
 	},
 	{
 		-- gruvbox
@@ -32,7 +34,9 @@ return {
 		},
 		ft = {},
 		keys = {},
-		priority = 100
+		priority = 500,
+		config = function()
+		end
 	},
 	{
 		-- alpha_nvim
@@ -45,11 +49,14 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 99,
+		priority = 499,
 		dependencies = {
 			"echasnovski/mini.icons",
 			"nvim-tree/nvim-web-devicons"
 		},
+		config = function()
+			require("plugins.configs.alpha_nvim")
+		end
 	},
 	{
 		-- auto_session
@@ -59,14 +66,15 @@ return {
 		event = {
 			"VimLeavePre"
 		},
-		cmd = {},
-		ft = {},
-		keys = {},
-		priority = 98,
 		cmd = {
 			"SessionRestore",
 			"SessionSave"
 		},
+		ft = {},
+		keys = {},
+		priority = 498,
+		config = function()
+		end
 	},
 	{
 		-- neo_tree
@@ -79,14 +87,16 @@ return {
 		},
 		ft = {},
 		keys = {},
-		priority = 97,
+		priority = 497,
 		branch = "v3.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 			"3rd/image.nvim",
-		}
+		},
+		config = function()
+		end
 	},
 	{
 		-- telescope
@@ -99,12 +109,14 @@ return {
 		},
 		ft = {},
 		keys = {},
-		priority = 96,
+		priority = 496,
 		tag = '0.1.8',
 		branch = '0.1.x',
 		dependencies = {
 			"nvim-lua/plenary.nvim"
-		}
+		},
+		config = function()
+		end
 	},
 	{
 		-- mason
@@ -120,7 +132,9 @@ return {
 		},
 		ft = {},
 		keys = {},
-		priority = 95,
+		priority = 495,
+		config = function()
+		end
 	},
 	{
 		-- mason_lspconfig
@@ -134,10 +148,12 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 94,
+		priority = 494,
 		dependencies = {
 			"williamboman/mason.nvim",
-		}
+		},
+		config = function()
+		end
 	},
 	{
 		-- nvim_lspconfig
@@ -151,10 +167,12 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 93,
+		priority = 493,
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
-		}
+		},
+		config = function()
+		end
 	},
 	{
 		-- nvim_cmp
@@ -168,7 +186,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 92,
+		priority = 492,
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -180,7 +198,9 @@ return {
 			"chrisgrieser/cmp-nerdfont",
 			"uga-rosa/cmp-dictionary",
 			"windwp/nvim-autopairs"
-		}
+		},
+		config = function()
+		end
 	},
 	{
 		"L3MON4D3/LuaSnip",
@@ -193,12 +213,14 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 91,
+		priority = 491,
 		version = "v2.*",
 		build = "make install_jsregexp",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
-		}
+		},
+		config = function()
+		end
 	},
 	{
 		"saadparwaiz1/cmp_luasnip",
@@ -211,10 +233,12 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 90,
+		priority = 490,
 		dependencies = {
 			"L3MON4D3/LuaSnip",
-		}
-	},
+		},
+		config = function()
+		end
+	}
 }
 
