@@ -2,9 +2,9 @@
 plugin will break. only that plugin will break and other plugins will run
 smoothly without any problem ]]
 local requires = function(module)
-	status_ok, plugin = pcall(require, module)
+	local status_ok, plugin = pcall(require, module)
 	if not status_ok then
-		local module = module:match("([^%.]+)$") -- extracts the last part
+		module = module:match("([^%.]+)$") -- extracts the last part
 		vim.notify("WARNING!!! " .. '"' .. module .. '"' .. " plugin's not found!!!")
 	else
 		return plugin
@@ -22,7 +22,6 @@ end
 -- ============================================================================
 return {
 	{
-		-- tokyonight
 		"folke/tokyonight.nvim",
 		enabled = false,
 		cond = true,
@@ -37,7 +36,6 @@ return {
 		end
 	},
 	{
-		-- gruvbox
 		"ellisonleao/gruvbox.nvim",
 		enabled = true,
 		cond = true,
@@ -53,7 +51,6 @@ return {
 		end
 	},
 	{
-		-- alpha_nvim
 		"goolord/alpha-nvim",
 		enabled = true,
 		cond = true,
@@ -63,7 +60,6 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 499,
 		dependencies = {
 			"echasnovski/mini.icons",
 			"nvim-tree/nvim-web-devicons"
@@ -73,7 +69,6 @@ return {
 		end
 	},
 	{
-		-- auto_session
 		"rmagatti/auto-session",
 		enabled = true,
 		cond = true,
@@ -86,13 +81,11 @@ return {
 		},
 		ft = {},
 		keys = {},
-		priority = 498,
 		config = function()
 			requires("plugins.configs.auto_session")
 		end
 	},
 	{
-		-- neo_tree
 		"nvim-neo-tree/neo-tree.nvim",
 		enabled = true,
 		cond = true,
@@ -102,7 +95,6 @@ return {
 		},
 		ft = {},
 		keys = {},
-		priority = 497,
 		branch = "v3.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -111,10 +103,10 @@ return {
 			"3rd/image.nvim",
 		},
 		config = function()
+			requires("plugins.configs.neo_tree")
 		end
 	},
 	{
-		-- telescope
 		"nvim-telescope/telescope.nvim",
 		enabled = true,
 		cond = true,
@@ -124,17 +116,18 @@ return {
 		},
 		ft = {},
 		keys = {},
-		priority = 496,
 		tag = '0.1.8',
 		branch = '0.1.x',
 		dependencies = {
-			"nvim-lua/plenary.nvim"
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"debugloop/telescope-undo.nvim",
 		},
 		config = function()
+			requires("plugins.configs.telescope")
 		end
 	},
 	{
-		-- mason
 		"williamboman/mason.nvim",
 		enabled = true,
 		cond = true,
@@ -147,13 +140,11 @@ return {
 		},
 		ft = {},
 		keys = {},
-		priority = 495,
 		config = function()
 			requires("plugins.configs.mason")
 		end
 	},
 	{
-		-- mason_lspconfig
 		"williamboman/mason-lspconfig.nvim",
 		enabled = true,
 		cond = true,
@@ -164,7 +155,6 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 494,
 		dependencies = {
 			"williamboman/mason.nvim",
 		},
@@ -172,7 +162,6 @@ return {
 		end
 	},
 	{
-		-- nvim_lspconfig
 		"neovim/nvim-lspconfig",
 		enabled = true,
 		cond = true,
@@ -183,11 +172,11 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 493,
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 		},
 		config = function()
+			requires("plugins.configs.lsp_config")
 		end
 	},
 	{
@@ -201,7 +190,6 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 492,
 		config = function()
 		end
 	},
@@ -216,12 +204,10 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 491,
 		config = function()
 		end
 	},
 	{
-		-- lua_snippets
 		"L3MON4D3/LuaSnip",
 		enabled = true,
 		cond = true,
@@ -232,7 +218,6 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 490,
 		version = "v2.*",
 		-- build = "make install_jsregexp",
 		dependencies = {
@@ -242,7 +227,6 @@ return {
 		end
 	},
 	{
-		-- cmp_lua_snippets
 		"saadparwaiz1/cmp_luasnip",
 		enabled = true,
 		cond = true,
@@ -253,7 +237,6 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 489,
 		dependencies = {
 			"L3MON4D3/LuaSnip",
 		},
@@ -261,7 +244,6 @@ return {
 		end
 	},
 	{
-		-- nvim_cmp
 		"hrsh7th/nvim-cmp",
 		enabled = true,
 		cond = true,
@@ -272,7 +254,6 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 488,
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -302,7 +283,6 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 487,
 		config = function()
 		end
 	},
@@ -317,10 +297,234 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 486,
 		config = function()
 			requires("plugins.configs.gitsigns")
 		end
 	},
+	{
+		"rcarriga/nvim-notify",
+		enabled = true,
+		cond = true,
+		event = {
+			"VeryLazy"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		config = function()
+		end
+	},
+	{
+		"folke/noice.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"VeryLazy"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+		config = function()
+		end
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		enabled = true,
+		cond = true,
+		event = {
+			"BufReadPre",
+			"BufNewFile"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		config = function()
+		end
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		enabled = true,
+		cond = true,
+		event = {
+			"BufReadPre",
+			"BufNewFile"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		config = function()
+		end
+	},
+	{
+		"tiagovla/scope.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"BufReadPre",
+			"BufNewFile"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		config = function()
+		end
+	},
+	{
+		"akinsho/bufferline.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"BufReadPre",
+			"BufNewFile"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		version = "*",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			"tiagovla/scope.nvim",
+		},
+		config = function()
+		end
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"BufReadPre",
+			"BufNewFile"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		dependencies = {
+			"nvim-tree/nvim-web-devicons"
+		},
+		config = function()
+		end
+	},
+	{
+		"numToStr/Comment.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"BufReadPre",
+			"BufNewFile"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		config = function()
+		end
+	},
+	{
+		"folke/flash.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"BufReadPre",
+			"BufNewFile"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		config = function()
+		end
+	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"BufReadPre",
+			"BufNewFile"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		main = "ibl",
+		config = function()
+			requires("plugins.configs.indent_blankline")
+		end
+	},
+	{
+		"kylechui/nvim-surround",
+		enabled = true,
+		cond = true,
+		event = {
+			"BufReadPre",
+			"BufNewFile"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		version = "*",
+		config = function()
+			requires("plugins.configs.which_key")
+		end
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		enabled = true,
+		cond = true,
+		event = {},
+		cmd = {},
+		ft = {
+			"js",
+			"jsx",
+			"ts",
+			"tsx"
+		},
+		keys = {},
+		config = function()
+		end
+	},
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		enabled = true,
+		cond = true,
+		event = {},
+		cmd = {},
+		ft = {},
+		keys = {},
+		config = function()
+		end
+	},
+	{
+		"folke/todo-comments.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"BufReadPre",
+			"BufNewFile"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		dependencies = {
+			"nvim-lua/plenary.nvim"
+		},
+		config = function()
+		end
+	},
+	{
+		"folke/which-key.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"VeryLazy",
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		config = function()
+			requires("plugins.configs.which_key")
+		end
+	}
 }
 

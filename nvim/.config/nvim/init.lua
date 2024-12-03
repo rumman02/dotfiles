@@ -12,7 +12,11 @@ vim.opt.undolevels = 10000
 vim.opt.laststatus = 0
 vim.opt.statusline = "%="
 vim.opt.completeopt = COMPLETEOPT
+vim.opt.wrap = false
 
 require("lazy.lazy")
+
+require("keymaps")
+
 vim.cmd("colorscheme gruvbox")
 
