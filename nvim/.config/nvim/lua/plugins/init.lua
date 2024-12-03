@@ -1,3 +1,16 @@
+--[[ this funciton will help you to, not break every plugins, if a single
+plugin will break. only that plugin will break and other plugins will run
+smoothly without any problem ]]
+local requires = function(module)
+	status_ok, plugin = pcall(require, module)
+	if not status_ok then
+		local module = module:match("([^%.]+)$") -- extracts the last part
+		vim.notify("WARNING!!! " .. '"' .. module .. '"' .. " plugin's not found!!!")
+	else
+		return plugin
+	end
+end
+
 -- ============================================================================
 -- enabled = disabled plugin & uninstalled
 -- cond = disabled plugin
@@ -36,6 +49,7 @@ return {
 		keys = {},
 		priority = 500,
 		config = function()
+			requires("plugins.configs.gruvbox")
 		end
 	},
 	{
@@ -55,7 +69,7 @@ return {
 			"nvim-tree/nvim-web-devicons"
 		},
 		config = function()
-			require("plugins.configs.alpha_nvim")
+			requires("plugins.configs.alpha_nvim")
 		end
 	},
 	{
@@ -74,6 +88,7 @@ return {
 		keys = {},
 		priority = 498,
 		config = function()
+			requires("plugins.configs.auto_session")
 		end
 	},
 	{
@@ -134,6 +149,7 @@ return {
 		keys = {},
 		priority = 495,
 		config = function()
+			requires("plugins.configs.mason")
 		end
 	},
 	{
@@ -175,6 +191,76 @@ return {
 		end
 	},
 	{
+		"windwp/nvim-autopairs",
+		enabled = true,
+		cond = true,
+		event = {
+			"InsertEnter",
+			"CmdlineEnter"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		priority = 492,
+		config = function()
+		end
+	},
+	{
+		"brenoprata10/nvim-highlight-colors",
+		enabled = true,
+		cond = true,
+		event = {
+			"BufReadPre",
+			"BufNewFile"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		priority = 491,
+		config = function()
+		end
+	},
+	{
+		-- lua_snippets
+		"L3MON4D3/LuaSnip",
+		enabled = true,
+		cond = true,
+		event = {
+			"InsertEnter",
+			"CmdlineEnter"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		priority = 490,
+		version = "v2.*",
+		-- build = "make install_jsregexp",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+		},
+		config = function()
+		end
+	},
+	{
+		-- cmp_lua_snippets
+		"saadparwaiz1/cmp_luasnip",
+		enabled = true,
+		cond = true,
+		event = {
+			"InsertEnter",
+			"CmdlineEnter"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		priority = 489,
+		dependencies = {
+			"L3MON4D3/LuaSnip",
+		},
+		config = function()
+		end
+	},
+	{
 		-- nvim_cmp
 		"hrsh7th/nvim-cmp",
 		enabled = true,
@@ -186,7 +272,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 492,
+		priority = 488,
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -197,13 +283,16 @@ return {
 			"hrsh7th/cmp-emoji",
 			"chrisgrieser/cmp-nerdfont",
 			"uga-rosa/cmp-dictionary",
-			"windwp/nvim-autopairs"
+			"saadparwaiz1/cmp_luasnip",
+			"windwp/nvim-autopairs",
+			"brenoprata10/nvim-highlight-colors",
 		},
 		config = function()
+			requires("plugins.configs.nvim_cmp")
 		end
 	},
 	{
-		"L3MON4D3/LuaSnip",
+		"altermo/ultimate-autopair.nvim",
 		enabled = true,
 		cond = true,
 		event = {
@@ -213,32 +302,25 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 491,
-		version = "v2.*",
-		build = "make install_jsregexp",
-		dependencies = {
-			"rafamadriz/friendly-snippets",
-		},
+		priority = 487,
 		config = function()
 		end
 	},
 	{
-		"saadparwaiz1/cmp_luasnip",
+		"lewis6991/gitsigns.nvim",
 		enabled = true,
 		cond = true,
 		event = {
-			"InsertEnter",
-			"CmdlineEnter"
+			"BufReadPre",
+			"BufNewFile"
 		},
 		cmd = {},
 		ft = {},
 		keys = {},
-		priority = 490,
-		dependencies = {
-			"L3MON4D3/LuaSnip",
-		},
+		priority = 486,
 		config = function()
+			requires("plugins.configs.gitsigns")
 		end
-	}
+	},
 }
 

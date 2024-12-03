@@ -40,12 +40,12 @@ require("lazy").setup({
   },
   ui = {
 		size = {
-			width = 0.8,
-			height = 0.7
+			width = UI_WIDTH,
+			height = UI_HEIGHT
 		},
-		border = "rounded",
+		border = UI_BORDER_STYLE,
 		title = "Lazy plugin manager",
-		title_pos = "center",
+		title_pos = UI_TITLE_POSITION,
 		backdrop = 60,
 		piils = true,
 		wrap = true,
@@ -57,8 +57,8 @@ require("lazy").setup({
 			ft = "󰡯",
 			import = "󰏔",
 			keys = "󰌌",
-			loaded = "",
-			not_loaded = "",
+			loaded = LOADED_ICON,
+			not_loaded = UNLOADED_ICON,
 			plugin = "",
 			source = "󱃖",
 			start = "",
