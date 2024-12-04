@@ -363,6 +363,7 @@ return {
 		ft = {},
 		keys = {},
 		config = function()
+			requires("plugins.configs.nvim_treesitter_context")
 		end
 	},
 	{
