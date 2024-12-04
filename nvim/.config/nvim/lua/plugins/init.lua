@@ -191,6 +191,7 @@ return {
 		ft = {},
 		keys = {},
 		config = function()
+			requires("plugins.configs.nvim_autopairs")
 		end
 	},
 	{
