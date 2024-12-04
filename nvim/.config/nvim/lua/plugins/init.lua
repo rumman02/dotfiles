@@ -284,7 +284,9 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		branch = "v0.6",
 		config = function()
+			requires("plugins.configs.ultimate_autopair")
 		end
 	},
 	{
