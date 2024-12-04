@@ -409,6 +409,7 @@ return {
 			"nvim-tree/nvim-web-devicons"
 		},
 		config = function()
+			requires("plugins.configs.lualine")
 		end
 	},
 	{
