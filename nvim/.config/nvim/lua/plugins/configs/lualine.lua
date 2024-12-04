@@ -2,13 +2,17 @@ local lualine = require("lualine")
 
 lualine.setup({
 	options = {
-		theme = "gruvbox",
+		theme = COLORSCHEME,
 		globalstatus = true,
 		component_separators = { left = "╲", right = "╱" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = {
-			statusline = {"neo-tree"},
-			winbar = {"neo-tree"},
+			statusline = {
+				"neo-tree"
+			},
+			winbar = {
+				"neo-tree"
+			},
 		},
 		ignore_focus = {
 			"neo-tree",
@@ -90,3 +94,4 @@ lualine.setup({
 		--   lualine_z = {}
 		-- },
 })
+
