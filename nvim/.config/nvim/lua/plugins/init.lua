@@ -540,6 +540,40 @@ return {
 		config = function()
 			requires("plugins.configs.which_key")
 		end
+	},
+	{
+		"kwkarlwang/bufresize.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"WinEnter",
+			"BufEnter"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		config = function ()
+			requires("plugins.configs.bufresize")
+		end
+	},
+	{
+		"mrjones2014/smart-splits.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"WinEnter",
+			"BufEnter"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		version = ">=1.0.0",
+		dependencies = {
+			"kwkarlwang/bufresize.nvim",
+		},
+		config = function ()
+			requires("plugins.configs.smart_splits")
+		end
 	}
 }
 
