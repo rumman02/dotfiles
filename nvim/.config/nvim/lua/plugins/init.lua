@@ -346,7 +346,9 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		build = ":TSUpdate",
 		config = function()
+			requires("plugins.configs.nvim_treesitter")
 		end
 	},
 	{
