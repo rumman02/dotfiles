@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ";"
 BUFLEADER = "\\"
 EXTRALEADER = ","
+INSERTLEADER = "<a-space>"
 
 COMPLETEOPT = "menu,menuone,noinsert"
 COMPLETEOPT_MAX_WIDTH = 40

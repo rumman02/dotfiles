@@ -9,6 +9,7 @@ which_key.setup({
 		{ "<leader>", mode = "nicvxso" },
 		{ "s", mode = "nicvxso" },
 		{ "\\", mode = "nicvxso" },
+		{ INSERTLEADER, mode = "nicvxso" },
 	},
 	win = {
 		no_overlap = false,
