@@ -11,6 +11,19 @@ local I = "<leader>I"
 local J = "<leader>J"
 
 require("which-key").add({
+	{ f,  desc = "Find" },
+	{ f .. "a", "<cmd>Telescope builtin<cr>", desc = "All" },
+	{ f .. "c", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Current" },
+	{ f .. "C", "<cmd>Telescope commands<cr>", desc = "Commands" },
+	{ f .. "f", "<cmd>Telescope find_files<cr>", desc = "Files" },
+	{ f .. "F", "<cmd>Telescope resume<cr>", desc = "Resume" },
+	{ f .. "h", "<cmd>Telescope help_tags<cr>", desc = "Helps" },
+	{ f .. "r", "<cmd>Telescope oldfiles<cr>", desc = "Recents" },
+	{ f .. "u", "<cmd>Telescope undo<cr>", desc = "Undo" },
+	{ f .. "w", "<cmd>Telescope live_grep<cr>", desc = "Words" },
+	{ f .. "n", "<cmd>Telescope noice<cr>", desc = "Noice" },
+	{ f .. "s", "<cmd>Telescope spell_suggest<cr>", desc = "Spell suggest" },
+
 	{ g, group = "Git" },
 
 	{ g .. "n", "<cmd>Gitsigns next_hunk<cr>", desc = "Next" },
