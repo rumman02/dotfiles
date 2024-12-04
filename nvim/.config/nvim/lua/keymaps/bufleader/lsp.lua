@@ -5,6 +5,7 @@ local lsp_keys = function ()
 		{ BUFLEADER, desc = "Lsp"},
 		{ BUFLEADER .. "c", desc = "Code" },
 		{ BUFLEADER .. "ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Actions" },
+
 		{ BUFLEADER .. "l", desc = "Lsp" },
 		{ BUFLEADER .. "li", "<cmd>LspInfo<cr>", desc = "Info" },
 		{ BUFLEADER .. "lI", "<cmd>LspInstall<cr>", desc = "Install" },
@@ -19,6 +20,7 @@ local lsp_keys = function ()
 			end
 		end, desc = "Strat/Stop" },
 		{ BUFLEADER .. "lc", "<cmd>lua =vim.lsp.get_clients()[1].server_capabilities<cr>", desc = "Server's capability" },
+
 		{ BUFLEADER .. "r", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename" },
 		{ BUFLEADER .. "h", "<cmd>lua vim.lsp.buf.hover()<cr>", desc = "Hover" },
 
@@ -27,7 +29,6 @@ local lsp_keys = function ()
 		{ BUFLEADER .. "fs", "<cmd>Telescope lsp_definitions<cr>", desc = "Definitions" },
 		{ BUFLEADER .. "fi", "<cmd>Telescope lsp_implementations<cr>", desc = "Implementations" },
 		{ BUFLEADER .. "ft", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Type definitions" },
-
 		{ BUFLEADER .. "fd", desc = "Diagnostic" },
 		{ BUFLEADER .. "fda", "<cmd>Telescope diagnostics<cr>", desc = "All" },
 		{ BUFLEADER .. "fdc", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Current" },
