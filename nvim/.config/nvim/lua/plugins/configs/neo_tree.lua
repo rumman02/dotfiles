@@ -6,7 +6,7 @@ neo_tree.setup({
 	enable_git_status = true,
 	enable_diagnostics = true,
 	source_selector = {
-		winbar = false,
+		winbar = true,
 		statusline = true,
 		sources = {
 			{ source = "filesystem", display_name = " Files " },
