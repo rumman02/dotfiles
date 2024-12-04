@@ -437,6 +437,7 @@ return {
 		ft = {},
 		keys = {},
 		config = function()
+			requires("plugins.configs.flash")
 		end
 	},
 	{
