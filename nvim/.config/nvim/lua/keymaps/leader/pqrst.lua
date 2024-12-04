@@ -24,5 +24,14 @@ require("which-key").add({
 	{ s .. "l", function() require("flash").jump({ search = { mode = "search", max_length = 0 }, label = { after = { 0, 0 } }, pattern = "^" }) end, desc = "Line", mode = { "n", "x", "o" } },
 	{ s .. "c", function() require("flash").jump({ pattern = vim.fn.expand("<cword>") }) end, desc = "Cursor", mode = { "n", "x", "o" } },
 	{ s .. "w", function() require("flash").jump({ search = { mode = function(pattern) return ([[\<%s\w*\>]]):format(pattern), ([[\<%s]]):format(pattern) end, }, jump = { pos = "range" }, }) end, desc = "Word", mode = { "n", "x", "o" } },
+
+	{ t, group = "Tabs" },
+	{ t .. "o", desc  = "Open" },
+	{ t .. "oo", "<cmd>tabnew<cr>", desc  = "Open" },
+	{ t .. "on", "<cmd>tabnew<cr><bar>:BufferLineTabRename", desc  = "Name" },
+	{ t .. "x", "<cmd>tabclose<cr>", desc  = "Close" },
+	{ t .. "l", "<cmd>tabs<cr>", desc  = "List" },
+	{ t .. "n", ":BufferLineTabRename", desc = "Rename" },
+
 })
 
