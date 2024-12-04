@@ -524,6 +524,7 @@ return {
 			"nvim-lua/plenary.nvim"
 		},
 		config = function()
+			requires("plugins.configs.todo_comments")
 		end
 	},
 	{
