@@ -574,6 +574,21 @@ return {
 		config = function ()
 			requires("plugins.configs.smart_splits")
 		end
+	},
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		enabled = true,
+		cond = true,
+		event = {
+			"InsertEnter",
+			"CmdlineEnter"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		config = function ()
+			requires("plugins.configs.nvim_ts_context_commentstring")
+		end
 	}
 }
 
