@@ -206,6 +206,7 @@ return {
 		ft = {},
 		keys = {},
 		config = function()
+			requires("plugins.configs.nvim_highlight_colors")
 		end
 	},
 	{
