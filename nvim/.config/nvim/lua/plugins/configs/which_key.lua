@@ -7,7 +7,6 @@ which_key.setup({
 	triggers = {
 		{ "<auto>", mode = "nicvxso" },
 		{ "<leader>", mode = "nicvxso" },
-		{ "s", mode = "nicvxso" },
 		{ "\\", mode = "nicvxso" },
 		{ INSERTLEADER, mode = "nicvxso" },
 	},
@@ -29,6 +28,9 @@ which_key.setup({
 	},
 	disable ={
 		ft = {"alpha"},
+	},
+	sort = {
+		"alphanum",
 	}
 })
 

@@ -312,6 +312,7 @@ return {
 		ft = {},
 		keys = {},
 		config = function()
+			requires("plugins.configs.nvim_notify")
 		end
 	},
 	{
@@ -328,6 +329,7 @@ return {
 			"MunifTanjim/nui.nvim",
 		},
 		config = function()
+			requires("plugins.configs.noice")
 		end
 	},
 	{
@@ -389,6 +391,7 @@ return {
 			"tiagovla/scope.nvim",
 		},
 		config = function()
+			requires("plugins.configs.bufferline")
 		end
 	},
 	{
@@ -465,7 +468,7 @@ return {
 		keys = {},
 		version = "*",
 		config = function()
-			requires("plugins.configs.which_key")
+			requires("plugins.configs.nvim_surround")
 		end
 	},
 	{

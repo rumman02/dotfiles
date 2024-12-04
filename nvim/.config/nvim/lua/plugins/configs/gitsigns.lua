@@ -50,3 +50,4 @@ gitsigns.setup({
 		col = 1
 	}
 })
+
