@@ -1,15 +1,8 @@
-require("which-key").add({
-		{ BUFLEADER, group = "Lsp" },
-		{
-			hidden = true,
-			cond = true,
-			{ "K", "<Nop>" }
-		}
-})
+local which_key = require("which-key")
 
-local function add_lsp_keymaps(hidden)
-	require("which-key").add({
-		hidden = hidden,
+local lsp_keys = function ()
+	return {
+		{ BUFLEADER, desc = "Lsp"},
 		{ BUFLEADER .. "c", desc = "Code" },
 		{ BUFLEADER .. "ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Actions" },
 		{ BUFLEADER .. "l", desc = "Lsp" },
@@ -38,37 +31,38 @@ local function add_lsp_keymaps(hidden)
 		{ BUFLEADER .. "fd", desc = "Diagnostic" },
 		{ BUFLEADER .. "fda", "<cmd>Telescope diagnostics<cr>", desc = "All" },
 		{ BUFLEADER .. "fdc", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Current" },
-	})
-	require("which-key").add({
-		hidden = not hidden,
-		{ BUFLEADER .. BUFLEADER, desc = "Lsp specific keymaps" },
-	})
+	}
 end
 
 local lspattach_bufs = {}
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
-	callback = function(lspattach)
-		local current_buf = vim.api.nvim_get_current_buf()
-		table.insert(lspattach_bufs, lspattach.buf)
-
-		if current_buf == lspattach.buf then
-			add_lsp_keymaps(false)
-		end
+	callback = function(e)
+		table.insert(lspattach_bufs, e.buf)
 	end
 })
 
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-	callback = function(bufenter)
-		local found = false
+vim.api.nvim_create_autocmd({ "LspAttach", "BufEnter" }, {
+	callback = function (e)
 
 		for _, value in ipairs(lspattach_bufs) do
-			if bufenter.buf == value then
-				found = true
+			if e.buf == value then
+				which_key.add(lsp_keys())
+			end
+		end
+
+	end
+})
+
+vim.api.nvim_create_autocmd({ "BufDelete" }, {
+	callback = function (e)
+
+		for i, buf in pairs(lspattach_bufs) do
+			if buf == e.buf then
+				table.remove(lspattach_bufs, i)
 				break
 			end
 		end
 
-		add_lsp_keymaps(not found)
 	end
 })
 
