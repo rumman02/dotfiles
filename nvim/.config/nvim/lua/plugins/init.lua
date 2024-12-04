@@ -494,6 +494,7 @@ return {
 		},
 		keys = {},
 		config = function()
+			requires("plugins.configs.nvim_ts_autotag")
 		end
 	},
 	{
