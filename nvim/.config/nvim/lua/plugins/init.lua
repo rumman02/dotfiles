@@ -423,6 +423,7 @@ return {
 		ft = {},
 		keys = {},
 		config = function()
+			requires("plugins.configs.comment")
 		end
 	},
 	{
