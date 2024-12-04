@@ -17,6 +17,7 @@
 	"modules-right": [
 		"custom/updates",
 		"cpu",
+		"custom/gpu-usage",
 		"memory",
 		"disk",
 		"wireplumber",
@@ -111,13 +112,21 @@
 	//==================================================// 
 	//                      right 2                    // 
 	//==================================================// 
+	"custom/gpu-usage": {
+		"format": "󰹑   {}",
+		"exec": "gpu-usage-waybar",
+		"return-type": "json"
+	},
+	//==================================================// 
+	//                      right 3                    // 
+	//==================================================// 
 	// https://github.com/Alexays/Waybar/wiki/Module:-WirePlumber
 	"cpu": {
 		"interval": 1,
 		"format": "   {usage}%"
 	},
 	//==================================================// 
-	//                      right 3                    // 
+	//                      right 4                    // 
 	//==================================================// 
 	// https://github.com/Alexays/Waybar/wiki/Module:-Memory
 	"memory": {
@@ -125,7 +134,7 @@
 		"format": "   {percentage}%"
 	},
 	//==================================================// 
-	//                      right 4                    // 
+	//                      right 5                    // 
 	//==================================================// 
 	// https://github.com/Alexays/Waybar/wiki/Module:-WirePlumber
 	"disk": {
@@ -135,7 +144,7 @@
 		"tooltip-format": "Used {specific_used:0.1f}G  Total {specific_total:0.1f}G"
 	},
 	//==================================================// 
-	//                      right 5                    // 
+	//                      right 6                    // 
 	//==================================================// 
 	// https://github.com/Alexays/Waybar/wiki/Module:-WirePlumber
 	"wireplumber": {
@@ -146,7 +155,7 @@
 		"scroll-step": 1.0
 	},
 	//==================================================// 
-	//                      right 6                    // 
+	//                      right 7                    // 
 	//==================================================// 
 	"custom/brightness": {
 		"interval":1,
@@ -157,7 +166,7 @@
 		"tooltip-format": "󰃞  {}%"
 	},
 	//==================================================// 
-	//                      right 7                    // 
+	//                      right 8                    // 
 	//==================================================// 
 	"custom/updates": {
 		"format": "{} {icon}",
@@ -170,7 +179,7 @@
 		"exec": "waybar-module-pacman-updates --no-zero-output"
 	},
 	//==================================================// 
-	//                      right 8                    // 
+	//                      right 9                    // 
 	//==================================================// 
 	// https://github.com/Alexays/Waybar/wiki/Module:-Clock
 	"clock": {
