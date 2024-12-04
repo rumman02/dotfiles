@@ -5,6 +5,7 @@ local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 -- Lazy load Luasnip snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 
+---@diagnostic disable-next-line: redundant-parameter
 cmp.setup({
 	snippet = {
 		expand = function(args)
