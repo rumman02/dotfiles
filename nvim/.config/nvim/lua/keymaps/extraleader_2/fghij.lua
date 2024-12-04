@@ -1,0 +1,12 @@
+local f = EXTRALEADER .. EXTRALEADER .. "f"
+local g = EXTRALEADER .. EXTRALEADER .. "g"
+local h = EXTRALEADER .. EXTRALEADER .. "h"
+local i = EXTRALEADER .. EXTRALEADER .. "i"
+local j = EXTRALEADER .. EXTRALEADER .. "j"
+
+local F = EXTRALEADER .. EXTRALEADER .. "F"
+local G = EXTRALEADER .. EXTRALEADER .. "G"
+local H = EXTRALEADER .. EXTRALEADER .. "H"
+local I = EXTRALEADER .. EXTRALEADER .. "I"
+local J = EXTRALEADER .. EXTRALEADER .. "J"
+
