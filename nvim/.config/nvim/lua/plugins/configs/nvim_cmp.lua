@@ -293,21 +293,18 @@ cmp.setup({
 	}),
 
 	-- Setup for "/", "?" cmdline
+	---@diagnostic disable-next-line: undefined-field
 	cmp.setup.cmdline({ "/", "?" }, {
-		---@diagnostic disable-next-line: undefined-field
 		sources = cmp.config.sources({
 			{ name = "buffer" },
-			{ name = "cmdline_history" }
 		}),
 	}),
 
 	-- Setup for ":" cmdline
+	---@diagnostic disable-next-line: undefined-field
 	cmp.setup.cmdline(":", {
-		---@diagnostic disable-next-line: undefined-field
 		sources = cmp.config.sources({
 			{ name = "cmdline" },
-			{ name = "cmdline_history" },
-			{ name = "path" }
 		}),
 		matching = { disallow_symbol_nonprefix_matching = false }
 	})
