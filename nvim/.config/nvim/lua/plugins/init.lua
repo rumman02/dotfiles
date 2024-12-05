@@ -403,6 +403,26 @@ return {
 		end
 	},
 	{
+		"romgrk/barbar.nvim",
+		enabled = true,
+		cond = false,
+		event = {
+			"BufReadPre",
+			"BufNewFile"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		version = "^1.0.0",
+		dependencies = {
+			"lewis6991/gitsigns.nvim",
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			requires("plugins.configs.barbar")
+		end
+	},
+	{
 		"nvim-lualine/lualine.nvim",
 		enabled = true,
 		cond = true,
