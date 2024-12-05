@@ -32,6 +32,7 @@ return {
 		ft = {},
 		keys = {},
 		priority = 500,
+		dependencies = {},
 		config = function()
 		end
 	},
@@ -46,6 +47,7 @@ return {
 		ft = {},
 		keys = {},
 		priority = 500,
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.gruvbox")
 		end
@@ -81,6 +83,7 @@ return {
 		},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.auto_session")
 		end
@@ -141,6 +144,7 @@ return {
 		},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.mason")
 		end
@@ -191,6 +195,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_autopairs")
 		end
@@ -206,6 +211,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_highlight_colors")
 		end
@@ -287,6 +293,7 @@ return {
 		ft = {},
 		keys = {},
 		branch = "v0.6",
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.ultimate_autopair")
 		end
@@ -302,6 +309,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.gitsigns")
 		end
@@ -316,6 +324,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_notify")
 		end
@@ -349,6 +358,7 @@ return {
 		ft = {},
 		keys = {},
 		build = ":TSUpdate",
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_treesitter")
 		end
@@ -364,6 +374,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_treesitter_context")
 		end
@@ -379,6 +390,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function()
 		end
 	},
@@ -467,6 +479,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.comment")
 		end
@@ -482,6 +495,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.flash")
 		end
@@ -498,6 +512,7 @@ return {
 		ft = {},
 		keys = {},
 		main = "ibl",
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.indent_blankline")
 		end
@@ -514,6 +529,7 @@ return {
 		ft = {},
 		keys = {},
 		version = "*",
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_surround")
 		end
@@ -531,6 +547,7 @@ return {
 			"tsx"
 		},
 		keys = {},
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_ts_autotag")
 		end
@@ -543,6 +560,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function()
 		end
 	},
@@ -574,6 +592,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.which_key")
 		end
@@ -589,6 +608,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function ()
 			requires("plugins.configs.bufresize")
 		end
@@ -623,6 +643,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function ()
 			requires("plugins.configs.nvim_ts_context_commentstring")
 		end
@@ -656,6 +677,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		dependencies = {},
 		config = function()
 			requires("plugins.configs.dressing")
 		end
