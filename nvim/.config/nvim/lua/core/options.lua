@@ -35,6 +35,7 @@ local options = {
 	winwidth = 10, -- minimum number of columns for the current window
 	winminwidth = 10, -- minimum width of a window
 	equalalways = false, -- split windows are same size
+	signcolumn = "auto:2-3", -- signs shows column size (minimum - maximum)
 	sessionoptions = {
 		"buffers",
 		"curdir",
