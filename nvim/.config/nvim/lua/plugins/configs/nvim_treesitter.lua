@@ -1,4 +1,6 @@
 local nvim_treesitter = require("nvim-treesitter.configs")
+
+---@diagnostic disable-next-line: missing-fields
 nvim_treesitter.setup({
 	ensure_installed = {
 		"bash",
