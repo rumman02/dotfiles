@@ -122,6 +122,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"debugloop/telescope-undo.nvim",
+			"nvim-telescope/telescope-ui-select.nvim",
 		},
 		config = function()
 			requires("plugins.configs.telescope")
@@ -607,6 +608,20 @@ return {
 		},
 		config = function ()
 			requires("plugins.configs.windows")
+		end
+	},
+	{
+		"stevearc/dressing.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"VeryLazy",
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		config = function()
+			requires("plugins.configs.dressing")
 		end
 	}
 }

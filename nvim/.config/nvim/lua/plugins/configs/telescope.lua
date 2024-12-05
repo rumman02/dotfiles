@@ -1,5 +1,7 @@
 local telescope = require("telescope")
 local actions = require("telescope.actions")
+local themes = require("telescope.themes")
+
 local UI_BORDER_STYLE = {
 	UI_BORDER_STYLE[2],
 	UI_BORDER_STYLE[4],
@@ -87,6 +89,15 @@ telescope.setup({
 				[ "<c-k>" ] = actions.move_selection_previous,
 			}
 		}
+	},
+	extensions = {
+		["ui-select"] = {
+			themes.get_dropdown({})
+		}
 	}
 })
+
+-- load other extensions
+telescope.load_extension("undo")
+telescope.load_extension("ui-select")
 
