@@ -384,23 +384,7 @@ return {
 		enabled = true,
 		cond = true,
 		event = {
-			"BufReadPre",
-			"BufNewFile"
-		},
-		cmd = {},
-		ft = {},
-		keys = {},
-		dependencies = {},
-		config = function()
-		end
-	},
-	{
-		"tiagovla/scope.nvim",
-		enabled = true,
-		cond = true,
-		event = {
-			"BufReadPre",
-			"BufNewFile"
+			"VeryLazy"
 		},
 		cmd = {},
 		ft = {},
