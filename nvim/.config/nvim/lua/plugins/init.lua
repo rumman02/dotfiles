@@ -589,6 +589,25 @@ return {
 		config = function ()
 			requires("plugins.configs.nvim_ts_context_commentstring")
 		end
+	},
+	{
+		"anuvyklack/windows.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"WinEnter",
+			"BufEnter"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		dependencies = {
+      "anuvyklack/middleclass",
+      "anuvyklack/animation.nvim"
+		},
+		config = function ()
+			requires("plugins.configs.windows")
+		end
 	}
 }
 
