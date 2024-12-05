@@ -6,8 +6,10 @@ auto_session.setup({
 	auto_restore = false,
 	suppressed_dirs = {},
 	lazy_support = true,
+	use_git_branch = true,
 	close_unsupported_windows = true,
 	continue_restore_on_error =  true,
+	show_auto_restore_notif = false,
 	session_lens = {
 		load_on_setup = true,
 		previewer = true,
@@ -43,6 +45,12 @@ auto_session.setup({
 			alternate_session = { "n", "s" },
 			copy_session = { "n", "y" },
 		},
+	},
+	pre_save_cmds = {
+		"ScopeSaveState"
+	},
+	post_restore_cmds = {
+		"ScopeLoadState"
 	}
 })
 

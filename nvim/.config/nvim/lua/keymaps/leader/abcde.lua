@@ -12,25 +12,32 @@ local E = "<leader>E"
 
 require("which-key").add({
 	{ b,  group = "Bufferline" },
+
 	{ b .. "p", "<cmd>BufferLinePick<cr>", desc = "Pick" },
 	{ b .. "P", "<cmd>BufferLineTogglePin<cr>", desc = "Toggle Pin" },
+
 	{ b .. "m", group = "Move" },
 	{ b .. "mh", "<cmd>BufferLineMovePrev<cr>", desc = "Right" },
 	{ b .. "ml", "<cmd>BufferLineMoveNext<cr>", desc = "Left" },
+	{ b .. "mt", "<cmd>ScopeMoveBuf %d<cr>", desc = "Tab" },
+
 	{ b .. "x", group = "Close" },
 	{ b .. "xh", "<cmd>BufferLineCloseLeft<cr>", desc = "Left all" },
 	{ b .. "xl", "<cmd>BufferLineCloseRight<cr>", desc = "Right all" },
 	{ b .. "xp", "<cmd>BufferLinePickClose<cr>", desc = "Pick" },
 	{ b .. "xc", "<cmd>bdelete<cr>", desc = "Current" },
 	{ b .. "xo", "<cmd>BufferLineCloseOthers<cr>", desc = "Others" },
+
 	{ b .. "s", group = "Sort" },
 	{ b .. "st", "<cmd>BufferLineSortByTabs<cr>", desc = "Tab" },
 	{ b .. "sd", "<cmd>BufferLineSortByDirectory<cr>", desc = "Directory" },
 	{ b .. "sr", "<cmd>BufferLineSortByRelativeDirectory<cr>", desc = "Relative directory" },
 	{ b .. "se", "<cmd>BufferLineSortByExtension<cr>", desc = "Extension" },
+
 	{ b .. "g", group = "Group" },
 	{ b .. "gt", "<cmd>BufferLineGroupToggle<cr>", desc = "Toggle" },
 	{ b .. "gx", "<cmd>BufferLineGroupClose<cr>", desc = "Close" },
+
 	{ b .. "1", "<cmd>BufferLineGoToBuffer 1<cr>", hidden = true },
 	{ b .. "2", "<cmd>BufferLineGoToBuffer 2<cr>", hidden = true },
 	{ b .. "3", "<cmd>BufferLineGoToBuffer 3<cr>", hidden = true },

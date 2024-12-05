@@ -38,15 +38,15 @@ local options = {
 	signcolumn = "auto:2-3", -- signs shows column size (minimum - maximum)
 	sessionoptions = {
 		"buffers",
+		"tabpages",
+		"globals",
 		"curdir",
 		"folds",
 		"help",
-		"tabpages",
 		"winsize",
 		"winpos",
 		"terminal",
 		"localoptions",
-		"globals",
 		"skiprtp"
 	},
 	fillchars = {
