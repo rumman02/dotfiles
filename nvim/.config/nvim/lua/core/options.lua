@@ -9,7 +9,7 @@ local guicursor = {
 
 local options = {
 	number = true, -- show line number
-	relativenumber = true, -- show relative number
+	relativenumber = false, -- show relative number
 	tabstop = TABSIZE, -- tab size
 	shiftwidth = TABSIZE, -- indent shift size
 	expandtab = false, -- tab as space
@@ -32,6 +32,9 @@ local options = {
 	completeopt = COMPLETEOPT, -- completeion menu behavior
 	laststatus = 0, -- remove last split window status line
 	statusline = "%=", -- removes all components from separator status line
+	winwidth = 10, -- minimum number of columns for the current window
+	winminwidth = 10, -- minimum width of a window
+	equalalways = false, -- split windows are same size
 	sessionoptions = {
 		"buffers",
 		"curdir",
