@@ -8,7 +8,7 @@ local guicursor = {
 }
 
 local options = {
-	number = true, -- show line number
+	number = false, -- show line number
 	relativenumber = false, -- show relative number
 	tabstop = TABSIZE, -- tab size
 	shiftwidth = TABSIZE, -- indent shift size

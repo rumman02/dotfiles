@@ -14,6 +14,9 @@ require("which-key").add({
 	{ O, group  = "Options" },
 	{ O .. "l", group  = "Line" },
 	{ O .. "lw", "<cmd> set wrap! <cr>", desc  = "Wrap" },
+	{ O .. "ln", group  = "Number" },
+	{ O .. "lnn", "<cmd>set number!<cr>", desc  = "Absolute" },
+	{ O .. "lnr", "<cmd>set relativenumber!<cr>", desc  = "Relative" },
 
 	{ O .. "c", group  = "Cursor" },
 	{ O .. "ch", group  = "Highlight" },
