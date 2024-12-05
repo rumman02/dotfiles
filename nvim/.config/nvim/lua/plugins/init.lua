@@ -73,7 +73,7 @@ return {
 		enabled = true,
 		cond = true,
 		event = {
-			"VimLeavePre"
+			"ExitPre"
 		},
 		cmd = {
 			"SessionRestore",
@@ -643,6 +643,6 @@ return {
 		config = function()
 			requires("plugins.configs.dressing")
 		end
-	}
+	},
 }
 
