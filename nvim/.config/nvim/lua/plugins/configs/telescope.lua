@@ -11,13 +11,10 @@ local UI_BORDER_STYLE = {
 	UI_BORDER_STYLE[7]
 }
 
--- load other extensions
-telescope.load_extension("undo")
-
 telescope.setup({
 	defaults = {
 		layout_strategy = TELESCOPE_LAYOUT_STRATEGY,
-		initial_mode = TELESCOPE_INITIAL_MODE,
+		initial_mode = INITIAL_MODE,
 		sorting_strategy = TELESCOPE_SORTING_STRATEGY,
 		layout_config = {
 			horizontal = {
