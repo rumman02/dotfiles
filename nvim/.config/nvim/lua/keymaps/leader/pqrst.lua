@@ -26,12 +26,28 @@ require("which-key").add({
 	{ s .. "w", function() require("flash").jump({ search = { mode = function(pattern) return ([[\<%s\w*\>]]):format(pattern), ([[\<%s]]):format(pattern) end, }, jump = { pos = "range" }, }) end, desc = "Word", mode = { "n", "x", "o" } },
 
 	{ t, group = "Tabs" },
-	{ t .. "o", desc  = "Open" },
-	{ t .. "oo", "<cmd>tabnew<cr>", desc  = "Open" },
-	{ t .. "on", "<cmd>tabnew<cr><bar>:BufferLineTabRename", desc  = "Name" },
-	{ t .. "x", "<cmd>tabclose<cr>", desc  = "Close" },
-	{ t .. "l", "<cmd>tabs<cr>", desc  = "List" },
-	{ t .. "n", ":BufferLineTabRename", desc = "Rename" },
+  { t .. "oo", "<cmd>tabnew<cr>", desc  = "Open" },
+	{ t .. "on", function ()
+		local char = vim.fn.input("Name: ")
+		if char ~= "" then
+			vim.cmd("tabnew")
+			vim.cmd("BufferLineTabRename " .. char)
+		else
+			vim.notify("No name inserted")
+		end
+	end, desc = "Named" },
+
+	{ t .. "r", function ()
+		local char = vim.fn.input("Name: ")
+		if char ~= "" then
+			vim.cmd("BufferLineTabRename " .. char)
+		else
+			vim.notify("No name inserted")
+		end
+	end, desc = "Rename" },
+
+  { t .. "x", "<cmd>tabclose<cr>", desc  = "Close" },
+  { t .. "l", "<cmd>tabs<cr>", desc  = "List" }
 
 })
 
