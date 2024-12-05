@@ -1,7 +1,48 @@
-local keybind_functions = require("keymaps.functions")
+-- ============================================================================
+--[[ custom function for keymaps of q,
+fix q key without breaking q macro recording ]]
+local function handle_q_colon_key()
+
+  --[[ when alreaddy recording, this vim.fn.reg_recording() this function returns
+	recording register (ex: a/b/c..) & when not recording, it returns empty
+	string (ex: '') ]]
+  if vim.fn.reg_recording() == '' then
+
+    --[[ when call that vim.fn.getcharstr() function, after calling this waiting
+		for key press and returns the key ]]
+    local key = vim.fn.getcharstr()
+
+    -- if after pressing q, the key is ":" then leave function
+    if key ~= ':' then
+      --[[ if after pressing q, the key is "keys" then this vim.api.nvim_feedkeys()
+			function will send the given "keys" to nvim, that is q + "keys" with normal
+			mode which is starting recording macros (ex: qa) ]]
+      vim.api.nvim_feedkeys('q' .. key, "n", true)
+
+			-- this is for notify it to, is it recording or not, by vim notify
+			for _, values in ipairs(ALPHA_KEYS) do
+				if key == values then
+					vim.notify("Recording macro to regkey: " .. key)
+				end
+			end
+
+    end
+
+  else
+
+		-- this is for notify to when the current recording is stopped
+		vim.notify("Stopped recording macro to regkey: " .. vim.fn.reg_recording())
+
+    --[[ when already into recording, after pressing q is the given intput key
+		also q, so that nvim can recognize as quit macro ]]
+    vim.api.nvim_feedkeys('q', "n", true)
+  end
+
+end
+-- ============================================================================
+
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
-
 --==================================================--
 --                      cursor                      --
 --==================================================--
@@ -67,7 +108,7 @@ map( "i", "<c-s-j>", "<esc>o", opts )
 --==================================================--
 --                       fix                        --
 --==================================================--
-map("n", "q", function () keybind_functions.handle_q_colon_key() end, opts)
+map("n", "q", handle_q_colon_key, opts)
 map({ "v", "x" }, "p", '"_dP', opts)
 map( "n", "x", '"_x', opts )
 map( "n", "j", "gj", opts )
