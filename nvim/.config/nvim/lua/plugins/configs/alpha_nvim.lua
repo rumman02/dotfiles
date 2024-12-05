@@ -82,12 +82,16 @@ vim.api.nvim_create_autocmd('FileType', {
 		local buf = vim.api.nvim_get_current_buf()
 
 		-- disable these keys in alpha buffer only
-		local keys = {
-			"a", "s", "q", "e", "i", "o", "r", "p", "u", "y", "d", "f", "g", "x",
-			"z", "n", "b", "c", ",", ".", "<", ">", "/", "?", "'", '"', "[", "{",
-			"}", "]", "\\", "|", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")",
-			"~", "`", "``"
-		}
+		local keys = {}
+		for _, key in ipairs(ALPHA_KEYS) do
+			table.insert(keys, key)
+		end
+		for _, key in ipairs(SYMBOL_KEYS) do
+			table.insert(keys, key)
+		end
+		for _, key in ipairs(NUM_KEYS) do
+			table.insert(keys, key)
+		end
 
 		for _, key in ipairs(keys) do
 			vim.keymap.set("n", key, "<Nop>", {
