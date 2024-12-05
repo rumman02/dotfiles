@@ -23,6 +23,7 @@ require("which-key").add({
 	{ f .. "w", "<cmd>Telescope live_grep<cr>", desc = "Words" },
 	{ f .. "n", "<cmd>Telescope noice<cr>", desc = "Noice" },
 	{ f .. "s", "<cmd>Telescope spell_suggest<cr>", desc = "Spell suggest" },
+	{ f .. "b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 
 	{ g, group = "Git" },
 
