@@ -24,7 +24,6 @@ conform.setup({
 		proto = { "buf" },
 		rust = { "rustfmt" },
 		toml = { "taplo" },
-	}
+	},
 })
-
 

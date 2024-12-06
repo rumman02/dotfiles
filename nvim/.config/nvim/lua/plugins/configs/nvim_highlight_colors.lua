@@ -4,5 +4,6 @@ nvim_highlight_colors.setup({
 	render = "background",
 	virtual_symbol = "██",
 	exclude_filetypes = { "notify", "noice" },
-	exclude_buftypes = {}
+	exclude_buftypes = {},
 })
+

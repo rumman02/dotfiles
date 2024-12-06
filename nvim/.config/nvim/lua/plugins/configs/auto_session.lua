@@ -8,7 +8,7 @@ auto_session.setup({
 	lazy_support = true,
 	use_git_branch = true,
 	close_unsupported_windows = true,
-	continue_restore_on_error =  true,
+	continue_restore_on_error = true,
 	show_auto_restore_notif = false,
 	session_lens = {
 		load_on_setup = true,
@@ -22,21 +22,21 @@ auto_session.setup({
 					preview_cutoff = TELESCOPE_UI_PREVIEW_CUTOFF,
 					preview_width = TELESCOPE_UI_PREVIEW_WIDTH,
 					prompt_position = UI_TITLE_POSITION,
-					width = UI_WIDTH
+					width = UI_WIDTH,
 				},
 				vertical = {
 					height = UI_HEIGHT,
 					preview_cutoff = TELESCOPE_UI_PREVIEW_CUTOFF,
 					preview_width = TELESCOPE_UI_PREVIEW_WIDTH,
 					prompt_position = UI_TITLE_POSITION,
-					width = UI_WIDTH
-				}
+					width = UI_WIDTH,
+				},
 			},
 			winblend = UI_WINDOW_BLEND,
 			prompt_prefix = TELESCOPE_PROMPT_PREFIX,
 			selection_caret = TELESCOPE_SELECTION_CARET,
 			border = true,
-			borderchars =  UI_BORDER_STYLE,
+			borderchars = UI_BORDER_STYLE,
 			results_title = TELESCOPE_RESULTS_TITLE,
 			prompt_title = TELESCOPE_PROMPT_TITLE,
 		},
@@ -47,10 +47,10 @@ auto_session.setup({
 		},
 	},
 	pre_save_cmds = {
-		"ScopeSaveState"
+		"ScopeSaveState",
 	},
 	post_restore_cmds = {
-		"ScopeLoadState"
-	}
+		"ScopeLoadState",
+	},
 })
 

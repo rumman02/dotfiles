@@ -11,7 +11,7 @@ local D = "<leader>D"
 local E = "<leader>E"
 
 require("which-key").add({
-	{ b,  group = "Bufferline" },
+	{ b, group = "Bufferline" },
 
 	{ b .. "p", "<cmd>BufferLinePick<cr>", desc = "Pick" },
 	{ b .. "P", "<cmd>BufferLineTogglePin<cr>", desc = "Toggle Pin" },
@@ -49,7 +49,7 @@ require("which-key").add({
 	{ b .. "9", "<cmd>BufferLineGoToBuffer 9<cr>", hidden = true },
 	{ b .. "0", "<cmd>BufferLineGoToBuffer 10<cr>", hidden = true },
 
-	{ e ,  group = "Explorer" },
+	{ e, group = "Explorer" },
 	{ e .. "h", "<cmd>Neotree left<cr>", desc = "Left" },
 	{ e .. "j", "<cmd>Neotree bottom<cr>", desc = "Down" },
 	{ e .. "k", "<cmd>Neotree top<cr>", desc = "Up" },

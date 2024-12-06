@@ -2,8 +2,7 @@ local scope = require("scope")
 
 scope.setup({
 	hooks = {
-		per_tab_enter = function ()
-		end
-	}
+		per_tab_enter = function() end,
+	},
 })
 

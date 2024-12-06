@@ -7,14 +7,14 @@ nvim_notify.setup({
 		ERROR = "",
 		INFO = "",
 		TRACE = "✎",
-		WARN = ""
+		WARN = "",
 	},
 	minimum_width = 10,
 	render = "compact",
 	stages = "slide",
 	time_formats = {
 		notification = "%T",
-		notification_history = "%FT%T"
+		notification_history = "%FT%T",
 	},
 	timeout = 2000,
 	animate = true,

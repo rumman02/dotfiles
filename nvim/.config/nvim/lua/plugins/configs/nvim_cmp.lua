@@ -10,15 +10,15 @@ cmp.setup({
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
-		end
+		end,
 	},
 	view = {
 		docs = {
-			auto_open = false -- disable auto open docs 
+			auto_open = false, -- disable auto open docs
 		},
 		entries = {
-			follow_cursor = true -- cmp window follow the cursor
-		}
+			follow_cursor = true, -- cmp window follow the cursor
+		},
 	},
 
 	-- cmp window & documentation styles
@@ -27,14 +27,14 @@ cmp.setup({
 			border = UI_BORDER_STYLE,
 			winhighlight = "Normal:Normal,FloatBorder:CmpBorder",
 			winblend = UI_WINDOW_BLEND,
-			scrollbar = true
+			scrollbar = true,
 		},
 		documentation = {
 			border = UI_BORDER_STYLE,
 			winhighlight = "Normal:Normal,FloatBorder:CmpDocBorder",
 			winblend = UI_WINDOW_BLEND,
-			scrollbar = true
-		}
+			scrollbar = true,
+		},
 	},
 
 	-- Set completion behavior and options.
@@ -68,20 +68,20 @@ cmp.setup({
 
 		-- c-j for choose below item (select)
 		["<C-j>"] = cmp.mapping({
-			i = function (fallback)
+			i = function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
 				else
 					fallback()
 				end
 			end,
-			c = function (fallback)
+			c = function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item()
 				else
 					fallback()
 				end
-			end
+			end,
 		}),
 
 		-- c-n for choose below item (insert)
@@ -95,20 +95,20 @@ cmp.setup({
 
 		-- c-k for choose above item (select)
 		["<C-k>"] = cmp.mapping({
-			i = function (fallback)
+			i = function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
 				else
 					fallback()
 				end
 			end,
-			c = function (fallback)
+			c = function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item()
 				else
 					fallback()
 				end
-			end
+			end,
 		}),
 
 		-- c-p for choose above item (insert)
@@ -119,7 +119,6 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "c" }),
-
 
 		-- scroll docs up and down (step 4)
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -140,11 +139,11 @@ cmp.setup({
 			end,
 			c = function(fallback)
 				if cmp.visible() then
-					cmp.confirm({ select = true })  -- Confirm selection with Enter key
+					cmp.confirm({ select = true }) -- Confirm selection with Enter key
 				else
 					fallback()
 				end
-			end
+			end,
 		}),
 
 		-- Confirm selection in the completion menu (replace)
@@ -158,11 +157,11 @@ cmp.setup({
 			end,
 			c = function(fallback)
 				if cmp.visible() then
-					cmp.confirm({ select = true })  -- Confirm selection with Enter key
+					cmp.confirm({ select = true }) -- Confirm selection with Enter key
 				else
 					fallback()
 				end
-			end
+			end,
 		}),
 
 		-- handle Tab key for completion or snippet expansion
@@ -181,10 +180,10 @@ cmp.setup({
 		fields = { "abbr", "kind", "menu" }, -- values are : "kind", "abbr", "menu" and this is the format of cmp item showing style,
 		format = function(entry, item)
 			local label = item.abbr
-			local ellipsis_char = '…'
+			local ellipsis_char = "…"
 			local max_label_width = COMPLETEOPT_MAX_WIDTH
 			local min_label_width = COMPLETEOPT_MIN_WIDTH
-			local mode = "symbol_text" -- Values are: "text", "text_symbol", "symbol_text", or "symbol" 
+			local mode = "symbol_text" -- Values are: "text", "text_symbol", "symbol_text", or "symbol"
 			local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
 
 			-- Define the kind icons
@@ -214,7 +213,7 @@ cmp.setup({
 				Event = " ",
 				Operator = "󰆕 ",
 				TypeParameter = "󰊄 ",
-				Misc = " "
+				Misc = " ",
 			}
 
 			-- Define the menu items
@@ -233,7 +232,7 @@ cmp.setup({
 			if truncated_label ~= label then
 				item.abbr = truncated_label .. ellipsis_char
 			elseif string.len(label) < min_label_width then
-				local padding = string.rep(' ', min_label_width - string.len(label))
+				local padding = string.rep(" ", min_label_width - string.len(label))
 				item.abbr = label .. padding
 			end
 
@@ -245,16 +244,16 @@ cmp.setup({
 					item.kind = item.kind
 				end
 			elseif mode == "symbol_text" then
-				item.kind = string.format(' %s %s', kind[item.kind], item.kind)
+				item.kind = string.format(" %s %s", kind[item.kind], item.kind)
 				if color_item.abbr_hl_group then
 					item.kind_hl_group = color_item.abbr_hl_group
-					item.kind = string.format('%s %s', item.kind, color_item.abbr)
+					item.kind = string.format("%s %s", item.kind, color_item.abbr)
 				end
 			elseif mode == "text_symbol" then
-				item.kind = string.format(' %s %s ', item.kind, kind[item.kind])
+				item.kind = string.format(" %s %s ", item.kind, kind[item.kind])
 				if color_item.abbr_hl_group then
 					item.kind_hl_group = color_item.abbr_hl_group
-					item.kind = string.format(' %s %s ', color_item.abbr, item.kind )
+					item.kind = string.format(" %s %s ", color_item.abbr, item.kind)
 				end
 			end
 
@@ -266,13 +265,13 @@ cmp.setup({
 	},
 	experimental = {
 		-- Enable ghost text, which shows a faded preview of the item being completed.
-		ghost_text = true
+		ghost_text = true,
 	},
 	---@diagnostic disable-next-line: undefined-field
 	sources = cmp.config.sources({
 		{ name = "luasnip" },
 		{ name = "nvim_lsp", keyword_length = 2 },
-		{ name = "dictionary", keyword_length = 2},
+		{ name = "dictionary", keyword_length = 2 },
 		{
 			name = "buffer",
 			keyword_length = 2,
@@ -284,12 +283,12 @@ cmp.setup({
 					end
 					return vim.tbl_keys(bufs)
 				end,
-			}
+			},
 		},
 		{ name = "nvim_lua" },
 		{ name = "path" },
 		{ name = "emoji" },
-		{ name = "nerdfont" }
+		{ name = "nerdfont" },
 	}),
 
 	-- Setup for "/", "?" cmdline
@@ -306,8 +305,8 @@ cmp.setup({
 		sources = cmp.config.sources({
 			{ name = "cmdline" },
 		}),
-		matching = { disallow_symbol_nonprefix_matching = false }
-	})
+		matching = { disallow_symbol_nonprefix_matching = false },
+	}),
 })
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 

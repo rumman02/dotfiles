@@ -16,21 +16,29 @@ require("which-key").add({
 	{ S .. "s", "<cmd>SessionSave<cr>", desc = "Save" },
 	{ S .. "S", "<cmd>Telescope session-lens<cr>", desc = "Search" },
 	{ S .. "n", group = "Named" },
-	{ S .. "nr", function ()
-		local char = vim.fn.input("Name: ")
-		if char ~= "" then
-			vim.cmd("SessionRestore " .. char)
-		else
-			vim.notify("No name inserted")
-		end
-	end, desc = "Restore" },
-	{ S .. "ns", function ()
-		local char = vim.fn.input("Name: ")
-		if char ~= "" then
-			vim.cmd("SessionSave " .. char)
-		else
-			vim.notify("No name inserted")
-		end
-	end, desc = "Save" },
+	{
+		S .. "nr",
+		function()
+			local char = vim.fn.input("Name: ")
+			if char ~= "" then
+				vim.cmd("SessionRestore " .. char)
+			else
+				vim.notify("No name inserted")
+			end
+		end,
+		desc = "Restore",
+	},
+	{
+		S .. "ns",
+		function()
+			local char = vim.fn.input("Name: ")
+			if char ~= "" then
+				vim.cmd("SessionSave " .. char)
+			else
+				vim.notify("No name inserted")
+			end
+		end,
+		desc = "Save",
+	},
 })
 

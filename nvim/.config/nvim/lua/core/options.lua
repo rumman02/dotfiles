@@ -47,7 +47,7 @@ local options = {
 		"winpos",
 		"terminal",
 		"localoptions",
-		"skiprtp"
+		"skiprtp",
 	},
 	fillchars = {
 		eob = " ", -- remove "~" from eof
@@ -57,8 +57,8 @@ local options = {
 		foldopen = "",
 		foldclose = "",
 		foldsep = " ",
-		diff = "╱"
-	}
+		diff = "╱",
+	},
 }
 
 -- set all options here

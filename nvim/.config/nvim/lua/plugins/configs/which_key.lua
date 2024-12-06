@@ -13,12 +13,12 @@ which_key.setup({
 	win = {
 		no_overlap = false,
 		border = UI_BORDER_STYLE,
-		title_pos = UI_TITLE_POSITION
+		title_pos = UI_TITLE_POSITION,
 	},
 	replace = {
 		key = {
-			{ "<Space>", "Leader" }
-		}
+			{ "<Space>", "Leader" },
+		},
 	},
 	icons = {
 		breadcrumb = " ",
@@ -26,11 +26,11 @@ which_key.setup({
 		group = "+",
 		rules = false,
 	},
-	disable ={
-		ft = {"alpha"},
+	disable = {
+		ft = { "alpha" },
 	},
 	sort = {
 		"alphanum",
-	}
+	},
 })
 

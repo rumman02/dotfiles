@@ -8,7 +8,8 @@ mason.setup({
 			package_uninstalled = UNLOADED_ICON,
 		},
 		border = UI_BORDER_STYLE,
-		width =  UI_WIDTH,
-		height = UI_HEIGHT
-	}
+		width = UI_WIDTH,
+		height = UI_HEIGHT,
+	},
 })
+

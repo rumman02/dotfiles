@@ -1,8 +1,8 @@
 local which_key = require("which-key")
 
-local telescope_keys = function ()
+local telescope_keys = function()
 	return {
-		{ BUFLEADER, desc = "Telescope"},
+		{ BUFLEADER, desc = "Telescope" },
 		{ BUFLEADER .. "f", desc = "File" },
 		{ BUFLEADER .. "fo", desc = "Open" },
 		{ BUFLEADER .. "foh", desc = "Left" },
@@ -17,11 +17,10 @@ local telescope_keys = function ()
 
 		{ BUFLEADER .. "<tab>", desc = "Select & up" },
 		{ BUFLEADER .. "<s-tab>", desc = "Select & down" },
-		{ BUFLEADER .. "<cr>", desc = "Enter"},
-		{ BUFLEADER .. "<esc>", desc = "Quit"},
+		{ BUFLEADER .. "<cr>", desc = "Enter" },
+		{ BUFLEADER .. "<esc>", desc = "Quit" },
 	}
 end
-
 
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 	callback = function(e)
@@ -30,7 +29,6 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 		if current_filetype == "TelescopePrompt" then
 			which_key.add(telescope_keys())
 		end
-
-	end
+	end,
 })
 

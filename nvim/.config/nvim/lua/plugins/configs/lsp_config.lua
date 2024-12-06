@@ -3,7 +3,7 @@ local servers = {
 	"ts_ls",
 	"html",
 	"cssls",
-	"jsonls"
+	"jsonls",
 }
 
 local default_handlers = {
@@ -19,20 +19,20 @@ local server_settings = {
 		settings = {
 			Lua = {
 				runtime = {
-					version = "LuaJIT"
+					version = "LuaJIT",
 				},
 				diagnostics = {
-					globals = { "vim" }
+					globals = { "vim" },
 				},
 				workspace = {
-					library = vim.api.nvim_get_runtime_file("", true)
+					library = vim.api.nvim_get_runtime_file("", true),
 				},
 				telemetry = {
-					enable = false
-				}
-			}
-		}
-	}
+					enable = false,
+				},
+			},
+		},
+	},
 }
 
 local on_attach = function(client, bufnr)
@@ -41,7 +41,7 @@ local on_attach = function(client, bufnr)
 	-- end
 end
 
-local mason_lspconfig =  require("mason-lspconfig")
+local mason_lspconfig = require("mason-lspconfig")
 local lsp_config = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local capabilities = vim.tbl_deep_extend("force", nvim_capabilities, cmp_nvim_lsp.default_capabilities())
@@ -49,7 +49,7 @@ local capabilities = vim.tbl_deep_extend("force", nvim_capabilities, cmp_nvim_ls
 -- mason lspconfig settings
 mason_lspconfig.setup({
 	ensure_installed = servers,
-	automatic_installation = true
+	automatic_installation = true,
 })
 
 -- lsp servers settings
@@ -65,7 +65,7 @@ mason_lspconfig.setup_handlers({
 			on_attach = on_attach,
 			filetypes = server_configs.filetypes,
 			root_dir = server_configs.root_dir,
-			handlers = vim.tbl_deep_extend("force", default_handlers, server_configs.handlers or {})
+			handlers = vim.tbl_deep_extend("force", default_handlers, server_configs.handlers or {}),
 		})
 	end,
 })

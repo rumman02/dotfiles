@@ -1,15 +1,15 @@
 local indent_blankline = require("ibl")
 
 indent_blankline.setup({
-		indent = {
-			char = "⏐",
+	indent = {
+		char = "⏐",
+	},
+	scope = {
+		show_start = false,
+		show_end = false,
+		include = {
+			node_type = { ["*"] = { "*" } },
 		},
-		scope = {
-			show_start = false,
-			show_end = false,
-			include = {
-				node_type = { ["*"] = { "*" } },
-			}
-		}
+	},
 })
 

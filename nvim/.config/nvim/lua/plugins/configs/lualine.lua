@@ -8,35 +8,35 @@ lualine.setup({
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = {
 			statusline = {
-				"neo-tree"
+				"neo-tree",
 			},
 			winbar = {
-				"neo-tree"
+				"neo-tree",
 			},
 		},
 		ignore_focus = {
 			"neo-tree",
-			"TelescopePrompt"
+			"TelescopePrompt",
 		},
 		always_show_tabline = false,
 		refresh = {
 			tabline = 5,
 			statusline = 5,
-			winbar = 5
+			winbar = 5,
 		},
-		always_divide_middle = true
+		always_divide_middle = true,
 	},
 	sections = {
 		lualine_a = {
-			"mode"
+			"mode",
 		},
 		lualine_b = {
 			"branch",
 			"diff",
-			"diagnostics"
+			"diagnostics",
 		},
 		lualine_c = {
-			"filename"
+			"filename",
 		},
 		lualine_x = {
 			{
@@ -47,51 +47,51 @@ lualine.setup({
 				require("lazy.status").updates,
 				cond = require("lazy.status").has_updates,
 			},
-      {
-        require("noice").api.status.command.get,
-        cond = require("noice").api.status.command.has,
-      },
+			{
+				require("noice").api.status.command.get,
+				cond = require("noice").api.status.command.has,
+			},
 			"fileformat",
 		},
 		lualine_y = {
 			"progress",
-			"showcmd"
+			"showcmd",
 		},
 		lualine_z = {
 			"filetype",
-		}
+		},
 	},
 	-- inactive_sections = {
-		-- 	lualine_a = {},
-		-- 	lualine_b = {},
-		-- 	lualine_c = {'filename'},
-		-- 	lualine_x = {'location'},
-		-- 	lualine_y = {},
-		-- 	lualine_z = {}
-		-- },
-		-- tabline = {
-		--   lualine_a = {'buffers'},
-		--   lualine_b = {'branch'},
-		--   lualine_c = {'filename'},
-		--   lualine_x = {},
-		--   lualine_y = {},
-		--   lualine_z = {'tabs'}
-		-- },
-		-- winbar = {
-		--   lualine_a = {},
-		--   lualine_b = {},
-		--   lualine_c = {'filename'},
-		--   lualine_x = {},
-		--   lualine_y = {},
-		--   lualine_z = {}
-		-- },
-		-- inactive_winbar = {
-		--   lualine_a = {},
-		--   lualine_b = {},
-		--   lualine_c = {'filename'},
-		--   lualine_x = {},
-		--   lualine_y = {},
-		--   lualine_z = {}
-		-- },
+	-- 	lualine_a = {},
+	-- 	lualine_b = {},
+	-- 	lualine_c = {'filename'},
+	-- 	lualine_x = {'location'},
+	-- 	lualine_y = {},
+	-- 	lualine_z = {}
+	-- },
+	-- tabline = {
+	--   lualine_a = {'buffers'},
+	--   lualine_b = {'branch'},
+	--   lualine_c = {'filename'},
+	--   lualine_x = {},
+	--   lualine_y = {},
+	--   lualine_z = {'tabs'}
+	-- },
+	-- winbar = {
+	--   lualine_a = {},
+	--   lualine_b = {},
+	--   lualine_c = {'filename'},
+	--   lualine_x = {},
+	--   lualine_y = {},
+	--   lualine_z = {}
+	-- },
+	-- inactive_winbar = {
+	--   lualine_a = {},
+	--   lualine_b = {},
+	--   lualine_c = {'filename'},
+	--   lualine_x = {},
+	--   lualine_y = {},
+	--   lualine_z = {}
+	-- },
 })
 

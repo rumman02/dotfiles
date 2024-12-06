@@ -1,5 +1,5 @@
-local all_keys = function ()
-	return  {
+local all_keys = function()
+	return {
 		{
 			hidden = true,
 			{ BUFLEADER .. "a" },
@@ -110,7 +110,7 @@ local all_keys = function ()
 			{ BUFLEADER .. "<s-tab>" },
 			{ BUFLEADER .. "<esc>" },
 			{ BUFLEADER .. BUFLEADER },
-		}
+		},
 	}
 end
 
@@ -118,6 +118,6 @@ local which_key = require("which-key")
 vim.api.nvim_create_autocmd({ "BufLeave" }, {
 	callback = function()
 		which_key.add(all_keys())
-	end
+	end,
 })
 

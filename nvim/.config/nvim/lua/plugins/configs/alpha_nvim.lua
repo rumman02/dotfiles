@@ -31,17 +31,21 @@ local function new_button(...)
 end
 
 dashboard.section.buttons.val = {
-	new_button("e", ' '.. "󰙅  Open explorer", "<cmd>Neotree<cr>"),
-	new_button("f", ' '.. "󰱽  Find files", "<cmd>Telescope find_files<cr>"),
-	new_button("w", ' '.. "󱎸  Find words", "<cmd>Telescope live_grep<cr>"),
-	new_button("r", ' '.. "󱈅  Find recents", "<cmd>Telescope oldfiles<cr>"),
-	new_button("S", ' '.. "󱙈  Find sessions", "<cmd>Telescope session-lens<cr>"),
-	new_button("s", ' '.. "  Restore last session", "<cmd>SessionRestore<cr>"),
-	new_button("p", ' '.. "  Plugin manager", "<cmd>Lazy<cr>"),
-	new_button("m", ' '.. "  Server manager", "<cmd>Mason<cr>"),
-	new_button("c", ' '.. "  Configs", "<cmd>e$MYVIMRC<Bar>lua require('neo-tree.command').execute({dir = vim.fn.stdpath('config')})<cr>"),
-	new_button("n", ' '.. "  New file", "<cmd>ene<Bar>startinsert<cr>"),
-	new_button("x", ' '.. "  Close", "<cmd>quit<cr>"),
+	new_button("e", " " .. "󰙅  Open explorer", "<cmd>Neotree<cr>"),
+	new_button("f", " " .. "󰱽  Find files", "<cmd>Telescope find_files<cr>"),
+	new_button("w", " " .. "󱎸  Find words", "<cmd>Telescope live_grep<cr>"),
+	new_button("r", " " .. "󱈅  Find recents", "<cmd>Telescope oldfiles<cr>"),
+	new_button("S", " " .. "󱙈  Find sessions", "<cmd>Telescope session-lens<cr>"),
+	new_button("s", " " .. "  Restore last session", "<cmd>SessionRestore<cr>"),
+	new_button("p", " " .. "  Plugin manager", "<cmd>Lazy<cr>"),
+	new_button("m", " " .. "  Server manager", "<cmd>Mason<cr>"),
+	new_button(
+		"c",
+		" " .. "  Configs",
+		"<cmd>e$MYVIMRC<Bar>lua require('neo-tree.command').execute({dir = vim.fn.stdpath('config')})<cr>"
+	),
+	new_button("n", " " .. "  New file", "<cmd>ene<Bar>startinsert<cr>"),
+	new_button("x", " " .. "  Close", "<cmd>quit<cr>"),
 }
 
 -- set button below space
@@ -49,8 +53,8 @@ table.insert(dashboard.config.layout, 5, { type = "padding", val = 2 })
 
 -- footer
 -- footer set with date, time, lazy plugins count and loaded ms
-vim.api.nvim_create_autocmd('User', {
-	pattern = 'LazyVimStarted',
+vim.api.nvim_create_autocmd("User", {
+	pattern = "LazyVimStarted",
 	callback = function()
 		local stats = lazy.stats()
 		local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
@@ -60,7 +64,7 @@ vim.api.nvim_create_autocmd('User', {
 		local plugin_loaded = "󰄴  " .. plugins_count .. " plugins in " .. ms .. " ms"
 
 		dashboard.section.footer.val = {
-			string.format("%s  %s",   datetime, plugin_loaded),
+			string.format("%s  %s", datetime, plugin_loaded),
 		}
 		-- dashboard.section.footer.opts.hl = "@alpha.footer" -- foother highlight
 		pcall(vim.cmd.AlphaRedraw)
@@ -75,8 +79,8 @@ vim.cmd([[ autocmd FileType alpha setlocal nofoldenable ]])
 alpha.setup(dashboard.opts)
 
 -- disable other keys in only alpha
-vim.api.nvim_create_autocmd('FileType', {
-	pattern = 'alpha',
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "alpha",
 	callback = function()
 		-- get the buffer number for alpha
 		local buf = vim.api.nvim_get_current_buf()
@@ -97,19 +101,18 @@ vim.api.nvim_create_autocmd('FileType', {
 			vim.keymap.set("n", key, "<Nop>", {
 				buffer = buf,
 				noremap = true,
-				silent = true
+				silent = true,
 			})
 		end
-
-	end
+	end,
 })
 
 --[[ fix: after install any plugins, the alpha dashboard will show after quit
 lazy ui]]
-if vim.o.filetype == 'lazy' then
+if vim.o.filetype == "lazy" then
 	vim.cmd.close()
-	vim.api.nvim_create_autocmd('User', {
-		pattern = 'AlphaReady',
+	vim.api.nvim_create_autocmd("User", {
+		pattern = "AlphaReady",
 		callback = function()
 			lazy.show()
 		end,

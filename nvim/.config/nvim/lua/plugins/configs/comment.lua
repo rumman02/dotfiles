@@ -3,15 +3,16 @@ local comment = require("Comment")
 comment.setup({
 	toggler = {
 		line = "gcl",
-		block = "gcb"
+		block = "gcb",
 	},
 	opleader = {
 		line = "gcl",
-		block = "gcb"
+		block = "gcb",
 	},
 	extra = {
 		above = "gcO",
 		below = "gco",
 		eol = "gcA",
-	}
+	},
 })
+

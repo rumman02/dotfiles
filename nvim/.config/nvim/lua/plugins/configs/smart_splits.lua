@@ -2,10 +2,8 @@ local smart_splits = require("smart-splits")
 local bufresize = require("bufresize")
 
 smart_splits.setup({
-	ignored_buftypes = {
-	},
-	ignored_filetypes = {
-	},
+	ignored_buftypes = {},
+	ignored_filetypes = {},
 	default_amout = 1,
 	move_cursor_same_row = false,
 	resize_mode = {
@@ -13,13 +11,12 @@ smart_splits.setup({
 		resize_keys = { "h", "j", "k", "l" },
 		silent = false,
 		hooks = {
-			on_enter = function ()
-			end,
-			on_leave = function ()
+			on_enter = function() end,
+			on_leave = function()
 				bufresize.register()
-			end
+			end,
 		},
-		ignored_events = {}
-	}
+		ignored_events = {},
+	},
 })
 

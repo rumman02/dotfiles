@@ -4,9 +4,14 @@ ultimate_autopair.setup({
 	extensions = {
 		cmdtype = {
 			skip = {
-				"/", "?", "@", "-", ":"
+				"/",
+				"?",
+				"@",
+				"-",
+				":",
 			},
-			p = 100
-		}
-	}
+			p = 100,
+		},
+	},
 })
+

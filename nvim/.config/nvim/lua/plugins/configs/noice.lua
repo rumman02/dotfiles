@@ -11,10 +11,10 @@ noice.setup({
 			lua = { icon = "" },
 			help = { icon = "" },
 			input = { icon = "󰥻" },
-		}
+		},
 	},
 	messages = {
-		view_search = false
+		view_search = false,
 	},
 	format = {
 		level = {
@@ -24,6 +24,6 @@ noice.setup({
 				info = "●",
 			},
 		},
-	}
+	},
 })
 

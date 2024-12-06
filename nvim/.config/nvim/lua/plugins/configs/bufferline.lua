@@ -6,7 +6,7 @@ bufferline.setup({
 		style_preset = {
 			bufferline.style_preset.default,
 			bufferline.style_preset.no_italic,
-			bufferline.style_preset.no_bold
+			bufferline.style_preset.no_bold,
 		},
 		themable = true,
 		indicator = {
@@ -21,7 +21,7 @@ bufferline.setup({
 				text_align = "center",
 				separator = true,
 				highlight = "Directory",
-			}
+			},
 		},
 		color_icons = true,
 		show_buffer_icons = true,
@@ -39,6 +39,6 @@ bufferline.setup({
 		right_mouse_command = "bdelete! %d",
 		left_mouse_command = "buffer %d",
 		middle_mouse_command = nil,
-	}
+	},
 })
 

@@ -11,6 +11,6 @@ local D = "<leader><leader>D"
 local E = "<leader><leader>E"
 
 require("which-key").add({
-	{ "<leader><leader>", group = "Leader_2" }
+	{ "<leader><leader>", group = "Leader_2" },
 })
 

@@ -27,14 +27,13 @@ return {
 		cond = true,
 		event = {},
 		cmd = {
-			"Colorscheme tokyonight"
+			"Colorscheme tokyonight",
 		},
 		ft = {},
 		keys = {},
 		priority = 500,
 		dependencies = {},
-		config = function()
-		end
+		config = function() end,
 	},
 	{
 		"ellisonleao/gruvbox.nvim",
@@ -42,7 +41,7 @@ return {
 		cond = true,
 		event = {},
 		cmd = {
-			"Colorscheme gruvbox"
+			"Colorscheme gruvbox",
 		},
 		ft = {},
 		keys = {},
@@ -50,43 +49,43 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.gruvbox")
-		end
+		end,
 	},
 	{
 		"goolord/alpha-nvim",
 		enabled = true,
 		cond = true,
 		event = {
-			"VimEnter"
+			"VimEnter",
 		},
 		cmd = {},
 		ft = {},
 		keys = {},
 		dependencies = {
 			"echasnovski/mini.icons",
-			"nvim-tree/nvim-web-devicons"
+			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
 			requires("plugins.configs.alpha_nvim")
-		end
+		end,
 	},
 	{
 		"rmagatti/auto-session",
 		enabled = true,
 		cond = true,
 		event = {
-			"VeryLazy"
+			"VeryLazy",
 		},
 		cmd = {
 			"SessionRestore",
-			"SessionSave"
+			"SessionSave",
 		},
 		ft = {},
 		keys = {},
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.auto_session")
-		end
+		end,
 	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -94,7 +93,7 @@ return {
 		cond = true,
 		event = {},
 		cmd = {
-			"Neotree"
+			"Neotree",
 		},
 		ft = {},
 		keys = {},
@@ -107,7 +106,7 @@ return {
 		},
 		config = function()
 			requires("plugins.configs.neo_tree")
-		end
+		end,
 	},
 	{
 		"nvim-telescope/telescope.nvim",
@@ -115,12 +114,12 @@ return {
 		cond = true,
 		event = {},
 		cmd = {
-			"Telescope"
+			"Telescope",
 		},
 		ft = {},
 		keys = {},
-		tag = '0.1.8',
-		branch = '0.1.x',
+		tag = "0.1.8",
+		branch = "0.1.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
@@ -129,7 +128,7 @@ return {
 		},
 		config = function()
 			requires("plugins.configs.telescope")
-		end
+		end,
 	},
 	{
 		"williamboman/mason.nvim",
@@ -137,17 +136,17 @@ return {
 		cond = true,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {
-			"Mason"
+			"Mason",
 		},
 		ft = {},
 		keys = {},
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.mason")
-		end
+		end,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
@@ -155,7 +154,7 @@ return {
 		cond = true,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {},
 		ft = {},
@@ -163,8 +162,7 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 		},
-		config = function()
-		end
+		config = function() end,
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -172,7 +170,7 @@ return {
 		cond = true,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {},
 		ft = {},
@@ -182,7 +180,7 @@ return {
 		},
 		config = function()
 			requires("plugins.configs.lsp_config")
-		end
+		end,
 	},
 	{
 		"windwp/nvim-autopairs",
@@ -190,7 +188,7 @@ return {
 		cond = true,
 		event = {
 			"InsertEnter",
-			"CmdlineEnter"
+			"CmdlineEnter",
 		},
 		cmd = {},
 		ft = {},
@@ -198,7 +196,7 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_autopairs")
-		end
+		end,
 	},
 	{
 		"brenoprata10/nvim-highlight-colors",
@@ -206,7 +204,7 @@ return {
 		cond = true,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {},
 		ft = {},
@@ -214,7 +212,7 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_highlight_colors")
-		end
+		end,
 	},
 	{
 		"L3MON4D3/LuaSnip",
@@ -222,7 +220,7 @@ return {
 		cond = true,
 		event = {
 			"InsertEnter",
-			"CmdlineEnter"
+			"CmdlineEnter",
 		},
 		cmd = {},
 		ft = {},
@@ -232,8 +230,7 @@ return {
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 		},
-		config = function()
-		end
+		config = function() end,
 	},
 	{
 		"saadparwaiz1/cmp_luasnip",
@@ -241,7 +238,7 @@ return {
 		cond = true,
 		event = {
 			"InsertEnter",
-			"CmdlineEnter"
+			"CmdlineEnter",
 		},
 		cmd = {},
 		ft = {},
@@ -249,8 +246,7 @@ return {
 		dependencies = {
 			"L3MON4D3/LuaSnip",
 		},
-		config = function()
-		end
+		config = function() end,
 	},
 	{
 		"hrsh7th/nvim-cmp",
@@ -258,7 +254,7 @@ return {
 		cond = true,
 		event = {
 			"InsertEnter",
-			"CmdlineEnter"
+			"CmdlineEnter",
 		},
 		cmd = {},
 		ft = {},
@@ -279,7 +275,7 @@ return {
 		},
 		config = function()
 			requires("plugins.configs.nvim_cmp")
-		end
+		end,
 	},
 	{
 		"altermo/ultimate-autopair.nvim",
@@ -287,7 +283,7 @@ return {
 		cond = true,
 		event = {
 			"InsertEnter",
-			"CmdlineEnter"
+			"CmdlineEnter",
 		},
 		cmd = {},
 		ft = {},
@@ -296,7 +292,7 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.ultimate_autopair")
-		end
+		end,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
@@ -304,7 +300,7 @@ return {
 		cond = true,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {},
 		ft = {},
@@ -312,14 +308,14 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.gitsigns")
-		end
+		end,
 	},
 	{
 		"rcarriga/nvim-notify",
 		enabled = true,
 		cond = true,
 		event = {
-			"VeryLazy"
+			"VeryLazy",
 		},
 		cmd = {},
 		ft = {},
@@ -327,14 +323,14 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_notify")
-		end
+		end,
 	},
 	{
 		"folke/noice.nvim",
 		enabled = true,
 		cond = true,
 		event = {
-			"VeryLazy"
+			"VeryLazy",
 		},
 		cmd = {},
 		ft = {},
@@ -344,7 +340,7 @@ return {
 		},
 		config = function()
 			requires("plugins.configs.noice")
-		end
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -352,7 +348,7 @@ return {
 		cond = true,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {},
 		ft = {},
@@ -361,7 +357,7 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_treesitter")
-		end
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
@@ -369,7 +365,7 @@ return {
 		cond = true,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {},
 		ft = {},
@@ -377,14 +373,14 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_treesitter_context")
-		end
+		end,
 	},
 	{
 		"tiagovla/scope.nvim",
 		enabled = true,
 		cond = true,
 		event = {
-			"VeryLazy"
+			"VeryLazy",
 		},
 		cmd = {},
 		ft = {},
@@ -392,7 +388,7 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.scope")
-		end
+		end,
 	},
 	{
 		"akinsho/bufferline.nvim",
@@ -400,7 +396,7 @@ return {
 		cond = true,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {},
 		ft = {},
@@ -412,7 +408,7 @@ return {
 		},
 		config = function()
 			requires("plugins.configs.bufferline")
-		end
+		end,
 	},
 	{
 		"romgrk/barbar.nvim",
@@ -420,7 +416,7 @@ return {
 		cond = false,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {},
 		ft = {},
@@ -432,7 +428,7 @@ return {
 		},
 		config = function()
 			requires("plugins.configs.barbar")
-		end
+		end,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
@@ -440,17 +436,17 @@ return {
 		cond = true,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {},
 		ft = {},
 		keys = {},
 		dependencies = {
-			"nvim-tree/nvim-web-devicons"
+			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
 			requires("plugins.configs.lualine")
-		end
+		end,
 	},
 	{
 		"numToStr/Comment.nvim",
@@ -458,7 +454,7 @@ return {
 		cond = true,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {},
 		ft = {},
@@ -466,7 +462,7 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.comment")
-		end
+		end,
 	},
 	{
 		"folke/flash.nvim",
@@ -474,7 +470,7 @@ return {
 		cond = true,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {},
 		ft = {},
@@ -482,7 +478,7 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.flash")
-		end
+		end,
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -490,7 +486,7 @@ return {
 		cond = true,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {},
 		ft = {},
@@ -499,7 +495,7 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.indent_blankline")
-		end
+		end,
 	},
 	{
 		"kylechui/nvim-surround",
@@ -507,7 +503,7 @@ return {
 		cond = true,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {},
 		ft = {},
@@ -516,7 +512,7 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_surround")
-		end
+		end,
 	},
 	{
 		"windwp/nvim-ts-autotag",
@@ -528,13 +524,13 @@ return {
 			"js",
 			"jsx",
 			"ts",
-			"tsx"
+			"tsx",
 		},
 		keys = {},
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_ts_autotag")
-		end
+		end,
 	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
@@ -545,8 +541,7 @@ return {
 		ft = {},
 		keys = {},
 		dependencies = {},
-		config = function()
-		end
+		config = function() end,
 	},
 	{
 		"folke/todo-comments.nvim",
@@ -554,17 +549,17 @@ return {
 		cond = true,
 		event = {
 			"BufReadPre",
-			"BufNewFile"
+			"BufNewFile",
 		},
 		cmd = {},
 		ft = {},
 		keys = {},
 		dependencies = {
-			"nvim-lua/plenary.nvim"
+			"nvim-lua/plenary.nvim",
 		},
 		config = function()
 			requires("plugins.configs.todo_comments")
-		end
+		end,
 	},
 	{
 		"folke/which-key.nvim",
@@ -579,7 +574,7 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.which_key")
-		end
+		end,
 	},
 	{
 		"kwkarlwang/bufresize.nvim",
@@ -587,15 +582,15 @@ return {
 		cond = true,
 		event = {
 			"WinEnter",
-			"BufEnter"
+			"BufEnter",
 		},
 		cmd = {},
 		ft = {},
 		keys = {},
 		dependencies = {},
-		config = function ()
+		config = function()
 			requires("plugins.configs.bufresize")
-		end
+		end,
 	},
 	{
 		"mrjones2014/smart-splits.nvim",
@@ -603,7 +598,7 @@ return {
 		cond = true,
 		event = {
 			"WinEnter",
-			"BufEnter"
+			"BufEnter",
 		},
 		cmd = {},
 		ft = {},
@@ -612,9 +607,9 @@ return {
 		dependencies = {
 			"kwkarlwang/bufresize.nvim",
 		},
-		config = function ()
+		config = function()
 			requires("plugins.configs.smart_splits")
-		end
+		end,
 	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
@@ -622,15 +617,15 @@ return {
 		cond = true,
 		event = {
 			"InsertEnter",
-			"CmdlineEnter"
+			"CmdlineEnter",
 		},
 		cmd = {},
 		ft = {},
 		keys = {},
 		dependencies = {},
-		config = function ()
+		config = function()
 			requires("plugins.configs.nvim_ts_context_commentstring")
-		end
+		end,
 	},
 	{
 		"anuvyklack/windows.nvim",
@@ -638,18 +633,18 @@ return {
 		cond = true,
 		event = {
 			"WinEnter",
-			"BufEnter"
+			"BufEnter",
 		},
 		cmd = {},
 		ft = {},
 		keys = {},
 		dependencies = {
-      "anuvyklack/middleclass",
-      "anuvyklack/animation.nvim"
+			"anuvyklack/middleclass",
+			"anuvyklack/animation.nvim",
 		},
-		config = function ()
+		config = function()
 			requires("plugins.configs.windows")
-		end
+		end,
 	},
 	{
 		"stevearc/dressing.nvim",
@@ -664,7 +659,7 @@ return {
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.dressing")
-		end
+		end,
 	},
 	{
 		"stevearc/conform.nvim",

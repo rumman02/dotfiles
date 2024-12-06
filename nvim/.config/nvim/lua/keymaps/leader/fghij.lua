@@ -11,7 +11,7 @@ local I = "<leader>I"
 local J = "<leader>J"
 
 require("which-key").add({
-	{ f,  desc = "Find" },
+	{ f, desc = "Find" },
 	{ f .. "a", "<cmd>Telescope builtin<cr>", desc = "All" },
 	{ f .. "c", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Current" },
 	{ f .. "C", "<cmd>Telescope commands<cr>", desc = "Commands" },
