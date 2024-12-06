@@ -75,7 +75,7 @@ return {
 		enabled = true,
 		cond = true,
 		event = {
-			"ExitPre"
+			"VeryLazy"
 		},
 		cmd = {
 			"SessionRestore",
