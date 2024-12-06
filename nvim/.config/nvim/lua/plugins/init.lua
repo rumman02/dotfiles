@@ -61,6 +61,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 499,
 		dependencies = {
 			"echasnovski/mini.icons",
 			"nvim-tree/nvim-web-devicons",
@@ -82,6 +83,7 @@ return {
 		},
 		ft = {},
 		keys = {},
+		priority = 498,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.auto_session")
@@ -97,13 +99,14 @@ return {
 		},
 		ft = {},
 		keys = {},
-		branch = "v3.x",
+		priority = 497,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 			"3rd/image.nvim",
 		},
+		branch = "v3.x",
 		config = function()
 			requires("plugins.configs.neo_tree")
 		end,
@@ -118,14 +121,15 @@ return {
 		},
 		ft = {},
 		keys = {},
-		tag = "0.1.8",
-		branch = "0.1.x",
+		priority = 496,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"debugloop/telescope-undo.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
 		},
+		tag = "0.1.8",
+		branch = "0.1.x",
 		config = function()
 			requires("plugins.configs.telescope")
 		end,
@@ -143,6 +147,7 @@ return {
 		},
 		ft = {},
 		keys = {},
+		priority = 495,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.mason")
@@ -159,6 +164,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 494,
 		dependencies = {
 			"williamboman/mason.nvim",
 		},
@@ -175,6 +181,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 		},
@@ -193,6 +200,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_autopairs")
@@ -209,6 +217,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_highlight_colors")
@@ -225,11 +234,12 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		version = "v2.*",
-		-- build = "make install_jsregexp",
+		priority = 1,
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 		},
+		version = "v2.*",
+		build = "make install_jsregexp",
 		config = function() end,
 	},
 	{
@@ -243,6 +253,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {
 			"L3MON4D3/LuaSnip",
 		},
@@ -259,6 +270,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -288,8 +300,9 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		branch = "v0.6",
+		priority = 1,
 		dependencies = {},
+		branch = "v0.6",
 		config = function()
 			requires("plugins.configs.ultimate_autopair")
 		end,
@@ -305,6 +318,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.gitsigns")
@@ -320,6 +334,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_notify")
@@ -335,6 +350,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 		},
@@ -353,8 +369,9 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		build = ":TSUpdate",
+		priority = 1,
 		dependencies = {},
+		build = ":TSUpdate",
 		config = function()
 			requires("plugins.configs.nvim_treesitter")
 		end,
@@ -370,6 +387,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_treesitter_context")
@@ -385,6 +403,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.scope")
@@ -401,11 +420,12 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		version = "*",
+		priority = 1,
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 			"tiagovla/scope.nvim",
 		},
+		version = "*",
 		config = function()
 			requires("plugins.configs.bufferline")
 		end,
@@ -421,11 +441,12 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		version = "^1.0.0",
+		priority = 1,
 		dependencies = {
 			"lewis6991/gitsigns.nvim",
 			"nvim-tree/nvim-web-devicons",
 		},
+		version = "^1.0.0",
 		config = function()
 			requires("plugins.configs.barbar")
 		end,
@@ -441,6 +462,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
@@ -459,6 +481,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.comment")
@@ -475,6 +498,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.flash")
@@ -491,8 +515,9 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		main = "ibl",
+		priority = 1,
 		dependencies = {},
+		main = "ibl",
 		config = function()
 			requires("plugins.configs.indent_blankline")
 		end,
@@ -508,8 +533,9 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		version = "*",
+		priority = 1,
 		dependencies = {},
+		version = "*",
 		config = function()
 			requires("plugins.configs.nvim_surround")
 		end,
@@ -527,6 +553,7 @@ return {
 			"tsx",
 		},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_ts_autotag")
@@ -540,6 +567,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function() end,
 	},
@@ -554,6 +582,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
@@ -571,6 +600,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.which_key")
@@ -587,6 +617,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.bufresize")
@@ -603,10 +634,11 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
-		version = ">=1.0.0",
+		priority = 1,
 		dependencies = {
 			"kwkarlwang/bufresize.nvim",
 		},
+		version = ">=1.0.0",
 		config = function()
 			requires("plugins.configs.smart_splits")
 		end,
@@ -622,6 +654,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.nvim_ts_context_commentstring")
@@ -638,6 +671,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {
 			"anuvyklack/middleclass",
 			"anuvyklack/animation.nvim",
@@ -656,6 +690,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.dressing")
@@ -672,6 +707,7 @@ return {
 		cmd = {},
 		ft = {},
 		keys = {},
+		priority = 1,
 		dependencies = {},
 		config = function()
 			requires("plugins.configs.conform")
