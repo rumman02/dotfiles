@@ -666,5 +666,21 @@ return {
 			requires("plugins.configs.dressing")
 		end
 	},
+	{
+		"stevearc/conform.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"BufReadPre",
+			"BufNewFile",
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		dependencies = {},
+		config = function()
+			requires("plugins.configs.conform")
+		end,
+	},
 }
 

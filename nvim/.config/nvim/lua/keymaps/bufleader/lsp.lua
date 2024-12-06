@@ -32,6 +32,19 @@ local lsp_keys = function ()
 		{ BUFLEADER .. "fd", desc = "Diagnostic" },
 		{ BUFLEADER .. "fda", "<cmd>Telescope diagnostics<cr>", desc = "All" },
 		{ BUFLEADER .. "fdc", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Current" },
+
+		{
+			BUFLEADER .. "z",
+			function()
+				require("conform").format({
+					lsp_fallback = true,
+					async = false,
+					timeout_ms = 500,
+				})
+			end,
+			desc = "Format by conform",
+		},
+		{ BUFLEADER .. "Z", vim.lsp.buf.format, desc = "Format by lsp" },
 	}
 end
 
