@@ -40,6 +40,7 @@
 			"custom/logo",
 			"custom/lock",
 			"custom/quit",
+			"custom/sleep",
 			"custom/reboot",
 			"custom/power"
 		]
@@ -57,6 +58,11 @@
 		"format": " ",
 		"tooltip-format": "Lock",
 		"on-click": "swaylock"
+	},
+	"custom/sleep": {
+		"format": " 󰤄",
+		"tooltip-format": "Sleep",
+		"on-click": "systemctl suspend"
 	},
 	"custom/reboot": {
 		"format": " ",
