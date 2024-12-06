@@ -8,3 +8,21 @@ vim.api.nvim_create_autocmd({ "BufWritePre"  }, {
 	end
 })
 
+-- creates a dynamic cursor column at 80, only when in insert mode
+vim.api.nvim_create_autocmd({ "InsertEnter", "CursorMovedI"  }, {
+	callback = function ()
+		local cursor_col = vim.fn.col(".")
+		if cursor_col >= 70 then
+			vim.opt.colorcolumn = "80"
+		else
+			vim.opt.colorcolumn = ""
+		end
+	end
+})
+
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+	callback = function ()
+		vim.opt.colorcolumn = ""
+	end
+})
+
