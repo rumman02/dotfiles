@@ -50,13 +50,86 @@ require("which-key").add({
 	{ b .. "0", "<cmd>BufferLineGoToBuffer 10<cr>", hidden = true },
 
 	{ e, group = "Explorer" },
-	{ e .. "h", "<cmd>Neotree left<cr>", desc = "Left" },
-	{ e .. "j", "<cmd>Neotree bottom<cr>", desc = "Down" },
+	{ e .. "e", "<cmd>Neotree close<cr><cmd>Neotree focus<cr>", desc = "Focus" },
 	{ e .. "k", "<cmd>Neotree top<cr>", desc = "Up" },
 	{ e .. "l", "<cmd>Neotree right<cr>", desc = "Right" },
+	{ e .. "j", "<cmd>Neotree bottom<cr>", desc = "Down" },
+	{ e .. "h", "<cmd>Neotree left<cr>", desc = "Left" },
 	{ e .. "f", "<cmd>Neotree focus float<cr>", desc = "Float" },
-	{ e .. "c", "<cmd>Neotree reveal<cr>", desc = "Current" },
-	{ e .. "x", "<cmd>Neotree close<cr>", desc = "Close" },
-	{ e .. "e", "<cmd>Neotree close<cr><cmd>Neotree focus<cr>", desc = "Focus" },
+	{
+		e .. "x",
+		function()
+			vim.cmd("Neotree close")
+			vim.cmd("Neotree close filesystem")
+			vim.cmd("Neotree close buffers")
+			vim.cmd("Neotree close git_status")
+		end,
+		desc = "Close",
+	},
+
+	{ e .. "c", group = "Current/Toggle" },
+	{ e .. "cc", "<cmd>Neotree reveal<cr>", desc = "Current only" },
+	{
+		e .. "ca",
+		function()
+			local neo_tree = require("neo-tree")
+			local config = neo_tree.config or {}
+
+			-- Ensure filesystem table exists
+			config.filesystem = config.filesystem or {}
+
+			-- Toggle the setting
+			local current_setting = config.filesystem.follow_current_file
+				and config.filesystem.follow_current_file.enabled
+
+			config.filesystem.follow_current_file = {
+				enabled = not current_setting,
+				leave_dirs_open = false,
+			}
+
+			-- Reapply the updated configuration
+			neo_tree.setup(config)
+
+			-- Notify the user
+			vim.notify(
+				"Neotree: Follow current file: " .. (not current_setting and "Enabled" or "Disabled"),
+				vim.log.levels.INFO
+			)
+			vim.cmd("Neotree close")
+			vim.cmd("Neotree")
+		end,
+		desc = "Toggle always (Leave files closed)",
+	},
+	{
+		e .. "cA",
+		function()
+			local neo_tree = require("neo-tree")
+			local config = neo_tree.config or {}
+
+			-- Ensure filesystem table exists
+			config.filesystem = config.filesystem or {}
+
+			-- Toggle the setting
+			local current_setting = config.filesystem.follow_current_file
+				and config.filesystem.follow_current_file.enabled
+
+			config.filesystem.follow_current_file = {
+				enabled = not current_setting,
+				leave_dirs_open = true,
+			}
+
+			-- Reapply the updated configuration
+			neo_tree.setup(config)
+
+			-- Notify the user
+			vim.notify(
+				"Neotree: Follow current file: " .. (not current_setting and "Enabled" or "Disabled"),
+				vim.log.levels.INFO
+			)
+			vim.cmd("Neotree close")
+			vim.cmd("Neotree")
+		end,
+		desc = "Toggle always (Leave files opened)",
+	},
 })
 
