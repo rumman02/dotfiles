@@ -713,5 +713,22 @@ return {
 			requires("plugins.configs.conform")
 		end,
 	},
+	{
+		"mfussenegger/nvim-lint",
+		enabled = true,
+		cond = true,
+		event = {
+			"BufReadPre",
+			"BufNewFile",
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		priority = 1,
+		dependencies = {},
+		config = function()
+			requires("plugins.configs.nvim_lint")
+		end,
+	}
 }
 

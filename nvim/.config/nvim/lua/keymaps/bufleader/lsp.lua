@@ -42,6 +42,13 @@ local lsp_keys = function()
 		{ BUFLEADER .. "fdc", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Current" },
 
 		{
+			BUFLEADER .. "x",
+			function()
+				require("lint").try_lint()
+			end,
+			desc = "Lint current"
+		},
+		{
 			BUFLEADER .. "z",
 			function()
 				require("conform").format({
