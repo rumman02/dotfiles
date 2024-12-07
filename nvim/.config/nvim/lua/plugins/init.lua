@@ -154,6 +154,25 @@ return {
 		end,
 	},
 	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		enabled = true,
+		cond = true,
+		event = {
+			"BufReadPre",
+			"BufNewFile"
+		},
+		cmd = {},
+		ft = {},
+		keys = {},
+		priority = 495,
+		dependencies = {
+			"williamboman/mason.nvim",
+		},
+		config = function()
+			requires("plugins.configs.mason_tool_installer")
+		end,
+	},
+	{
 		"williamboman/mason-lspconfig.nvim",
 		enabled = true,
 		cond = true,
