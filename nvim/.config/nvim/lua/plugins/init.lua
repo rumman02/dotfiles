@@ -186,7 +186,7 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 		},
 		config = function()
-			requires("plugins.configs.lsp_config")
+			requires("plugins.configs.lsp")
 		end,
 	},
 	{
