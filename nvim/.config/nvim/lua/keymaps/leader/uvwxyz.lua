@@ -51,5 +51,15 @@ require("which-key").add({
 		end,
 		desc = "Resize mode",
 	},
+
+	{ z, group = "Save/Quit" },
+	{ z .. "z", "<cmd>write<cr>", desc = "Save current" },
+	{ z .. "a", "<cmd>wall<cr>", desc = "Save all" },
+
+	{ z .. "q", "<cmd>wq<cr>", desc = "Save & quit" },
+	{ z .. "Q", "<cmd>wq<cr>", desc = "Save all & quit" },
+
+	{ z .. "e", "<cmd>wq<cr>", desc = "Quit" },
+	{ z .. "E", "<cmd>wq<cr>", desc = "Quit all" },
 })
 

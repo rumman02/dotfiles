@@ -57,9 +57,10 @@ local lsp_keys = function()
 					timeout_ms = 500,
 				})
 			end,
+			mode = { "n", "v", "x" },
 			desc = "Format by conform",
 		},
-		{ BUFLEADER .. "Z", vim.lsp.buf.format, desc = "Format by lsp" },
+		{ BUFLEADER .. "Z", vim.lsp.buf.format, mode = { "n", "v", "x" }, desc = "Format by lsp" },
 	}
 end
 
