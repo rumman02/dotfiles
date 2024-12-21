@@ -201,6 +201,12 @@ return {
 		config = load_config("tools.grugfar"),
 		event = { "VeryLazy" },
 	},
+	{
+		"barrett-ruth/live-server.nvim",
+		config = load_config("tools.live-server"),
+		cmd = { "LiveServerStart", "LiveServerStop" },
+		build = "pnpm add -g live-server", -- npm install pnpm
+	},
 
 
 	----- lang -----
