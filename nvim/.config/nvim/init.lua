@@ -1,8 +1,11 @@
-require("globals")
-require("core.globals")
-require("core.options")
-require("lazy.lazy")
-require("keymaps")
-require("core.commands")
-require("autocmds")
+local function requires(packages)
+	require("rumman." .. packages)
+end
+
+requires("config.options")
+requires("config.autocmds")
+requires("lib.keys")
+requires("config.lazy")
+requires("config.keymaps")
+requires("after.config.others")
 
