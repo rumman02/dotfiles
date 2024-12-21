@@ -7,6 +7,7 @@
 -- https://wezfurlong.org/wezterm/config/files.html                                                         
 
 local wezterm = require("wezterm")
+local keys = require("keybinds.keys")
 
 return {
 	--==================================================-- 
@@ -19,16 +20,16 @@ return {
 	---@diagnostic disable-next-line: undefined-field
 	font = wezterm.font_with_fallback {
 		{ family = "JetBrainsMono Nerd Font", weight = "Regular" }, -- set font here, this is set as font rules | Iosevka, Iosevka Extended, Iosevka Nerd Font, JetBrains Mono, JetBrainsMono Nerd Font, ZedMono Nerd Font
-		{ family = "Symbols Nerd Font Mono", scale = 0.9 }
+		{ family = "Symbols Nerd Font Mono", scale = 0.9 },
 	},
-	font_size = 10.5,
+	font_size = 10,
 	bold_brightens_ansi_colors = "BrightAndBold", -- true, No, BrightAndBold, BrightOnly
 	--==================================================-- 
 	--                    adjustment                    -- 
 	--==================================================-- 
 	cell_width = 1.0,
 	line_height = 1.0,
-	underline_thickness = "1px",
+	-- underline_thickness = "1px",
 	--==================================================-- 
 	--                    decoration                    -- 
 	--==================================================-- 
@@ -61,6 +62,7 @@ return {
 	audible_bell = "Disabled",
 	adjust_window_size_when_changing_font_size = false,
 	enable_wayland = false, -- false, this will run wezterm for wayland
+	front_end = "WebGpu",
 	automatically_reload_config = true,
 	window_close_confirmation = "NeverPrompt", -- NeverPrompt, AlwaysPrompt
 	freetype_render_target = "Normal", -- Normal, Light, Mono, HorizontalLcd
@@ -68,10 +70,13 @@ return {
 	warn_about_missing_glyphs = true,
 	enable_scroll_bar = false,
 	max_fps = 120,
+	enable_kitty_keyboard = true,
+	use_resize_increments = true,
 	--==================================================-- 
 	--                   colorscheme                    -- 
 	--==================================================-- 
-	color_scheme = "Gruvbox Dark (Gogh)"
+	color_scheme = "Gruvbox Dark (Gogh)",
+
 	--==================================================-- 
 	--                       keys                       -- 
 	--==================================================-- 

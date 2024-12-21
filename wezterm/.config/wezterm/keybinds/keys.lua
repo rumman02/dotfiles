@@ -191,7 +191,6 @@ return {
 	{ key = '=', mods = 'CTRL|ALT|SHIFT', action = SendString('\x1b[61;8u') },
 	{ key = '`', mods = 'CTRL|ALT|SHIFT', action = SendString('\x1b[96;8u') },
 
-
 	{ key = 'Enter', mods = 'SHIFT', action = SendString('\x1b[13;2u') },
 	{ key = 'Tab', mods = 'SHIFT', action = SendString('\x1b[9;2u') },
 	{ key = 'Backspace', mods = 'SHIFT', action = SendString('\x1b[127;2u') },
