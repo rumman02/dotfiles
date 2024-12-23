@@ -276,6 +276,10 @@ return {
 				dependencies = {
 					"williamboman/mason.nvim"
 				},
+			},
+			{
+				"j-hui/fidget.nvim",
+				config = load_config("lang.fidget"),
 			}
 		},
 	},
