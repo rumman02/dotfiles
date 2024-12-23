@@ -14,8 +14,8 @@ local c2 = ",,"
 local s1 = ";"
 local s2 = ";;"
 
-local il1 = "<c-space>"
-local il2 = "<c-space><c-space>"
+local il1 = "<c-,>"
+local il2 = "<c-,><c-,>"
 
 return {
 	telescope = {
