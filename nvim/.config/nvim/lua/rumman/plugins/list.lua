@@ -202,6 +202,11 @@ return {
 		cmd = { "LiveServerStart", "LiveServerStop" },
 		build = "pnpm add -g live-server", -- npm install pnpm
 	},
+	{
+		"derektata/lorem.nvim",
+		config = load_config("tools.lorem"),
+		cmd = { "LoremIpsum" },
+	},
 
 
 	----- lang -----
