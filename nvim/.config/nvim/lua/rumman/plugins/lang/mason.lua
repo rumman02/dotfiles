@@ -11,6 +11,9 @@ end
 for _, server in ipairs(servers.formatter) do
 	table.insert(all_in_one, server)
 end
+for _, server in ipairs(servers.linter) do
+	table.insert(all_in_one, server)
+end
 
 mason_tool_installer.setup({
 	ensure_installed = all_in_one,

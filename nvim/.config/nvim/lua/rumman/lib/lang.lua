@@ -27,6 +27,12 @@ return {
 			"prettier",
 			"prettierd",
 		},
+		linter = {
+			"eslint_d",
+			"luacheck",
+			"pylint",
+			"shellcheck",
+		},
 	},
 	treesitter = {
 		ensure_installed = {
