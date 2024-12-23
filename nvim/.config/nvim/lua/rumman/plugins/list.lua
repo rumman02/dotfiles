@@ -81,21 +81,9 @@ return {
 			"MunifTanjim/nui.nvim",
 			{
 				"rcarriga/nvim-notify",
+				enabled = false,
 				config = load_config("ui.notify"),
 			},
-		},
-	},
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		config = load_config("ui.indent-blankline"),
-		enabled = false,
-		main = "ibl",
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			{
-				"echasnovski/mini.indentscope",
-				version = "*",
-			}
 		},
 	},
 
@@ -104,7 +92,7 @@ return {
 	{
 		"rmagatti/auto-session",
 		config = load_config("tools.auto-session"),
-		event = { "VeryLazy" },
+		event = { "VimLeavePre" },
 		cmd = { "SessionRestore", "SessionSave" },
 	},
 	{
@@ -197,7 +185,7 @@ return {
 	{
 		"folke/snacks.nvim",
 		config = load_config("tools.snacks"),
-		lazy = false,
+		event = { "VeryLazy" },
 		dependencies = {
 			"echasnovski/mini.icons",
 			"nvim-tree/nvim-web-devicons"
@@ -206,7 +194,7 @@ return {
 	{
 		"MagicDuck/grug-far.nvim",
 		config = load_config("tools.grugfar"),
-		event = { "VeryLazy" },
+		cmd = { "GrugFar" },
 	},
 	{
 		"barrett-ruth/live-server.nvim",
@@ -285,16 +273,6 @@ return {
 				},
 			}
 		},
-	},
-	{
-		"nvimdev/lspsaga.nvim",
-		config = load_config("lang.lspsaga"),
-		enabled = false,
-		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
-		}
 	},
 	-- lsp end
 
@@ -421,7 +399,7 @@ return {
 	{
 		"kevinhwang91/nvim-ufo",
 		config = load_config("lang.ufo"),
-		event = { "VeryLazy" },
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"kevinhwang91/promise-async",
 		},
