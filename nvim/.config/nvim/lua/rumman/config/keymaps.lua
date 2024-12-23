@@ -309,9 +309,8 @@ local function lsp_inside_keys(buf)
 			desc = "Current check",
 		},
 
-		{ formatter_leader, group = "Formatter" },
 		{
-			formatter_leader .. "z",
+			lsp_leader .. "z",
 			function()
 				require("conform").format({
 					lsp_fallback = true,
@@ -322,7 +321,7 @@ local function lsp_inside_keys(buf)
 			mode = { "n", "v", "x" },
 			desc = "Format by conform",
 		},
-		{ formatter_leader .. "Z", vim.lsp.buf.format, mode = { "n", "v", "x" }, desc = "Format by lsp" },
+		{ lsp_leader .. "Z", vim.lsp.buf.format, mode = { "n", "v", "x" }, desc = "Format by lsp" },
 
 		{ trouble_leader, desc = "Trouble" },
 		{ trouble_leader .. "x", "<cmd>Trouble diagnostics toggle<cr>", desc = "Toggle" },
