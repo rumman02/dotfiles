@@ -1,5 +1,6 @@
 -- Setup mason-nvim-lint with automatic installation
 local mason_nvim_lint = require("mason-nvim-lint")
+---@diagnostic disable-next-line: missing-fields
 mason_nvim_lint.setup({
 	automatic_installation = true,
 	handlers = {
