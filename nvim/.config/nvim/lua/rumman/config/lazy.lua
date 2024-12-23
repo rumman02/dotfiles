@@ -38,7 +38,7 @@ func.requires("lazy").setup({
 		version = nil, -- "nil": latest git commit, "*": latest stable version
 	},
 	spec = {
-		{ import = "rumman.plugins.list" },
+		{ import = "rumman.plugins" },
 	},
 	-- lockfile generated after running update.
 	lockfile = vim.fn.stdpath("config") .. "/lua/rumman/plugins/lock.json",

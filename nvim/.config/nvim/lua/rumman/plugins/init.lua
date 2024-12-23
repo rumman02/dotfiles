@@ -81,7 +81,6 @@ return {
 			"MunifTanjim/nui.nvim",
 			{
 				"rcarriga/nvim-notify",
-				enabled = false,
 				config = load_config("ui.notify"),
 			},
 		},
@@ -110,6 +109,10 @@ return {
 				config = load_config("tools.window-picker"),
 				version = "2.*",
 				name = "window-picker",
+			},
+			{
+				"3rd/image.nvim",
+				config = load_config("tools.image");
 			},
 		},
 	},
@@ -207,7 +210,6 @@ return {
 		config = load_config("tools.lorem"),
 		cmd = { "LoremIpsum" },
 	},
-
 
 	----- lang -----
 	{
