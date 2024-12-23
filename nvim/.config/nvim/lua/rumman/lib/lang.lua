@@ -12,6 +12,7 @@ return {
 		lsp = {
 			"lua-language-server",
 			"typescript-language-server",
+			"emmet-language-server",
 			"html-lsp",
 			"css-lsp",
 			"json-lsp",
