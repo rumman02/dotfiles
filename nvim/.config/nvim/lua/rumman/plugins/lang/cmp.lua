@@ -104,6 +104,15 @@ cmp.setup({
 			end,
 		}),
 
+		-- c-space for toggle cmp menu
+		["<c-space>"] = cmp.mapping(function()
+			if cmp.visible() then
+				cmp.close()
+			else
+				cmp.complete()
+			end
+		end, { "i", "c", "s" }),
+
 		-- c-n for choose below item (insert)
 		["<C-n>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
