@@ -8,8 +8,8 @@ lualine.setup({
 		always_show_tabline = false,
 		globalstatus = true,
 		section_separators = {
-			left = icons.ui.ShadeDark .. icons.ui.ShadeMedium .. icons.ui.ShadeLight,
-			right = icons.ui.ShadeLight .. icons.ui.ShadeMedium .. icons.ui.ShadeDark
+			left = utils.ui.spearator.left,
+			right = utils.ui.spearator.right,
 		},
 		component_separators = { left = icons.ui.SeparatorRounded, right = icons.ui.SeparatorRounded },
 		disabled_filetypes = {
@@ -67,7 +67,7 @@ lualine.setup({
 					modified = "",
 					readonly = "",
 					unnamed = "",
-				}
+				},
 			},
 		},
 		lualine_y = {
