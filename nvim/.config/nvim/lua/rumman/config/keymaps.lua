@@ -391,7 +391,7 @@ which_key.add({
 	{ folding_leader, group =  "Fold" },
 	{ folding_leader .. "z", "zi", desc = "Toggle" },
 	{ folding_leader .. "m", "zf", desc = "Make" },
-	{ folding_leader .. "s", require("ufo").peekFoldedLinesUnderCursor, desc = "Show" },
+	{ folding_leader .. "s", function() require("ufo").peekFoldedLinesUnderCursor() end, desc = "Show" },
 
 	{ "[z", "zo", desc = "Open fold" },
 	{ "]z", "zc", desc = "Close fold" },
@@ -402,12 +402,12 @@ which_key.add({
 	loop_keymaps( folding_leader .. "o", true, folding_leader .. "oi", "zo", { desc = "In" }),
 	loop_keymaps( folding_leader .. "o", true, folding_leader .. "oo", "zO", { desc = "Out" }),
 	loop_keymaps( folding_leader .. "o", true, folding_leader .. "oa", function() require("ufo").openAllFolds() end, { desc = "All" }),
-	loop_keymaps( folding_leader .. "o", true, folding_leader .. "ok", require("ufo").openFoldsExceptKinds, { desc = "Except kinds" }),
+	loop_keymaps( folding_leader .. "o", true, folding_leader .. "ok", function () require("ufo").openFoldsExceptKinds() end, { desc = "Except kinds" }),
 
 	loop_keymaps( folding_leader .. "c", true, folding_leader .. "ci", "zc", { desc = "In" }),
 	loop_keymaps( folding_leader .. "c", true, folding_leader .. "co", "zC", { desc = "Out" }),
 	loop_keymaps( folding_leader .. "c", true, folding_leader .. "ca", function() require("ufo").closeAllFolds() end, { desc = "All" }),
-	loop_keymaps( folding_leader .. "c", true, folding_leader .. "cw", require("ufo").closeFoldsWith, { desc = "Folds with" }),
+	loop_keymaps( folding_leader .. "c", true, folding_leader .. "cw", function () require("ufo").closeFoldsWith() end, { desc = "Folds with" }),
 
 	loop_keymaps( folding_leader .. "d", true, folding_leader .. "di", "zd", { desc = "In" }),
 	loop_keymaps( folding_leader .. "d", true, folding_leader .. "do", "zD", { desc = "Out" }),
@@ -444,7 +444,7 @@ which_key.add({
 	{ flash_leader .. "x", "<cmd> nohlsearch <cr>", desc = "Clear search" },
 	{ flash_leader .. "r", ":%s/", desc = "Replace" },
 	{ flash_leader .. "r", ":s/", desc = "Replace", mode = { "v", "x" } },
-	{ flash_leader .. "R", "<cmd>GrugFar<cr>", desc = "Replace in all files", mode = { "n", "v" } },
+	{ flash_leader .. "R", "<cmd>GrugFar<cr>", desc = "Replace in all files", mode = { "n", "v", "x", "s" } },
 	{ flash_leader .. "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Jump", },
 	{ flash_leader .. "t", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Treesitter", },
 	{ flash_leader .. "J", mode = { "o" }, function() require("flash").remote() end, desc = "Remote Flash", },
