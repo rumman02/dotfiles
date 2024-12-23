@@ -1,3 +1,5 @@
+local icons = require("rumman.lib.icons")
+
 return {
 	alphabets = {
 		"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",
@@ -14,8 +16,8 @@ return {
 		scrollbar = true,
 	},
 	indent_size = {
-		editor = 4,
-		explorer = 3,
+		editor = 2,
+		explorer = 2,
 	},
 	initial_mode = "insert",
 	numbers = {
@@ -44,6 +46,10 @@ return {
 		transparent = false,
 		width = 0.7,
 		window_blend = 0,
+		spearator = {
+			left = icons.ui.PowerlineLeftSlanted,
+			right = icons.ui.PowerlineRightSlanted,
+		}
 	},
 }
 
