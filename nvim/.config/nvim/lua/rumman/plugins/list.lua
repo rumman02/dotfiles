@@ -39,6 +39,13 @@ return {
 		lazy = false,
 	},
 	{
+		"nvim-tree/nvim-web-devicons",
+		config = load_config("ui.icons"),
+		dependencies = {
+			"echasnovski/mini.icons",
+		},
+	},
+	{
 		"stevearc/dressing.nvim",
 		config = load_config("ui.dressing"),
 		event = { "VeryLazy" },
