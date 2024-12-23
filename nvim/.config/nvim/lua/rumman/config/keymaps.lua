@@ -623,11 +623,13 @@ which_key.add({
 
 	{ telescope_leader, desc = "Find" },
 	{ telescope_leader .. "a", "<cmd>Telescope builtin<cr>", desc = "All" },
+	{ telescope_leader .. "b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 	{ telescope_leader .. "c", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Current" },
 	{ telescope_leader .. "C", "<cmd>Telescope commands<cr>", desc = "Commands" },
 	{ telescope_leader .. "f", "<cmd>Telescope find_files<cr>", desc = "Files" },
 	{ telescope_leader .. "F", "<cmd>Telescope resume<cr>", desc = "Resume" },
 	{ telescope_leader .. "h", "<cmd>Telescope help_tags<cr>", desc = "Helps" },
+	{ telescope_leader .. "m", "<cmd>Telescope marks<cr>", desc = "Marks" },
 	{ telescope_leader .. "o", "<cmd>Telescope oldfiles<cr>", desc = "Old files" },
 	{ telescope_leader .. "r", "<cmd>Telescope registers<cr>", desc = "Registers" },
 	{ telescope_leader .. "u", "<cmd>Telescope undo<cr>", desc = "Undo" },
