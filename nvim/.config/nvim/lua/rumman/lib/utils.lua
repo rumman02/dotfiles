@@ -43,7 +43,7 @@ return {
 		title_position = "center",
 		transparent = false,
 		width = 0.7,
-		window_blend = 7,
+		window_blend = 0,
 	},
 }
 
