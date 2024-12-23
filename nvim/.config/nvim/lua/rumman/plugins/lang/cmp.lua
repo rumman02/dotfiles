@@ -74,7 +74,7 @@ cmp.setup({
 		end, { "i", "c" }),
 
 		-- c-l for shows available docs
-		["<C-l>"] = cmp.mapping(function(fallback)
+		["<c-l>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				if cmp.visible_docs() then
 					cmp.close_docs()
@@ -87,7 +87,7 @@ cmp.setup({
 		end, { "i", "c" }),
 
 		-- c-j for choose below item (select)
-		["<C-j>"] = cmp.mapping({
+		["<c-j>"] = cmp.mapping({
 			i = function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
@@ -114,7 +114,7 @@ cmp.setup({
 		end, { "i", "c", "s" }),
 
 		-- c-n for choose below item (insert)
-		["<C-n>"] = cmp.mapping(function(fallback)
+		["<c-n>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
 			else
@@ -123,7 +123,7 @@ cmp.setup({
 		end, { "i", "c" }),
 
 		-- c-k for choose above item (select)
-		["<C-k>"] = cmp.mapping({
+		["<c-k>"] = cmp.mapping({
 			i = function(fallback)
 				if cmp.visible() then
 					cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
@@ -141,7 +141,7 @@ cmp.setup({
 		}),
 
 		-- c-p for choose above item (insert)
-		["<C-p>"] = cmp.mapping(function(fallback)
+		["<c-p>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
 			else
@@ -150,15 +150,15 @@ cmp.setup({
 		end, { "i", "c" }),
 
 		-- scroll docs up and down (step 4)
-		["<C-b>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<c-b>"] = cmp.mapping.scroll_docs(-4),
+		["<c-f>"] = cmp.mapping.scroll_docs(4),
 
-		-- scroll docs up and down (step 2)
-		["<C-u>"] = cmp.mapping.scroll_docs(-2),
-		["<C-d>"] = cmp.mapping.scroll_docs(2),
+		-- Scroll docs up and down (step 2)
+		["<c-u>"] = cmp.mapping.scroll_docs(-2),
+		["<c-d>"] = cmp.mapping.scroll_docs(2),
 
-		-- Confirm selection in the completion menu (insert)
-		["<CR>"] = cmp.mapping({
+		-- confirm selection in the completion menu (insert)
+		["<cr>"] = cmp.mapping({
 			i = function(fallback)
 				if cmp.visible() then
 					cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert })
@@ -176,7 +176,7 @@ cmp.setup({
 		}),
 
 		-- Confirm selection in the completion menu (replace)
-		["<S-CR>"] = cmp.mapping({
+		["<s-cr>"] = cmp.mapping({
 			i = function(fallback)
 				if cmp.visible() then
 					cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
@@ -194,7 +194,7 @@ cmp.setup({
 		}),
 
 		-- handle Tab key for completion or snippet expansion
-		["<Tab>"] = cmp.mapping(function(fallback)
+		["<tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.confirm({ select = true }) -- Confirm selection in the completion menu
 			elseif luasnip.expand_or_jumpable() then
