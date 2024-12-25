@@ -65,12 +65,6 @@ return {
 			locals = ll1,
 		},
 	},
-	surround = {
-		leaders = {
-			globals = c1 .. "s",
-			insert = il1 .. "s",
-		},
-	},
 	toggleterm = {
 		leaders = {
 			globals = l1 .. "t",

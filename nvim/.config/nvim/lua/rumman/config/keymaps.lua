@@ -365,26 +365,6 @@ vim.api.nvim_create_autocmd({ "BufDelete" }, {
 	end,
 })
 
----- surround
-local surround_leader = require("rumman.lib.keys").surround.leaders.globals
-local surround_leader_insert = require("rumman.lib.keys").surround.leaders.insert
-which_key.add({
-	{ surround_leader, group = "Surround" },
-	{ surround_leader .. "s", "<Plug>(nvim-surround-normal)", desc = "Normal" },
-	{ surround_leader .. "l", "<Plug>(nvim-surround-normal-cur)", desc = "Current line" },
-	{ surround_leader .. "S", "<Plug>(nvim-surround-normal-line)", desc = "Normal with new line" },
-	{ surround_leader .. "L", "<Plug>(nvim-surround-normal-cur-line)", desc = "Current line with new line" },
-	{ surround_leader .. "c", "<Plug>(nvim-surround-change)", desc = "Change" },
-	{ surround_leader .. "C", "<Plug>(nvim-surround-change-line)", desc = "Change with new line" },
-	{ surround_leader .. "d", "<Plug>(nvim-surround-delete)", desc = "Delete with new line" },
-
-	{ mode = { "v" }, surround_leader .. "s", "<Plug>(nvim-surround-visual)", desc = "Normal" },
-	{ mode = { "v" }, surround_leader .. "L", "<Plug>(nvim-surround-visual-line)", desc = "Normal with new line" },
-	{ mode = { "i" }, surround_leader_insert .. "s", "<Plug>(nvim-surround-insert)", desc = "Normal" },
-	{ mode = { "i" }, surround_leader_insert .. "L", "<Plug>(nvim-surround-insert-line)", desc = "Normal with new line" },
-})
-
-
 ---- fold
 local folding_leader = require("rumman.lib.keys").fold.leaders.globals
 which_key.add({
