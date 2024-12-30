@@ -1,0 +1,48 @@
+# removes default
+## window bar
+window-decoration = false
+## confirm on close
+confirm-close-surface = false
+## all keybinds
+keybind = clear
+## cursor behaviour
+shell-integration-features = no-cursor,no-title
+
+# fonts
+font-size = 10
+
+# window
+window-padding-x = 3
+window-padding-y = 0
+window-padding-balance = true
+window-padding-color = background
+window-vsync = true
+
+# colorscheme
+theme = GruvboxDark
+window-theme = ghostty
+window-colorspace = display-p3
+
+# cursor
+adjust-cursor-thickness = 0
+mouse-hide-while-typing = true
+
+# history
+scrollback-limit = 10000
+
+# quick terminal
+quick-terminal-position = top
+quick-terminal-screen = main
+
+# others
+shell-integration = zsh
+
+# ghostty update
+auto-update = check
+auto-update-channel = stable
+
+# keybind
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+keybind = super=ignore
+
