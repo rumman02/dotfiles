@@ -19,8 +19,10 @@ return {
 	-- <stretch> = Expanded, Normal
 	---@diagnostic disable-next-line: undefined-field
 	font = wezterm.font_with_fallback {
-		{ family = "JetBrains Mono", weight = "Regular" }, -- set font here, this is set as font rules | Iosevka, Iosevka Extended, Iosevka Nerd Font, JetBrains Mono, JetBrainsMono Nerd Font, ZedMono Nerd Font
-		{ family = "Symbols Nerd Font Mono", scale = 0.9 },
+		--[[ set font here, this is set as font rules | Iosevka, Iosevka Extended,
+		Iosevka Nerd Font, JetBrains Mono, JetBrainsMono Nerd Font, ZedMono Nerd Font ]]
+		{ family = "JetBrains Mono", weight = "Regular" },
+		{ family = "Symbols Nerd Font", scale = 0.9 },
 	},
 	font_size = 10,
 	bold_brightens_ansi_colors = "BrightAndBold", -- true, No, BrightAndBold, BrightOnly
