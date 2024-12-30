@@ -6,11 +6,13 @@
 	border: 0;
 }
 
-window {
+window.primary {
 	font-family: "SF Pro Display";
 	font-weight: 500;
 	color: white;
+	background-color: rgba(0, 0, 0, 0.3);
 }
+
 
 .modules-left {
 	margin-left: 15px;
@@ -64,5 +66,16 @@ window {
 tooltip {
 	background-color: rgba(0, 0, 0, 0.7);
 	border-radius: 7px;
+}
+
+window.sub {
+	background-color: rgba(0, 0, 0, 0);
+}
+#submap {
+	color: rgba(251, 241, 199, 1);
+	background-color: rgba(40, 40, 40, 1);
+	padding: 0 30;
+	border-radius: 25;
+	border: 3px solid rgba(251, 241, 199, 1);
 }
 
