@@ -204,6 +204,14 @@ return {
 		cmd = { "LoremIpsum" },
 	},
 	{
+		"m4xshen/hardtime.nvim",
+		config = load_config("tools.hardtime"),
+		event = { "VeryLazy" },
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+	},
+	{
 		"echasnovski/mini.ai",
 		config = load_config("tools.mini"),
 		version = "*",
