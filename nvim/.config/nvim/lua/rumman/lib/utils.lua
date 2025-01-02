@@ -47,8 +47,8 @@ return {
 		width = 0.7,
 		window_blend = 0,
 		spearator = {
-			left = icons.ui.PowerlineLeftSlanted,
-			right = icons.ui.PowerlineRightSlanted,
+			left = icons.ui.ShadeDark .. icons.ui.ShadeMedium .. icons.ui.ShadeLight,
+			right = icons.ui.ShadeLight .. icons.ui.ShadeMedium .. icons.ui.ShadeDark,
 		}
 	},
 }
