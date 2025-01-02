@@ -10,7 +10,7 @@ return {
 		File = " ",
 		FileEmpty = " ",
 		Files = "󱀲 ",
-		Folder = " ",
+		Folder = " ",
 		FolderEmpty = " ",
 		Folders = "󰉓 ",
 		FoldersEmpty = "󰉕 ",
