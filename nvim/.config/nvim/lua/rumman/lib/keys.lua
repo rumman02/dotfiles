@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-local
 -- main leader keys
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -26,7 +27,12 @@ return {
 	},
 	bufferline = {
 		leaders = {
-			globals = l1 .. "b",
+			globals = "<c-t>",
+		},
+	},
+	tab = {
+		leaders = {
+			globals = "<c-s>",
 		},
 	},
 	git = {
@@ -72,7 +78,7 @@ return {
 	},
 	windows = {
 		leaders = {
-			globals = l1 .. "w",
+			globals = "<c-w>",
 		},
 	},
 	session = {
@@ -109,6 +115,16 @@ return {
 	comment = {
 		leaders = {
 			globals = "gc",
+		},
+	},
+	loc_qfix_list_leader = {
+		leaders = {
+			globals = l1 .. "x",
+		},
+	},
+	notification = {
+		leaders = {
+			globals = c1 .. "n",
 		},
 	},
 }
