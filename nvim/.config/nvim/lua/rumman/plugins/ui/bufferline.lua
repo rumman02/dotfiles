@@ -2,6 +2,7 @@ local bufferline = require("bufferline")
 local scope = require("scope")
 local icons = require("rumman.lib.icons")
 
+---@diagnostic disable-next-line: redundant-parameter, invisible
 scope.setup({})
 bufferline.setup({
 	options = {
@@ -55,10 +56,7 @@ bufferline.setup({
 		show_duplicate_prefix = true,
 		persist_buffer_sort = true,
 		move_wraps_at_ends = true,
-		separator_style = {
-			icons.ui.ShadeLight .. icons.ui.ShadeMedium .. icons.ui.ShadeDark,
-			icons.ui.ShadeDark .. icons.ui.ShadeMedium .. icons.ui.ShadeLight,
-		},
+		separator_style = "thick",
 		enforce_regular_tabs = true,
 		always_show_bufferline = true,
 		auto_toggle_bufferline = true,
