@@ -59,7 +59,6 @@ lualine.setup({
 			}
 		},
 		lualine_x = {
-			"searchcount",
 			{
 				require("lazy.status").updates,
 				cond = require("lazy.status").has_updates,
