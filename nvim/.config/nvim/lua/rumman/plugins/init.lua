@@ -46,9 +46,15 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		config = load_config("ui.lualine"),
-		event = { "VeryLazy" },
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
+			{
+				"SmiteshP/nvim-navic",
+				dependencies = {
+					"neovim/nvim-lspconfig"
+				}
+			}
 		},
 	},
 	{
