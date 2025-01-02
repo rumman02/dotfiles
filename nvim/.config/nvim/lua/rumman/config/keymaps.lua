@@ -1,40 +1,45 @@
 -- how windows are place with positions
--- 							topleft
--- 							+---------+
--- 	leftabove				| New     |
--- 	+---------+---------+	+---------+
+-- 							            topleft
+--            							+---------+
+-- 	leftabove	        			| New     |
+-- 	+---------+---------+	  +---------+
 --	| New     | Current | 	| Current |
 -- 	+---------+---------+ 	+---------+
--- 							botright
--- 							+---------+
--- 	rightbelow				| Current |
+-- 							            botright
+--            							+---------+
+-- 	rightbelow       				| Current |
 --  +---------+---------+  	+---------+
 --  | Current | New     |  	| New     |
 --  +---------+---------+  	+---------+
--- 							horizontal
---     						+---------+
--- vertical				    | Window1 |
+-- 							            horizontal
+--              						+---------+
+-- vertical     				    | Window1 |
 -- +---------+---------+    +---------+
 -- | Window1 | Window2 |    | Window2 |
 -- +---------+---------+    +---------+
 
 ------ globals
+local which_key = require("which-key")
 local func = require("rumman.lib.func")
+local loop_keymaps = func.loop_keymaps
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
 -- copy
 map({ "v", "x" }, "<c-y>", '"+ygv <esc>h', opts)
-map("n", "<c-y>", '"+y', opts)
 map({ "v", "x" }, "y", "ygv <esc>h", opts)
 
 -- save/quit
-map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr>", opts)
-map({ "i", "x", "n", "s" }, "<C-q>", "<cmd>quitall<cr>", opts)
+-- map({ "n", "i" }, "<C-s>", "<cmd>silent w<cr>", opts )
+map({ "n", "i" }, "<C-q>", "<cmd>quitall<cr>", opts)
+
+-- undo/redo
+map("n", "u", "<cmd>silent undo<cr>", opts)
+map("n", "<c-r>", "<cmd>silent redo<cr>", opts)
 
 -- incremental/decremenal
-map("n", "+", "<c-a>", opts)
-map("n", "-", "<c-x>", opts)
+map( "", "+", "<c-a>", opts )
+map( "", "-", "<c-x>", opts )
 
 -- indentation
 map({ "v", "x" }, "<", "<gv", opts)
@@ -42,34 +47,41 @@ map({ "v", "x" }, ">", ">gv", opts)
 
 -- buffer/tabs
 if vim.fn.executable("bufferline") ~= 1 then
-	map( "n", "<a-h>", "<cmd>bprevious<cr>" )
-	map( "n", "<a-l>", "<cmd>bnext<cr>" )
+	map( "n", "<c-s-h>", "<cmd>bprevious<cr>" )
+	map( "n", "<c-s-l>", "<cmd>bnext<cr>" )
 	map( "n", "[b", "<cmd>bprevious<cr>", { desc = "Buffer prev" } )
 	map( "n", "]b", "<cmd>bnext<cr>", { desc = "Buffer next" } )
-	map( "n", "<tab>xc", "<cmd>tabclose<cr>", { desc = "Current" } )
-	map( "n", "<tab>xo", "<cmd>tabclose<cr>", { desc = "Others" } )
-	map( "n", "<tab>f", "<cmd>tabclose<cr>", { desc = "First" } )
-	map( "n", "<tab>l", "<cmd>tabclose<cr>", { desc = "Last" } )
-	map( "n", "<tab>L", "<cmd>tabclose<cr>", { desc = "List" } )
 end
-map( "n", "<a-j>", "<cmd>tabnext<cr>" )
-map( "n", "<a-k>", "<cmd>tabprevious<cr>" )
+map( "n", "<c-s-j>", "<cmd>tabnext<cr>" )
+map( "n", "<c-s-k>", "<cmd>tabprevious<cr>" )
 map( "n", "]t", "<cmd>tabnext<cr>", { desc = "Next tab" } )
 map( "n", "[t", "<cmd>tabprevious<cr>", { desc = "Prev tab" } )
 
 -- cursor movement
 map("i", "<c-h>", "<left>", opts)
 map("i", "<c-l>", "<right>", opts)
+
+map({ "n" }, "<c-h>", "<c-w>h")
+map({ "n" }, "<c-j>", "<c-w>j")
+map({ "n" }, "<c-k>", "<c-w>k")
+map({ "n" }, "<c-l>", "<c-w>l")
+map({ "n" }, "<c-p>", "<c-w>p")
+map({ "t" }, "<c-h>", "<c-\\><c-n><c-w>h")
+map({ "t" }, "<c-j>", "<c-\\><c-n><c-w>j")
+map({ "t" }, "<c-k>", "<c-\\><c-n><c-w>k")
+map({ "t" }, "<c-l>", "<c-\\><c-n><c-w>l")
+map({ "t" }, "<c-p>", "<c-\\><c-n><c-w>p")
+
 map("i", "<c-k>", "<up>", opts)
 map("i", "<c-j>", "<down>", opts)
-map("i", "<c-s-k>", "<esc>O", opts)
-map("i", "<c-s-j>", "<esc>o", opts)
+map("i", "<c-s-k>", "<esc>o", opts)
+map("i", "<c-s-j>", "<esc>O", opts)
 
 -- moveline
-map({ "v", "x" }, "<a-k>", ":m '<-2<cr>gv=gv", opts)
-map({ "v", "x" }, "<a-j>", ":m '>+1<cr>gv=gv", opts)
-map({ "v", "x" }, "<a-h>", "<gv", opts)
-map({ "v", "x" }, "<a-l>", ">gv", opts)
+-- map({ "v", "x" }, "<a-k>", ":m '<-2<cr>gv=gv", opts)
+-- map({ "v", "x" }, "<a-j>", ":m '>+1<cr>gv=gv", opts)
+-- map({ "v", "x" }, "<a-h>", "<gv", opts)
+-- map({ "v", "x" }, "<a-l>", ">gv", opts)
 
 -- cmdline
 map("c", "<c-h>", "<cmd>Telescope command_history<cr>", opts)
@@ -90,11 +102,6 @@ map("n", "x", '"_x', opts)
 map("n", "j", "gj", opts)
 map("n", "k", "gk", opts)
 
-
-local which_key = require("which-key")
-local option_leader = require("rumman.lib.keys").options.leaders.globals
-local loop_keymaps = func.loop_keymaps
-
 -- renamed keymaps
 which_key.add({
 	{ "<leader><leader>", desc = "More..." },
@@ -102,6 +109,9 @@ which_key.add({
 })
 
 -- options
+local before_scrolloff = vim.o.scrolloff
+local before_sidescrolloff = vim.o.sidescrolloff
+local option_leader = require("rumman.lib.keys").options.leaders.globals
 which_key.add({
 	{ option_leader, group = "Options" },
 	{ option_leader .. "c", group = "Cursor" },
@@ -118,16 +128,14 @@ which_key.add({
 	loop_keymaps( option_leader .. "ch", true,  option_leader .. "chc", "<cmd>set cursorcolumn! <cr>", { desc = "Column" }),
 
 	loop_keymaps( option_leader .. "cs", true, option_leader .. "csx", function()
-		local before_scrolloff = vim.o.scrolloff
 		if vim.o.scrolloff == 999 then
 			vim.o.scrolloff = before_scrolloff
 		else
 			vim.o.scrolloff = 999
 		end
 	end, { desc = "Middle line", }),
-	loop_keymaps( option_leader .. "cs", true, option_leader .. "csy", function()
-		local before_sidescrolloff = vim.o.sidescrolloff
-
+	loop_keymaps(option_leader .. "cs", true, option_leader .. "csy",
+	function()
 		if vim.o.sidescrolloff == 999 then
 			vim.o.sidescrolloff = before_sidescrolloff
 		else
@@ -136,7 +144,6 @@ which_key.add({
 	end, { desc = "Middle Column", }),
 })
 
-
 ------ plugins
 ---- dap
 -- normal keymaps
@@ -144,33 +151,33 @@ local dap_leader = require("rumman.lib.keys").dap.leaders.globals
 which_key.add({
 	{ dap_leader, group = "Debug" },
 
-    { dap_leader .. "b", function() require("dap").toggle_breakpoint() end, desc = "Breakpoint" },
-    { dap_leader .. "B", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint with condition" },
+	{ dap_leader .. "b", function() require("dap").toggle_breakpoint() end, desc = "Breakpoint" },
+	{ dap_leader .. "B", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint with condition" },
 
 	{ dap_leader .. "r", function() require("dap").continue() end, desc = "Run" },
 	---@diagnostic disable-next-line: undefined-global
-    { dap_leader .. "a", function() require("dap").continue({ before = get_args }) end, desc = "Run With args" },
-    { dap_leader .. "c", function() require("dap").run_to_cursor() end, desc = "Run to cursor" },
-    { dap_leader .. "l", function() require("dap").run_last() end, desc = "Run last" },
+	{ dap_leader .. "a", function() require("dap").continue({ before = get_args }) end, desc = "Run With args" },
+	{ dap_leader .. "c", function() require("dap").run_to_cursor() end, desc = "Run to cursor" },
+	{ dap_leader .. "l", function() require("dap").run_last() end, desc = "Run last" },
 
 	loop_keymaps( dap_leader, true, dap_leader .. "o", function() require("dap").step_out() end, { desc = "Step out" }),
 	loop_keymaps( dap_leader, true, dap_leader .. "v", function() require("dap").step_over() end,{ desc = "Step over" }),
 	loop_keymaps( dap_leader, true, dap_leader .. "i", function() require("dap").step_into() end, { desc = "Step into" }),
 
-    { dap_leader .. "g", function() require("dap").goto_() end, desc = "Go to Line (No Execute)" },
-    loop_keymaps( dap_leader, true, dap_leader .. "j", function() require("dap").down() end, { desc = "Go down" }),
-    loop_keymaps( dap_leader, true, dap_leader .. "k", function() require("dap").up() end, { desc = "Go up" }),
+	{ dap_leader .. "g", function() require("dap").goto_() end, desc = "Go to Line (No Execute)" },
+	loop_keymaps( dap_leader, true, dap_leader .. "j", function() require("dap").down() end, { desc = "Go down" }),
+	loop_keymaps( dap_leader, true, dap_leader .. "k", function() require("dap").up() end, { desc = "Go up" }),
 
 
-    { dap_leader .. "u", function() require("dapui").toggle({}) end, desc = "Toggle dapui" },
-    { mode = {"n", "v"}, dap_leader .. "e", function() require("dapui").eval() end, desc = "Eval dapui" },
+	{ dap_leader .. "u", function() require("dapui").toggle({}) end, desc = "Toggle dapui" },
+	{ mode = {"n", "v"}, dap_leader .. "e", function() require("dapui").eval() end, desc = "Eval dapui" },
 
-    { dap_leader .. "p", function() require("dap").pause() end, desc = "Pause" },
-    { dap_leader .. "R", function() require("dap").repl.toggle() end, desc = "Toggle REPL" },
-    { dap_leader .. "s", function() require("dap").session() end, desc = "Session" },
-    { dap_leader .. "w", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
+	{ dap_leader .. "p", function() require("dap").pause() end, desc = "Pause" },
+	{ dap_leader .. "R", function() require("dap").repl.toggle() end, desc = "Toggle REPL" },
+	{ dap_leader .. "s", function() require("dap").session() end, desc = "Session" },
+	{ dap_leader .. "w", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
 
-    { dap_leader .. "t", function() require("dap").terminate() end, desc = "Terminate" },
+	{ dap_leader .. "t", function() require("dap").terminate() end, desc = "Terminate" },
 
 	{ dap_leader .. "L", group = "For lua" },
 	{ dap_leader .. "Lp", function () require("osv").launch({port = 8086}) end, desc = "Launch port" },
@@ -314,7 +321,7 @@ local function lsp_inside_keys(buf)
 			function()
 				require("conform").format({
 					lsp_fallback = true,
-					async = false,
+					async = true,
 					timeout_ms = 500,
 				})
 			end,
@@ -413,10 +420,10 @@ which_key.add({
 ---- flash
 local flash_leader = require("rumman.lib.keys").flash.leaders.globals
 which_key.add({
-	{ mode = { "n", "x", "o" }, "f", function() require("flash").jump({ search = { forward = true, wrap = false, multi_window = true } }) end },
-	{ mode = { "n", "x", "o" }, "F", function() require("flash").jump({ search = { forward = false, wrap = false, multi_window = true } }) end },
-	{ mode = { "n", "x", "o" }, "t", function() require("flash").jump({ search = { forward = true, wrap = false, multi_window = true }, jump = { offset = -1 } }) end },
-	{ mode = { "n", "x", "o" }, "T", function() require("flash").jump({ search = { forward = false, wrap = false, multi_window = true }, jump = { offset = 1 } }) end },
+	-- { mode = { "n", "x", "o" }, "f", function() require("flash").jump({ search = { forward = true, wrap = false, multi_window = true } }) end },
+	-- { mode = { "n", "x", "o" }, "F", function() require("flash").jump({ search = { forward = false, wrap = false, multi_window = true } }) end },
+	-- { mode = { "n", "x", "o" }, "t", function() require("flash").jump({ search = { forward = true, wrap = false, multi_window = true }, jump = { offset = -1 } }) end },
+	-- { mode = { "n", "x", "o" }, "T", function() require("flash").jump({ search = { forward = false, wrap = false, multi_window = true }, jump = { offset = 1 } }) end },
 	{ mode = "c", "<c-s>", function() require("flash").toggle() end },
 
 	{ flash_leader, group = "Search" },
@@ -464,6 +471,8 @@ which_key.add({
 	{ git_leader .. "ab", "<cmd>Gitsigns stage_buffer<cr>", desc = "Buffer" },
 	{ git_leader .. "dw", "<cmd>Gitsigns toggle_word_diff<cr>", desc = "Word" },
 
+	{ "]g", "<cmd>Gitsigns next_hunk<cr>", desc = "Next git_hunk" },
+	{ "[g", "<cmd>Gitsigns prev_hunk<cr>", desc = "Prev git_hunk" },
 	loop_keymaps( git_leader, true, git_leader .. "n", "<cmd>Gitsigns next_hunk<cr>", { desc = "Next" }),
 	loop_keymaps( git_leader, true, git_leader .. "p", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Previous" }),
 
@@ -588,6 +597,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 
 ---- spider
 which_key.add({
+	cond = false,
 	{ mode = { "n", "o", "x" }, "w", function() require('spider').motion('w') end, desc = "Spider-w" },
 	{ mode = { "n", "o", "x" }, "e", function() require('spider').motion('e') end, desc = "Spider-e" },
 	{ mode = { "n", "o", "x" }, "b", function() require('spider').motion('b') end, desc = "Spider-b" },
@@ -600,6 +610,8 @@ local telescope_leader = require("rumman.lib.keys").telescope.leaders.globals
 local telescope_local_leader = require("rumman.lib.keys").telescope.leaders.locals
 which_key.add({
 	{ mode = { "c" }, "<c-h>", "<cmd>Telescope command_history<cr>", desc = "Command history" },
+
+	-- TODO: .dot hiddent files isn't catch in telescope
 
 	{ telescope_leader, desc = "Find" },
 	{ telescope_leader .. "a", "<cmd>Telescope builtin<cr>", desc = "All" },
@@ -614,7 +626,6 @@ which_key.add({
 	{ telescope_leader .. "r", "<cmd>Telescope registers<cr>", desc = "Registers" },
 	{ telescope_leader .. "u", "<cmd>Telescope undo<cr>", desc = "Undo" },
 	{ telescope_leader .. "w", "<cmd>Telescope live_grep<cr>", desc = "Words" },
-	{ telescope_leader .. "n", "<cmd>Telescope noice<cr>", desc = "Noice" },
 	{ telescope_leader .. "s", "<cmd>Telescope spell_suggest<cr>", desc = "Spell suggest" },
 	{ telescope_leader .. "l", "<cmd>Telescope loclist<cr>", desc = "Loclist" },
 	{ telescope_leader .. "q", "<cmd>Telescope quickfix<cr>", desc = "Quickfix" },
@@ -658,68 +669,46 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 
 ---- toggleterm
 local toggleterm_leader = require("rumman.lib.keys").toggleterm.leaders.globals
-vim.keymap.set("n", "<c-\\>", '<cmd>exe v:count1 . "ToggleTerm"<cr>', {desc = "counted toggleterm"})
+
 which_key.add({
-	{ toggleterm_leader, group = "Terminal" },
+	-- TODO: add terminal float window
+	{ toggleterm_leader, group = "Toggleterm/Tmux)" },
+	{ mode = { "n", "t" }, toggleterm_leader .. "t", function() func.toggle_toggleterm_tmux() end, desc = "Toggle"  },
+
 	{ toggleterm_leader .. "o", group = "Open" },
-	{ toggleterm_leader .. "on", group = "Named" },
+	loop_keymaps( toggleterm_leader .. "o", true, toggleterm_leader .. "oh", function() func.toggleterm_tmux("h", 0) end, { desc = "Left" }),
+	loop_keymaps( toggleterm_leader .. "o", true, toggleterm_leader .. "oj", function() func.toggleterm_tmux("j", 0) end, { desc = "Down" }),
+	loop_keymaps( toggleterm_leader .. "o", true, toggleterm_leader .. "ok", function() func.toggleterm_tmux("k", 0) end, { desc = "Up" }),
+	loop_keymaps( toggleterm_leader .. "o", true, toggleterm_leader .. "ol", function() func.toggleterm_tmux("l", 0) end, { desc = "Right" }),
+
 	{ toggleterm_leader .. "oc", group = "Counted" },
-	{ toggleterm_leader .. "t", "<cmd>ToggleTerm<cr><c-w>=", desc = "Toggle" },
+	{ toggleterm_leader .. "och", function() func.toggleterm_tmux("h", 1) end, desc = "Left" },
+	{ toggleterm_leader .. "ocj", function() func.toggleterm_tmux("j", 1) end, desc = "Down" },
+	{ toggleterm_leader .. "ock", function() func.toggleterm_tmux("k", 1) end, desc = "Up" },
+	{ toggleterm_leader .. "ocl", function() func.toggleterm_tmux("l", 1) end, desc = "Right" },
 
-
-	loop_keymaps( toggleterm_leader .. "o", true, toggleterm_leader .. "oj", "<cmd>ToggleTerm direction=horizontal<cr><cmd>wincmd J<cr>", { desc = "Down" }),
-	loop_keymaps( toggleterm_leader .. "o", true, toggleterm_leader .. "ol", "<cmd>ToggleTerm direction=vertical<cr><cmd>wincmd L<cr>", { desc = "Right" }),
-	loop_keymaps( toggleterm_leader .. "o", true, toggleterm_leader .. "of", "<cmd>ToggleTerm direction=float<cr>", { desc = "Float" }),
-	loop_keymaps( toggleterm_leader .. "o", true, toggleterm_leader .. "ot", "<cmd>ToggleTerm direction=tab<cr>", { desc = "As tab" }),
-
-	{ toggleterm_leader .. "ocl", function()
-		local count = tonumber(vim.fn.input("Count: ")) or 1
-		for i = 1, count do
-			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(tostring(i) .. "<cmd>exe v:count1 . 'ToggleTerm direction=vertical'<cr><c-w>=", true, false, true), "n", false)
-		end
-	end, desc = "Left" },
-	{ toggleterm_leader .. "ocj", function()
-		local count = tonumber(vim.fn.input("Count: ")) or 1
-		for i = 1, count do
-			vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(tostring(i) .. "<cmd>exe v:count1 . 'ToggleTerm direction=horizontal'<cr><c-w>=", true, false, true), "n", false)
-		end
-	end, desc = "Down" },
-
-	loop_keymaps( toggleterm_leader .. "on", true, toggleterm_leader .. "onj", function ()
-		local char = vim.fn.input("Name: ")
-		if char ~= "" then
-			vim.cmd("ToggleTerm direction=horizontal name=" .. char)
-			vim.cmd("wincmd J")
-		else
-			vim.notify("No name inserted")
-		end
-	end, { desc = "Down" }),
-	loop_keymaps( toggleterm_leader .. "on", true, toggleterm_leader .. "onl", function ()
-		local char = vim.fn.input("Name: ")
-		if char ~= "" then
-			vim.cmd("ToggleTerm direction=vertical name=" .. char)
-			vim.cmd("wincmd L")
-		else
-			vim.notify("No name inserted")
-		end
-	end, { desc = "Right" }),
-	loop_keymaps( toggleterm_leader .. "on", true, toggleterm_leader .. "onf", function ()
-		local char = vim.fn.input("Name: ")
-		if char ~= "" then
-			vim.cmd("ToggleTerm direction=float name=" .. char)
-		else
-			vim.notify("No name inserted")
-		end
-	end, { desc = "Float" }),
-	loop_keymaps( toggleterm_leader .. "on", true, toggleterm_leader .. "ont", function ()
-		local char = vim.fn.input("Name: ")
-		if char ~= "" then
-			vim.cmd("ToggleTerm direction=tab name=" .. char)
-		else
-			vim.notify("No name inserted")
-		end
-	end, { desc = "Tab" }),
+	{ toggleterm_leader .. "x", group = "Close" },
 })
+
+local function toggleterm_close()
+	local result = vim.fn.system("tmux info")
+	if vim.v.shell_error == 0 then
+		which_key.add({
+			loop_keymaps( toggleterm_leader .. "x", false, toggleterm_leader .. "xh", function() func.toggleterm_tmux_close("h") end, { desc = "Left" }),
+			loop_keymaps( toggleterm_leader .. "x", false, toggleterm_leader .. "xj", function() func.toggleterm_tmux_close("j") end, { desc = "Up" }),
+			loop_keymaps( toggleterm_leader .. "x", false, toggleterm_leader .. "xk", function() func.toggleterm_tmux_close("k") end, { desc = "Down" }),
+			loop_keymaps( toggleterm_leader .. "x", false, toggleterm_leader .. "xl", function() func.toggleterm_tmux_close("l") end, { desc = "Right" }),
+		})
+	else
+		which_key.add({
+			loop_keymaps( toggleterm_leader .. "x", false, toggleterm_leader .. "xh", "<c-w>h<c-w>nc<c-w>p", { desc = "Left" }),
+			loop_keymaps( toggleterm_leader .. "x", false, toggleterm_leader .. "xj", "<c-w>j<c-w>c<c-w>p", { desc = "Up" }),
+			loop_keymaps( toggleterm_leader .. "x", false, toggleterm_leader .. "xk", "<c-w>k<c-w>c<c-w>p", { desc = "Down" }),
+			loop_keymaps( toggleterm_leader .. "x", false, toggleterm_leader .. "xl", "<c-w>l<c-w>c<c-w>p", { desc = "Right" }),
+		})
+	end
+end
+toggleterm_close()
 
 ---- undotree
 local undotree_leader = require("rumman.lib.keys").undotree.leaders.globals
@@ -797,21 +786,44 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 
 ---- windows
 local windows_leader = require("rumman.lib.keys").windows.leaders.globals
+-- remove some keymaps
 which_key.add({
-	{ mode = { "n", "t" }, "<c-h>", function() require("smart-splits").move_cursor_left() end },
-	{ mode = { "n", "t" }, "<c-j>", function() require("smart-splits").move_cursor_down() end },
-	{ mode = { "n", "t" }, "<c-k>", function() require("smart-splits").move_cursor_up() end },
-	{ mode = { "n", "t" }, "<c-l>", function() require("smart-splits").move_cursor_right() end },
-	{ mode = { "n", "t" }, "<c-p>", function() require("smart-splits").move_cursor_previous() end },
+	hidden = true,
+	{ "<c-w>d" },
+	{ "<c-w>h" },
+	{ "<c-w>j" },
+	{ "<c-w>k" },
+	{ "<c-w>l" },
+	{ "<c-w>q" },
+	{ "<c-w>v" },
+	{ "<c-w>w" },
+	{ "<c-w>T" },
+	{ "<c-w>=" },
+	{ "<c-w>+" },
+	{ "<c-w>-" },
+	{ "<c-w><" },
+	{ "<c-w>>" },
+	{ "<c-w>_" },
+	{ "<c-w>|" },
+	{ "<c-w><c-d>" },
+})
+
+which_key.add({
 
 	{ windows_leader, group = "Window" },
+
+	loop_keymaps( windows_leader, true, windows_leader .. "<c-h>", "<c-w>h", { desc = "Left" }),
+	loop_keymaps( windows_leader, true, windows_leader .. "<c-j>", "<c-w>j", { desc = "Down" }),
+	loop_keymaps( windows_leader, true, windows_leader .. "<c-k>", "<c-w>k", { desc = "Up" }),
+	loop_keymaps( windows_leader, true, windows_leader .. "<c-l>", "<c-w>l", { desc = "Right" }),
+	loop_keymaps( windows_leader, true, windows_leader .. "<c-p>", "<c-w>p", { desc = "Previous" }),
+	loop_keymaps( windows_leader, true, windows_leader .. "t", "<c-w>T", { desc = "Break into tab" }),
 
 	{ windows_leader .. "o", group = "Open" },
 	loop_keymaps( windows_leader .. "o", true, windows_leader .. "oj", "<cmd>set nosplitbelow<bar>split<cr>", { desc = "Down" }),
 	loop_keymaps( windows_leader .. "o", true, windows_leader .. "ok", "<cmd>set splitbelow<bar>split<cr>", { desc = "Up" }),
 	loop_keymaps( windows_leader .. "o", true, windows_leader .. "oh", "<cmd>set splitbelow<bar>vsplit<cr>", { desc = "Left" } ),
 	loop_keymaps( windows_leader .. "o", true, windows_leader .. "ol", "<cmd>set nosplitbelow<bar>vsplit<cr>", { desc = "Right" }),
-	loop_keymaps( windows_leader .. "o", true, windows_leader .. "ot", "<c-w>T", { desc = "As tab" }),
 
 	loop_keymaps( windows_leader .. "o", true, windows_leader .. "o<c-h>", function() require("smart-splits").move_cursor_left() end, { desc = "Go Left" }),
 	loop_keymaps( windows_leader .. "o", true, windows_leader .. "o<c-j>", function() require("smart-splits").move_cursor_down() end, { desc = "Go Down" }),
@@ -821,11 +833,18 @@ which_key.add({
 
 	{ windows_leader .. "x", group = "Close" },
 	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xc", "<c-w>c", { desc = "Current" } ),
-	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xh", "<c-w>h<c-w>c", { desc = "Left", nowait = true  }),
-	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xj", "<c-w>j<c-w>c", { desc = "Down", nowait = true }),
-	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xk", "<c-w>k<c-w>c", { desc = "Up", nowait = true  }),
-	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xl", "<c-w>l<c-w>c", { desc = "Right", nowait = true  }),
+	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xh", "<c-w>h<c-w>c<c-w>p", { desc = "Left" }),
+	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xj", "<c-w>j<c-w>c<c-w>p", { desc = "Down" }),
+	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xk", "<c-w>k<c-w>c<c-w>p", { desc = "Up" }),
+	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xl", "<c-w>l<c-w>c<c-w>p", { desc = "Right" }),
 	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xo", "<c-w>o", { desc = "Others" }),
+
+	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xC", "<cmd>bd<cr>", { desc = "Current (With buffer)" } ),
+	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xH", "<c-w>h<cmd>bd<cr><c-w>p", { desc = "Left (With buffer)" }),
+	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xJ", "<c-w>j<cmd>bd<cr><c-w>p", { desc = "Down (With buffer)" }),
+	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xK", "<c-w>k<cmd>bd<cr><c-w>p", { desc = "Up (With buffer)" }),
+	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xL", "<c-w>l<cmd>bd<cr><c-w>p", { desc = "Right (With buffer)" }),
+	loop_keymaps( windows_leader .. "x", true, windows_leader .. "xO", "<cmd>BufferLineCloseOthers<cr>", { desc = "Others (With buffer)" }),
 
 	loop_keymaps( windows_leader .. "x", true, windows_leader .. "x<c-h>", function() require("smart-splits").move_cursor_left() end, { desc = "Go Left" } ),
 	loop_keymaps( windows_leader .. "x", true, windows_leader .. "x<c-j>", function() require("smart-splits").move_cursor_down() end, { desc = "Go Down" }),
@@ -859,7 +878,7 @@ which_key.add({
 	loop_keymaps( windows_leader .. "s", true, windows_leader .. "s<c-l>", function() require("smart-splits").move_cursor_right() end, { desc = "Go Right" }),
 	loop_keymaps( windows_leader .. "s", true, windows_leader .. "s<c-p>", function() require("smart-splits").move_cursor_previous() end, { desc = "Go Right" }),
 
-	loop_keymaps( windows_leader, true, windows_leader .. "t", "<cmd>WindowsToggleAutowidth<cr>", { desc = "Toggle auto expand" }),
+	loop_keymaps( windows_leader, true, windows_leader .. "a", "<cmd>WindowsToggleAutowidth<cr>", { desc = "Toggle auto expand" }),
 
 	{ windows_leader .. "r", group = "Resize" },
 	loop_keymaps( windows_leader .. "r", true, windows_leader .. "re", "<cmd>WindowsEqualize<cr>", { desc = "Equal" }),
@@ -883,15 +902,19 @@ which_key.add({
 -- normal keymaps
 local bufferline_leader = require("rumman.lib.keys").bufferline.leaders.globals
 which_key.add({
-	{ "<a-h>", "<cmd>BufferLineCyclePrev<cr>" },
-	{ "<a-l>", "<cmd>BufferLineCycleNext<cr>" },
+	{ "<c-s-h>", "<cmd>BufferLineCyclePrev<cr>" },
+	{ "<c-s-l>", "<cmd>BufferLineCycleNext<cr>" },
 
 	{ "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
 	{ "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer"},
 
+	{ bufferline_leader .. "o", group = "Open" },
+	loop_keymaps(bufferline_leader, true, bufferline_leader .. "ol", "<cmd>enew<cr>", { desc = "Right" }),
+	loop_keymaps(bufferline_leader, true, bufferline_leader .. "oh", "<cmd>enew<cr><cmd>BufferLineMovePrev<cr>", { desc = "Left" }),
+
 	{ bufferline_leader, group = "Bufferline" },
-	loop_keymaps(bufferline_leader, true, bufferline_leader .. "<a-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Go previous" }),
-	loop_keymaps(bufferline_leader, true, bufferline_leader .. "<a-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Go next" }),
+	loop_keymaps(bufferline_leader, true, bufferline_leader .. "<c-s-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Go previous" }),
+	loop_keymaps(bufferline_leader, true, bufferline_leader .. "<c-s-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Go next" }),
 	loop_keymaps(bufferline_leader, true, bufferline_leader .. "1", "<cmd>BufferLineGoToBuffer 1<cr>", { desc = "Buffer 1" }),
 	loop_keymaps(bufferline_leader, true, bufferline_leader .. "2", "<cmd>BufferLineGoToBuffer 2<cr>", { desc = "Buffer 2" }),
 	loop_keymaps(bufferline_leader, true, bufferline_leader .. "3", "<cmd>BufferLineGoToBuffer 3<cr>", { desc = "Buffer 3" }),
@@ -903,32 +926,46 @@ which_key.add({
 	loop_keymaps(bufferline_leader, true, bufferline_leader .. "9", "<cmd>BufferLineGoToBuffer 9<cr>", { desc = "Buffer 9" }),
 	loop_keymaps(bufferline_leader, true, bufferline_leader .. "P", "<cmd>BufferLineTogglePin<cr>", { desc = "Toggle pin" }),
 
-	{ bufferline_leader .. "m", group = "Move" },
-	loop_keymaps(bufferline_leader .. "m", true, bufferline_leader .. "m<a-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Go previous" }),
-	loop_keymaps(bufferline_leader .. "m", true, bufferline_leader .. "m<a-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Go next" }),
-	loop_keymaps(bufferline_leader .. "m", true, bufferline_leader .. "mh", "<cmd>BufferLineMovePrev<cr>", { desc = "Previous" }),
-	loop_keymaps(bufferline_leader .. "m", true, bufferline_leader .. "ml", "<cmd>BufferLineMoveNext<cr>", { desc = "Next" }),
-	loop_keymaps(bufferline_leader .. "m", true, bufferline_leader .. "mt", "<cmd>ScopeMoveBuf<cr>", { desc = "To tab" }),
+	{ bufferline_leader .. "s", group = "Swap" },
+	loop_keymaps(bufferline_leader .. "s", true, bufferline_leader .. "s<c-s-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Go previous" }),
+	loop_keymaps(bufferline_leader .. "s", true, bufferline_leader .. "s<c-s-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Go next" }),
+	loop_keymaps(bufferline_leader .. "s", true, bufferline_leader .. "sh", "<cmd>BufferLineMovePrev<cr>", { desc = "Previous" }),
+	loop_keymaps(bufferline_leader .. "s", true, bufferline_leader .. "sl", "<cmd>BufferLineMoveNext<cr>", { desc = "Next" }),
+	loop_keymaps(bufferline_leader, true, bufferline_leader .. "t", "<cmd>ScopeMoveBuf<cr>", { desc = "To tab" }),
 
 	{ bufferline_leader .. "p", group = "Pick" },
 	loop_keymaps(bufferline_leader .. "p", false, bufferline_leader .. "po", function() vim.cmd("BufferLinePick") end, { desc = "Open" }),
 	loop_keymaps(bufferline_leader .. "p", false, bufferline_leader .. "px", function() vim.cmd("BufferLinePickClose") end, { desc = "Close" }),
 
-	{ bufferline_leader .. "s", group = "Sort" },
-	loop_keymaps(bufferline_leader .. "s", true, bufferline_leader .. "st", "<cmd>BufferLineSortByTabs<cr>", { desc = "By tab" }),
-	loop_keymaps(bufferline_leader .. "s", true, bufferline_leader .. "sd", "<cmd>BufferLineSortByDirectory<cr>", { desc = "By directory" }),
-	loop_keymaps(bufferline_leader .. "s", true, bufferline_leader .. "se", "<cmd>BufferLineSortByExtension<cr>", { desc = "By extension" }),
-	loop_keymaps(bufferline_leader .. "s", true, bufferline_leader .. "sr", "<cmd>BufferLineSortByRelativeDirectory<cr>", { desc = "By relative directory" }),
+	{ bufferline_leader .. "S", group = "Sort" },
+	loop_keymaps(bufferline_leader .. "S", true, bufferline_leader .. "St", "<cmd>BufferLineSortByTabs<cr>", { desc = "By tab" }),
+	loop_keymaps(bufferline_leader .. "S", true, bufferline_leader .. "Sd", "<cmd>BufferLineSortByDirectory<cr>", { desc = "By directory" }),
+	loop_keymaps(bufferline_leader .. "S", true, bufferline_leader .. "Se", "<cmd>BufferLineSortByExtension<cr>", { desc = "By extension" }),
+	loop_keymaps(bufferline_leader .. "S", true, bufferline_leader .. "Sr", "<cmd>BufferLineSortByRelativeDirectory<cr>", { desc = "By relative directory" }),
 
 	{ bufferline_leader .. "g", group = "Group" },
 	loop_keymaps(bufferline_leader .. "g", true, bufferline_leader .. "gt", "<cmd>BufferLineGroupToggle<cr>", { desc = "Toggle" }),
 	loop_keymaps(bufferline_leader .. "g", true, bufferline_leader .. "gd", "<cmd>BufferLineGroupClose<cr>", { desc = "Close" }),
 
-	{ bufferline_leader .. "t", group = "Tabs" },
-	loop_keymaps( bufferline_leader .. "t", true, bufferline_leader .. "t<a-j>", "<cmd>tabnext<cr>", { desc = "Go previous" } ),
-	loop_keymaps( bufferline_leader .. "t", true, bufferline_leader .. "t<a-k>", "<cmd>tabprevious<cr>", { desc = "Go next" }),
-	loop_keymaps( bufferline_leader .. "t", true, bufferline_leader .. "to", "<cmd>tabnew<cr>", { desc = "Open" } ),
-	loop_keymaps( bufferline_leader .. "t", true, bufferline_leader .. "tn", function()
+	{ bufferline_leader .. "x", group = "Close" },
+	loop_keymaps(bufferline_leader .. "x", true, bufferline_leader .. "x<c-s-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Go previous" }),
+	loop_keymaps(bufferline_leader .. "x", true, bufferline_leader .. "x<c-s-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Go next" }),
+	loop_keymaps(bufferline_leader .. "x", true, bufferline_leader .. "xc", function () Snacks.bufdelete() end, { desc = "Current" }),
+	loop_keymaps(bufferline_leader .. "x", true, bufferline_leader .. "xh", function () vim.cmd("bprevious") Snacks.bufdelete() end, { desc = "Left" }),
+	loop_keymaps(bufferline_leader .. "x", true, bufferline_leader .. "xl", function () vim.cmd("bnext") Snacks.bufdelete() end, { desc = "Right" }),
+	loop_keymaps(bufferline_leader .. "x", true, bufferline_leader .. "xH", "<cmd>BufferLineCloseLeft<cr>", { desc = "All left" }),
+	loop_keymaps(bufferline_leader .. "x", true, bufferline_leader .. "xL", "<cmd>BufferLineCloseRight<cr>", { desc = "All right" }),
+	loop_keymaps(bufferline_leader .. "x", true, bufferline_leader .. "xo", "<cmd>BufferLineCloseOthers<cr>", { desc = "Others" }),
+	{ bufferline_leader .. "xa", "<cmd>BufferLineCloseOthers<cr><cmd>bdelete<cr>", desc = "All" },
+})
+
+local tab_leader = require("rumman.lib.keys").tab.leaders.globals
+which_key.add({
+	{ tab_leader, group = "Tabs" },
+	loop_keymaps( tab_leader, true, tab_leader .. "<c-s-k>", "<cmd>tabnext<cr>", { desc = "Prev" } ),
+	loop_keymaps( tab_leader, true, tab_leader .. "<c-s-j>", "<cmd>tabprevious<cr>", { desc = "Next" }),
+	loop_keymaps( tab_leader, true, tab_leader .. "o", "<cmd>tabnew<cr>", { desc = "Open" } ),
+	loop_keymaps( tab_leader, true, tab_leader .. "n", function()
 		local char = vim.fn.input("Name: ")
 		if char ~= "" then
 			vim.cmd("tabnew")
@@ -938,7 +975,7 @@ which_key.add({
 		end
 	end, { desc = "Open named" }),
 
-	{ bufferline_leader .. "tr", function()
+	{ tab_leader .. "r", function()
 		local char = vim.fn.input("Name: ")
 		if char ~= "" then
 			vim.cmd("BufferLineTabRename " .. char)
@@ -946,36 +983,38 @@ which_key.add({
 			vim.notify("No name inserted")
 		end
 	end, desc = "Rename" },
-	loop_keymaps( bufferline_leader .. "t", true, bufferline_leader .. "tf", "<cmd>tabfirst<cr>", { desc = "First" }),
-	loop_keymaps( bufferline_leader .. "t", true, bufferline_leader .. "tl", "<cmd>tabfirst<cr>", { desc = "Last" }),
-	{ bufferline_leader .. "tL", "<cmd>tabs<cr>", desc = "List" },
+	loop_keymaps( tab_leader, true, tab_leader .. "f", "<cmd>tabfirst<cr>", { desc = "First" }),
+	loop_keymaps( tab_leader, true, tab_leader .. "l", "<cmd>tablast<cr>", { desc = "Last" }),
+	{ tab_leader .. "L", "<cmd>tabs<cr>", desc = "List" },
 
-	{ bufferline_leader .. "tx", group = "Close" },
-	loop_keymaps( bufferline_leader .. "t", true, bufferline_leader .. "txc", "<cmd>tabclose<cr>", { desc = "Current" }),
-	loop_keymaps( bufferline_leader .. "t", true, bufferline_leader .. "txo", "<cmd>tabonly<cr>", { desc = "Others" }),
-	{ bufferline_leader .. "x", group = "Close" },
-	loop_keymaps(bufferline_leader .. "x", true, bufferline_leader .. "x<a-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Go previous" }),
-	loop_keymaps(bufferline_leader .. "x", true, bufferline_leader .. "x<a-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Go next" }),
-	loop_keymaps(bufferline_leader .. "x", true, bufferline_leader .. "xc", "<cmd>bdelete<cr>", { desc = "Current" }),
-	loop_keymaps(bufferline_leader .. "x", true, bufferline_leader .. "xh", "<cmd>BufferLineCloseLeft<cr>", { desc = "All left" }),
-	loop_keymaps(bufferline_leader .. "x", true, bufferline_leader .. "xl", "<cmd>BufferLineCloseRight<cr>", { desc = "All right" }),
-	loop_keymaps(bufferline_leader .. "x", true, bufferline_leader .. "xo", "<cmd>BufferLineCloseOthers<cr>", { desc = "Others" }),
-
+	loop_keymaps( tab_leader, true, tab_leader .. "x", "<cmd>tabclose<cr>", { desc = "Current" }),
+	loop_keymaps( tab_leader, true, tab_leader .. "X", "<cmd>tabonly<cr>", { desc = "Others" }),
 })
 
 -- location / quickfix list
+local loc_qfix_list_leader = require("rumman.lib.keys").loc_qfix_list_leader.leaders.globals
 which_key.add({
-	{ "<leader>x", group = "Loc/Quick list" },
+	{ loc_qfix_list_leader, group = "Loc/Quick list" },
 
 	{ "[q", "<cmd>cprevious<cr>", desc = "Prev quickfix" },
 	{ "]q", "<cmd>cnext<cr>", desc = "Next quickfix" },
 
-	{ "<leader>xl", group = "Location list" },
-	{ "<leader>xlo", "<cmd>lopen<cr>", desc = "Open" },
-	{ "<leader>xlc", "<cmd>lclose<cr>", desc = "Locaticon List" },
+	{ loc_qfix_list_leader .. "l", group = "Location list" },
+	{ loc_qfix_list_leader .. "lo", "<cmd>lopen<cr>", desc = "Open" },
+	{ loc_qfix_list_leader .. "lc", "<cmd>lclose<cr>", desc = "Locaticon List" },
 
-	{ "<leader>xq", group = "Quickfix list" },
-	{ "<leader>xqo", "<cmd>copen<cr>", desc = "Open" },
-	{ "<leader>xqc", "<cmd>cclose<cr>", desc = "Quickfix List" },
+	{ loc_qfix_list_leader .. "q", group = "Quickfix list" },
+	{ loc_qfix_list_leader .. "qo", "<cmd>copen<cr>", desc = "Open" },
+	{ loc_qfix_list_leader .. "qc", "<cmd>cclose<cr>", desc = "Quickfix List" },
+})
+
+-- notifcations
+local notification_leader = require("rumman.lib.keys").notification.leaders.globals
+which_key.add({
+	---@diagnostic disable-next-line: undefined-global
+	{ notification_leader .. "h", function() Snacks.notifier.show_history() end, desc = "History (Snacks)" },
+	---@diagnostic disable-next-line: undefined-global
+	{ notification_leader .. "d", function() Snacks.notifier.hide() end, desc = "Dismiss all" },
+	{ notification_leader .. "f", "<cmd>Telescope noice<cr>", desc = "Find (Noice)" },
 })
 
