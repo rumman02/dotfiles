@@ -420,10 +420,10 @@ which_key.add({
 ---- flash
 local flash_leader = require("rumman.lib.keys").flash.leaders.globals
 which_key.add({
-	-- { mode = { "n", "x", "o" }, "f", function() require("flash").jump({ search = { forward = true, wrap = false, multi_window = true } }) end },
-	-- { mode = { "n", "x", "o" }, "F", function() require("flash").jump({ search = { forward = false, wrap = false, multi_window = true } }) end },
-	-- { mode = { "n", "x", "o" }, "t", function() require("flash").jump({ search = { forward = true, wrap = false, multi_window = true }, jump = { offset = -1 } }) end },
-	-- { mode = { "n", "x", "o" }, "T", function() require("flash").jump({ search = { forward = false, wrap = false, multi_window = true }, jump = { offset = 1 } }) end },
+	{ mode = { "n", "x", "o" }, "f", function() require("flash").jump({ search = { forward = true, wrap = false, multi_window = true } }) end },
+	{ mode = { "n", "x", "o" }, "F", function() require("flash").jump({ search = { forward = false, wrap = false, multi_window = true } }) end },
+	{ mode = { "n", "x", "o" }, "t", function() require("flash").jump({ search = { forward = true, wrap = false, multi_window = true }, jump = { offset = -1 } }) end },
+	{ mode = { "n", "x", "o" }, "T", function() require("flash").jump({ search = { forward = false, wrap = false, multi_window = true }, jump = { offset = 1 } }) end },
 	{ mode = "c", "<c-s>", function() require("flash").toggle() end },
 
 	{ flash_leader, group = "Search" },
