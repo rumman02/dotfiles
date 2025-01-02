@@ -66,7 +66,7 @@ return {
 		"akinsho/bufferline.nvim",
 		config = load_config("ui.bufferline"),
 		version = "*",
-		event = { "BufReadPre" },
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 			"tiagovla/scope.nvim",
