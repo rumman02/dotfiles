@@ -8,7 +8,7 @@ local nvim_version = " " .. version.major .. "." .. version.minor .. "." .. v
 
 -- header
 -- set header top space
-dashboard.opts.layout[1].val = 12
+dashboard.opts.layout[1].val = 10
 
 -- set header logo
 dashboard.section.header.val = {
