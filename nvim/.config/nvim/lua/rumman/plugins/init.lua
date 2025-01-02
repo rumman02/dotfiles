@@ -80,6 +80,7 @@ return {
 			"MunifTanjim/nui.nvim",
 			{
 				"rcarriga/nvim-notify",
+				enabled = false,
 				config = load_config("ui.notify"),
 			},
 		},
