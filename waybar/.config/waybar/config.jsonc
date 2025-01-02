@@ -93,7 +93,7 @@
 		// https://github.com/Alexays/Waybar/wiki/Module:-Hyprland#window
 		"hyprland/window": {
 			"format": "{title}",
-			"max-length": 100,
+			"max-length": 50,
 			"icon": true,
 			"icon-size": 18
 		},
