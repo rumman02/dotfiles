@@ -6,7 +6,7 @@ local utils = require("rumman.lib.utils")
 local neotree_local_leader = require("rumman.lib.keys").neotree.leaders.locals
 
 neo_tree.setup({
-	close_if_last_window = true,
+	close_if_last_window = false,
 	popup_border_style = {
 		icons.ui.BorderTopLeft,
 		icons.ui.BorderTop,
@@ -18,7 +18,7 @@ neo_tree.setup({
 		icons.ui.BorderLeft,
 	},
 	source_selector = {
-		winbar = false,
+		winbar = true,
 		sources = {
 			{
 				source = "filesystem",
@@ -76,7 +76,7 @@ neo_tree.setup({
 		},
 	},
 	window = {
-		position = "right",
+		position = "left",
 		-- width = 40,
 		mappings = {
 			-- for easy access common keys
@@ -89,8 +89,8 @@ neo_tree.setup({
 			["x"] = "cut_to_clipboard",
 			["p"] = "paste_from_clipboard",
 			["i"] = "show_file_details",
-			["<a-l>"] = "next_source",
-			["<a-h>"] = "prev_source",
+			["<c-s-l>"] = "next_source",
+			["<c-s-h>"] = "prev_source",
 
 			-- disable some keymaps
 			["c"] = "none",
@@ -120,7 +120,7 @@ neo_tree.setup({
 			["]g"] = "none",
 			["q"] = "none",
 			["#"] = "none",
-			["."] = "none",
+			-- ["."] = "none",
 			["?"] = "none",
 			["<bs>"] = "none",
 			["<space>"] = "none",
@@ -165,9 +165,9 @@ neo_tree.setup({
 	},
 	filesystem = {
 		filtered_items = {
-			hide_dotfiles = false,
-			hide_gitignored = false,
-			hide_hidden = false,
+			hide_dotfiles = true,
+			hide_gitignored = true,
+			hide_hidden = true,
 		},
 		hijack_netrw_behavior = "open_default",
 		use_libuv_file_watcher = true,
