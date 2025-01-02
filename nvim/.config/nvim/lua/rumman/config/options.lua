@@ -7,6 +7,7 @@ local options = {
 	breakindent = true, -- breaked line also indented
 	cmdheight = 1, --[[ more heigth enables displaying messages in cmdline into
 	file who have nothing ]]
+	colorcolumn = "80",
 	completeopt = utils.completeopt.behavior, --[[ menu, menuone (single options
 	also shows as completion menu), noinsert (selects the first option by default) ]]
 	conceallevel = 0, -- text is shown normally, even shows `` this also in .md file
@@ -39,12 +40,12 @@ local options = {
 	inccommand = "split", -- open split window while while search and replace
 	laststatus = 0, -- windows will have a status line always and only last window
 	linebreak = true, -- line break with full word
-	mouse = 'a', -- allow the mouse to be used in neovim
+	mouse = "a", -- allow the mouse to be used in neovim
 	number = true, -- set numbered lines
 	numberwidth = 4, -- set number column width to 2 {default 4}
 	pumblend = utils.ui.window_blend, -- popup blend
 	pumheight = utils.completeopt.max_height, -- pop up menu height
-	relativenumber = false, -- set relative numbered lines
+	relativenumber = true, -- set relative numbered lines
 	scrolloff = 0, -- starts scrolling buffer before n number of rows
 	sessionoptions = {
 		"buffers",
@@ -61,11 +62,11 @@ local options = {
 	},
 	shiftround = true, -- Round indent shiftwidth = 4, -- shifted indent size
 	shiftwidth = utils.indent_size.editor,
-	showcmd = false,
+	showcmd = true,
 	showmode = false, -- we don't need to see things like -- INSERT -- anymore
 	showtabline = 0, -- always show tabs
 	sidescrolloff = 8, -- starts scrolling buffer before n number of column
-	signcolumn = "yes:3", --[[ always show the sign column, otherwise it would
+	signcolumn = "yes:2", --[[ always show the sign column, otherwise it would
 	shift the text each time ]]
 	smartcase = true, -- single capital letter makes search case sensitive
 	smartindent = true, -- get indent size from line/file smartly
@@ -75,7 +76,7 @@ local options = {
 	swapfile = false, -- creates a swapfile
 	tabstop = utils.indent_size.editor, -- tab size
 	termguicolors = true, -- set term gui colors (most terminals support this)
-	timeoutlen = 10, --[[ time to wait for a mapped sequence to complete (in
+	timeoutlen = 500, --[[ time to wait for a mapped sequence to complete (in
 	milliseconds) ]]
 	undofile = true, -- enable persistent undo
 	undolevels = 10000, -- number of undos
