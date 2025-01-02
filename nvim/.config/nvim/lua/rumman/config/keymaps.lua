@@ -908,6 +908,17 @@ which_key.add({
 	{ "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
 	{ "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer"},
 
+	{ "<c-1>", "<cmd>BufferLineGoToBuffer 1<cr>", desc = "Buffer 1" },
+	{ "<c-2>", "<cmd>BufferLineGoToBuffer 2<cr>", desc = "Buffer 2" },
+	{ "<c-3>", "<cmd>BufferLineGoToBuffer 3<cr>", desc = "Buffer 3" },
+	{ "<c-4>", "<cmd>BufferLineGoToBuffer 4<cr>", desc = "Buffer 4" },
+	{ "<c-5>", "<cmd>BufferLineGoToBuffer 5<cr>", desc = "Buffer 5" },
+	{ "<c-6>", "<cmd>BufferLineGoToBuffer 6<cr>", desc = "Buffer 6" },
+	{ "<c-7>", "<cmd>BufferLineGoToBuffer 7<cr>", desc = "Buffer 7" },
+	{ "<c-8>", "<cmd>BufferLineGoToBuffer 8<cr>", desc = "Buffer 8" },
+	{ "<c-9>", "<cmd>BufferLineGoToBuffer 9<cr>", desc = "Buffer 9" },
+	{ "<c-0>", "<cmd>BufferLineGoToBuffer 10<cr>", desc = "Buffer 10" },
+
 	{ bufferline_leader .. "o", group = "Open" },
 	loop_keymaps(bufferline_leader, true, bufferline_leader .. "ol", "<cmd>enew<cr>", { desc = "Right" }),
 	loop_keymaps(bufferline_leader, true, bufferline_leader .. "oh", "<cmd>enew<cr><cmd>BufferLineMovePrev<cr>", { desc = "Left" }),
