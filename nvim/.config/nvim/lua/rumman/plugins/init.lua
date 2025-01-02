@@ -400,9 +400,19 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		config = load_config("lang.treesitter"),
 		build = ":TSUpdate",
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			"nvim-treesitter/nvim-treesitter-context",
+			"nvim-treesitter/nvim-treesitter",
+		},
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
 		},
 	},
 	{
