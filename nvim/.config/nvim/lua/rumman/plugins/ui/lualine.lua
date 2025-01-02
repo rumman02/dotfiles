@@ -88,11 +88,12 @@ lualine.setup({
 			},
 			{
 				"filename",
+				icons_enabled = true,
 				colored = false,
 				fmt = function (str)
 					local filetype = vim.bo.filetype
 					local icon = ""
-					if filetype == "help" then
+					if filetype == "help" or "txt" then
 						icon = icons.documents.File
 					else
 						icon = require("nvim-web-devicons").get_icon(filetype) or ""
