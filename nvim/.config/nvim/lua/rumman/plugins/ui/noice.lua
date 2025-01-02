@@ -4,6 +4,8 @@ local icons = require("rumman.lib.icons")
 
 noice.setup({
 	cmdline = {
+		enabled = true,
+		view = "cmdline_popup",
 		format = {
 			cmdline = { icon = icons.ui.ArrowLongRight },
 			search_down = { icon = icons.ui.Search .. icons.ui.ArrowDownRigth },
@@ -15,6 +17,7 @@ noice.setup({
 		}
 	},
 	messages = {
+		enabled = true,
 		view_search = false,
 	},
 	lsp = {
