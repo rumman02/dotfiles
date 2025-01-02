@@ -107,8 +107,10 @@ return {
 				},
 			},
 		},
-		---@diagnostic disable-next-line: unused-local
 		on_attach = function(client, bufnr)
+			if client.supports_method("textDocument/documentSymbol") then
+				require("nvim-navic").attach(client, bufnr)
+			end
 		end,
 	},
 	dap_settings = {

@@ -53,6 +53,10 @@ lualine.setup({
 			},
 		},
 		lualine_c = {
+			{
+				"navic",
+				color_correction = "dynamic",
+			}
 		},
 		lualine_x = {
 			"searchcount",
