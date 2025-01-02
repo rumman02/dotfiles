@@ -142,7 +142,7 @@ return {
 		Check = " ",
 		CheckAlt = " ",
 		ChevronRight = "",
-		Circle = " ",
+		Circle = "󰄯 ",
 		CircleAlt = " ",
 		CircleCross = "󰅚 ",
 		CircleDot = " ",
