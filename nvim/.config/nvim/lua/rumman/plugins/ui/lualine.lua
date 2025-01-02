@@ -75,6 +75,18 @@ lualine.setup({
 		},
 		lualine_y = {
 			{
+				"diagnostics",
+				colored = false,
+				sources = { "nvim_lsp", "nvim_diagnostic" },
+				sections = { "error", "warn", "info", "hint" },
+				symbols = {
+					error = icons.diagnostics.Error,
+					warn = icons.diagnostics.Warning,
+					info = icons.diagnostics.Information,
+					hint = icons.diagnostics.Hint
+				},
+			},
+			{
 				"filename",
 				colored = false,
 				fmt = function (str)
@@ -92,18 +104,6 @@ lualine.setup({
 					readonly = "",
 					unnamed = "",
 				}
-			},
-			{
-				"diagnostics",
-				colored = false,
-				sources = { "nvim_lsp", "nvim_diagnostic" },
-				sections = { "error", "warn", "info", "hint" },
-				symbols = {
-					error = icons.diagnostics.Error,
-					warn = icons.diagnostics.Warning,
-					info = icons.diagnostics.Information,
-					hint = icons.diagnostics.Hint
-				},
 			},
 		},
 		lualine_z = {
