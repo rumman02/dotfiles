@@ -1,49 +1,53 @@
-# removes default
-## window bar
+#   _____ _    _  ____   _____ _______ _________     __
+#  / ____| |  | |/ __ \ / ____|__   __|__   __\ \   / /
+# | |  __| |__| | |  | | (___    | |     | |   \ \_/ /
+# | | |_ |  __  | |  | |\___ \   | |     | |    \   /
+# | |__| | |  | | |__| |____) |  | |     | |     | |
+#  \_____|_|  |_|\____/|_____/   |_|     |_|     |_|
+# https://ghostty.org/docs/config
+
+# ----------------------------------------------------------------------------- removes default
+# window bar
 window-decoration = false
-## confirm on close
+# confirm on close
 confirm-close-surface = false
-## all keybinds
+# all keybinds
 keybind = clear
-## cursor behaviour
+# cursor behaviour
 shell-integration-features = no-cursor,no-title
 
-# fonts
-font-size = 10
+# ----------------------------------------------------------------------------- fonts
+font-family = "Iosevka Medium Extended"
+font-size = 10.5
 
-# window
-window-padding-x = 3
+# ----------------------------------------------------------------------------- window
+window-padding-x = 0
 window-padding-y = 0
 window-padding-balance = true
 window-padding-color = background
 window-vsync = true
 
-# colorscheme
+# ----------------------------------------------------------------------------- colorscheme
 theme = GruvboxDark
 window-theme = ghostty
-window-colorspace = display-p3
+window-colorspace = "display-p3"
 
-# cursor
-adjust-cursor-thickness = 0
+# ----------------------------------------------------------------------------- cursor
+adjust-cursor-thickness = 1
 mouse-hide-while-typing = true
 
-# history
-scrollback-limit = 10000
-
-# quick terminal
+# ----------------------------------------------------------------------------- quick terminal
 quick-terminal-position = top
 quick-terminal-screen = main
 
-# others
-shell-integration = zsh
-
-# ghostty update
+# ----------------------------------------------------------------------------- updates
 auto-update = check
 auto-update-channel = stable
 
-# keybind
-keybind = ctrl+shift+c=copy_to_clipboard
-keybind = ctrl+shift+v=paste_from_clipboard
+# ----------------------------------------------------------------------------- others
+scrollback-limit = 10000
+shell-integration = zsh
+
 keybind = super=ignore
 # ----------------------------------------------------------------------------- custom shaders
 # https://github.com/hackrmomo/ghostty-shaders
