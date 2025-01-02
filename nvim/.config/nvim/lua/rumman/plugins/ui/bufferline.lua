@@ -1,6 +1,8 @@
 local bufferline = require("bufferline")
+local scope = require("scope")
 local icons = require("rumman.lib.icons")
 
+scope.setup({})
 bufferline.setup({
 	options = {
         groups = {
