@@ -149,6 +149,7 @@ return {
 	{
 		"chrisgrieser/nvim-spider",
 		config = load_config("tools.spider"),
+		enabled = false,
 		event = { "BufReadPre", "BufNewFile" },
 	},
 	{
