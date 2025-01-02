@@ -48,7 +48,102 @@ auto-update-channel = stable
 scrollback-limit = 10000
 shell-integration = zsh
 
+# ----------------------------------------------------------------------------- keybinds
+# -------------------------------------- window
+# open
+keybind = ctrl+alt+w>o>h=new_split:left
+keybind = ctrl+alt+w>o>j=new_split:down
+keybind = ctrl+alt+w>o>k=new_split:up
+keybind = ctrl+alt+w>o>l=new_split:right
+# close
+keybind = ctrl+alt+w>x=close_surface
+# resize
+keybind = ctrl+alt+left=resize_split:left,10
+keybind = ctrl+alt+down=resize_split:down,10
+keybind = ctrl+alt+up=resize_split:up,10
+keybind = ctrl+alt+right=resize_split:right,10
+keybind = ctrl+alt+w>r>e=equalize_splits
+keybind = ctrl+alt+w>r>m=toggle_split_zoom
+keybind = ctrl+alt+w>r>f=toggle_fullscreen
+# decoration
+keybind = ctrl+alt+space>w>d=toggle_window_decorations
+
+# -------------------------------------- app widnow
+# open
+keybind = ctrl+alt+n=new_window
+# close
+# keybind = ctrl+alt+q>c=close_window
+keybind = ctrl+alt+q>c=quit
+# these are supports on mac only
+keybind = ctrl+alt+q>a=close_all_windows
+
+# -------------------------------------- tab
+# open
+keybind = ctrl+alt+t>o=new_tab
+# swap
+keybind = ctrl+alt+t>s>h=move_tab:-1
+keybind = ctrl+alt+t>s>l=move_tab:+1
+
+# -------------------------------------- font
+keybind = ctrl+alt+equal=increase_font_size:1
+keybind = ctrl+alt+minus=decrease_font_size:1
+keybind = ctrl+alt+0=reset_font_size
+
+# -------------------------------------- selection
+keybind = ctrl+alt+shift+a=select_all
+keybind = ctrl+alt+shift+up=adjust_selection:up
+keybind = ctrl+alt+shift+down=adjust_selection:down
+keybind = ctrl+alt+shift+left=adjust_selection:left
+keybind = ctrl+alt+shift+right=adjust_selection:right
+keybind = ctrl+alt+shift+page_up=adjust_selection:page_up
+keybind = ctrl+alt+shift+page_down=adjust_selection:page_down
+keybind = ctrl+alt+shift+home=adjust_selection:home
+keybind = ctrl+alt+shift+end=adjust_selection:end
+
+# -------------------------------------- others
+keybind = ctrl+alt+y=copy_to_clipboard
+keybind = ctrl+alt+p=paste_from_clipboard
+keybind = ctrl+alt+comma=reload_config
+keybind = ctrl+alt+i=inspector:toggle
+keybind = ctrl+alt+tab=jump_to_prompt:1
+# these are supports on mac only
+keybind = ctrl+alt+v=toggle_visibility
+keybind = ctrl+alt+c=clear_screen
+
+# -------------------------------------- navigation
+# scroll
+keybind = ctrl+alt+u=scroll_page_up
+keybind = ctrl+alt+d=scroll_page_down
+keybind = ctrl+alt+g>g=scroll_to_top
+keybind = ctrl+alt+shift+g=scroll_to_bottom
+keybind = ctrl+alt+y=scroll_page_lines:-1
+keybind = ctrl+alt+e=scroll_page_lines:1
+# window
+keybind = ctrl+alt+h=goto_split:left
+keybind = ctrl+alt+j=goto_split:bottom
+keybind = ctrl+alt+k=goto_split:top
+keybind = ctrl+alt+l=goto_split:right
+# tab
+keybind = ctrl+alt+shift+h=previous_tab 
+keybind = ctrl+alt+shift+l=next_tab
+keybind = ctrl+alt+t>z=last_tab
+keybind = ctrl+alt+t>1=goto_tab:1
+keybind = ctrl+alt+t>2=goto_tab:2
+keybind = ctrl+alt+t>3=goto_tab:3
+keybind = ctrl+alt+t>4=goto_tab:4
+keybind = ctrl+alt+t>5=goto_tab:5
+keybind = ctrl+alt+t>6=goto_tab:6
+keybind = ctrl+alt+t>7=goto_tab:7
+keybind = ctrl+alt+t>8=goto_tab:8
+keybind = ctrl+alt+t>9=goto_tab:9
+keybind = ctrl+alt+t>p=toggle_tab_overview
+
+# -------------------------------------- disabled
+# super key
 keybind = super=ignore
+keybind = cmd=ignore
+keybind = command=ignore
+
 # ----------------------------------------------------------------------------- custom shaders
 # https://github.com/hackrmomo/ghostty-shaders
 # custom-shader = shaders/animated-gradient-shader.glsl
