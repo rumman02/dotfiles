@@ -10,3 +10,9 @@ vim.fn.sign_define("DapBreakpointCondition", { text = icons.ui.CirclePause, text
 vim.fn.sign_define("DapBreakpointRejected", { text = icons.ui.CircleCross, texthl = "", linehl = "@comment.error", numhl = "" })
 vim.fn.sign_define("DapStopped", { text = icons.ui.CircleRight, texthl = "", linehl = "@diff.plus", numhl = "" })
 
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = icons.ui.Circle,
+  }
+})
+
