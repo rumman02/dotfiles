@@ -210,6 +210,12 @@ return {
 		config = load_config("tools.lorem"),
 		cmd = { "LoremIpsum" },
 	},
+	{
+		"echasnovski/mini.ai",
+		config = load_config("tools.mini"),
+		version = "*",
+		event = { "BufReadPre", "BufNewFile" },
+	},
 
 	----- lang -----
 	{
