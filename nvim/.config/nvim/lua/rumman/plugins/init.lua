@@ -103,10 +103,6 @@ return {
 				version = "2.*",
 				name = "window-picker",
 			},
-			{
-				"3rd/image.nvim",
-				config = load_config("tools.image");
-			},
 		},
 	},
 	{
@@ -202,6 +198,11 @@ return {
 		"derektata/lorem.nvim",
 		config = load_config("tools.lorem"),
 		cmd = { "LoremIpsum" },
+	},
+	{
+		"3rd/image.nvim",
+		config = load_config("tools.image");
+		event = { "VeryLazy" },
 	},
 	{
 		"m4xshen/hardtime.nvim",
