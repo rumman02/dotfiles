@@ -13,6 +13,7 @@ toggleterm.setup({
 			return 50
 		end
 	end,
+	shade_terminals = false,
 	start_in_insert = false,
 	float_opts = {
 		border = {
