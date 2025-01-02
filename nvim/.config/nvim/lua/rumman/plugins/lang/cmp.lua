@@ -158,7 +158,7 @@ cmp.setup({
 		["<c-d>"] = cmp.mapping.scroll_docs(2),
 
 		-- confirm selection in the completion menu (insert)
-		["<cr>"] = cmp.mapping({
+		["<c-cr>"] = cmp.mapping({
 			i = function(fallback)
 				if cmp.visible() then
 					cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert })
@@ -297,7 +297,6 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
-	}, {
 		{ name = "dictionary" },
 		{
 			name = "buffer",
@@ -330,7 +329,6 @@ cmp.setup({
 	cmp.setup.cmdline(":", {
 		sources = cmp.config.sources({
 			{ name = "path" },
-		}, {
 			{ name = "cmdline" },
 		}),
 		matching = { disallow_symbol_nonprefix_matching = false },
