@@ -31,7 +31,7 @@
 
 
 
-SLEEP_DURATION=2  # Change this value to set the sleep duration (in seconds)
+SLEEP_DURATION=5  # Change this value to set the sleep duration (in seconds)
 SLEEP_PID_FILE="/tmp/sleep_pid"
 
 reset_submap() {
@@ -86,3 +86,4 @@ case "$1" in
         # echo ""
         ;;
 esac
+
